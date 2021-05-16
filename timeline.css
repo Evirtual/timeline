@@ -1,0 +1,442 @@
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+* {
+  box-sizing: border-box; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1.25;
+  font-family: "aktiv-grotesk",sans-serif;
+  text-align: center; }
+
+ol, ul, li {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+#board-wrapper {
+  position: relative; }
+
+#board {
+  position: relative;
+  padding: 84px 50px 0 75px;
+  margin: 0 auto;
+  max-width: 1200px;
+  transition: opacity .5s; }
+
+.grid {
+  width: 100%;
+  border-top: 4px solid #3F8846;
+  border-bottom: 4px solid #3F8846; }
+  .grid td {
+    height: 50px;
+    border: 1px solid #e5e5e5; }
+
+.timeline {
+  z-index: 101;
+  position: relative;
+  top: -15px;
+  left: -50px;
+  width: 100%; }
+  .timeline:before {
+    content: '';
+    z-index: 101;
+    position: absolute;
+    top: 0;
+    left: 24px;
+    width: 1px;
+    height: 100%;
+    background: #e5e5e5; }
+  .timeline li {
+    z-index: 102;
+    position: relative;
+    height: 50px;
+    width: 100%;
+    line-height: 50px; }
+    .timeline li:before {
+      z-index: 1;
+      content: '';
+      position: absolute;
+      width: calc(100% - 50px);
+      top: 50%;
+      left: 75px;
+      background-color: #e5e5e5;
+      color: #e5e5e5;
+      height: 1px; }
+    .timeline li:first-child:before {
+      background: transparent; }
+    .timeline li div {
+      z-index: 3;
+      position: relative;
+      width: 50px;
+      height: 50px;
+      padding: 17px;
+      font-size: 0; }
+      .timeline li div span {
+        display: block;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #e5e5e5;
+        background: #fff;
+        border-radius: 50%; }
+    .timeline li:nth-child(1) div, .timeline li:nth-child(5n + 1) div, .timeline li:last-child div {
+      width: 50px;
+      height: 50px;
+      padding: 4px;
+      font-size: 12px;
+      font-weight: 200;
+      background: #fff;
+      border-radius: 50%;
+      border: 1px solid #e5e5e5; }
+      .timeline li:nth-child(1) div span, .timeline li:nth-child(5n + 1) div span, .timeline li:last-child div span {
+        border: 0;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        background: #46514E;
+        color: #fff;
+        font-size: .9em;
+        border-radius: 50%; }
+    .timeline li:last-child:before {
+      height: 4px;
+      background: #3F8846;
+      margin-top: -2px; }
+
+.brands-dropdown-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 25px 25px 35px;
+  background: #fff;
+  top: 0;
+  text-align: left;
+  border-bottom: 4px solid #3F8846; }
+  .brands-dropdown-wrapper.fixed {
+    position: fixed;
+    z-index: 1001;
+    padding: 25px; }
+    .brands-dropdown-wrapper.fixed .info {
+      margin-top: -15px; }
+  .brands-dropdown-wrapper .brands-dropdown {
+    width: calc(100% - 50px);
+    height: 30px;
+    border: 1px solid #e5e5e5; }
+
+.brands-list {
+  display: none; }
+
+.info {
+  z-index: 102;
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  margin-top: -20px; }
+  .info:hover {
+    z-index: 104; }
+    .info:hover .icon {
+      z-index: 2;
+      background: #3F8846;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
+    .info:hover .desc {
+      visibility: visible;
+      opacity: 1; }
+  .info .icon {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    background: #E15522;
+    cursor: pointer;
+    transition: background .15s, box-shadow .5s; }
+  .info .desc {
+    text-align: left;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 50%;
+    width: 220px;
+    padding: 25px 20px 35px;
+    border-radius: 5px;
+    background: #fff;
+    color: #555;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: visibility .15s, opacity .15s, transform .25s; }
+    .info .desc img {
+      max-width: 100%;
+      max-height: 100px; }
+    .info .desc h3 {
+      font-weight: 500;
+      font-size: 1.5em;
+      margin: 10px 0; }
+
+.brands-timelines {
+  z-index: 103;
+  position: absolute;
+  width: calc(100% - 125px);
+  bottom: 42px;
+  top: 94px; }
+  .brands-timelines .brand-timeline {
+    width: 100%;
+    height: 100%; }
+    .brands-timelines .brand-timeline:hover {
+      z-index: 104; }
+    .brands-timelines .brand-timeline ul {
+      position: relative;
+      height: 100%; }
+      .brands-timelines .brand-timeline ul:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        background-color: #e5e5e5;
+        color: #e5e5e5;
+        width: 1px; }
+      .brands-timelines .brand-timeline ul li {
+        position: absolute;
+        text-align: center;
+        width: 100%; }
+        .brands-timelines .brand-timeline ul li:hover {
+          z-index: 105; }
+          .brands-timelines .brand-timeline ul li:hover .point {
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25); }
+          .brands-timelines .brand-timeline ul li:hover .box {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0); }
+        .brands-timelines .brand-timeline ul li .point {
+          position: relative;
+          cursor: pointer;
+          display: inline-block;
+          width: 45px;
+          height: 45px;
+          margin-top: -20px;
+          padding: 4px;
+          border-radius: 50%;
+          background: #fff;
+          border: 1px solid #e5e5e5;
+          transition: box-shadow .15s; }
+          .brands-timelines .brand-timeline ul li .point span {
+            display: block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 50%;
+            text-align: center; }
+            .brands-timelines .brand-timeline ul li .point span:before {
+              position: absolute;
+              left: 0;
+              width: 100%;
+              content: "";
+              font-family: FontAwesome;
+              color: #fff; }
+            .brands-timelines .brand-timeline ul li .point span.point-star:before {
+              content: "\f005"; }
+            .brands-timelines .brand-timeline ul li .point span.point-dollar:before {
+              content: "\f155"; }
+            .brands-timelines .brand-timeline ul li .point span.point-users:before {
+              content: "\f0c0"; }
+            .brands-timelines .brand-timeline ul li .point span.point-expand:before {
+              content: "\f0b2"; }
+            .brands-timelines .brand-timeline ul li .point span.point-refresh:before {
+              content: "\f021"; }
+            .brands-timelines .brand-timeline ul li .point span.point-up:before {
+              content: "\f0aa"; }
+            .brands-timelines .brand-timeline ul li .point span.point-car:before {
+              content: "\f1b9"; }
+            .brands-timelines .brand-timeline ul li .point span.point-wrench:before {
+              content: "\f0ad"; }
+            .brands-timelines .brand-timeline ul li .point span.point-cake:before {
+              content: "\f1fd"; }
+            .brands-timelines .brand-timeline ul li .point span.point-amazon:before {
+              content: "\f270"; }
+            .brands-timelines .brand-timeline ul li .point span.point-cube:before {
+              content: "\f1b2"; }
+            .brands-timelines .brand-timeline ul li .point span.point-play:before {
+              content: "\f144"; }
+            .brands-timelines .brand-timeline ul li .point span.point-tablet:before {
+              content: "\f10a"; }
+            .brands-timelines .brand-timeline ul li .point span.point-mobile:before {
+              content: "\f10b"; }
+            .brands-timelines .brand-timeline ul li .point span.point-book:before {
+              content: "\f02d"; }
+            .brands-timelines .brand-timeline ul li .point span.point-user:before {
+              content: "\f2bd"; }
+            .brands-timelines .brand-timeline ul li .point span.point-truck:before {
+              content: "\f0d1"; }
+            .brands-timelines .brand-timeline ul li .point span.point-lightbulb:before {
+              content: "\f0eb"; }
+            .brands-timelines .brand-timeline ul li .point span.point-cart:before {
+              content: "\f07a"; }
+            .brands-timelines .brand-timeline ul li .point span.point-hourglass:before {
+              content: "\f253"; }
+            .brands-timelines .brand-timeline ul li .point span.point-home:before {
+              content: "\f015"; }
+            .brands-timelines .brand-timeline ul li .point span.point-globe:before {
+              content: "\f0ac"; }
+            .brands-timelines .brand-timeline ul li .point span.point-euro:before {
+              content: "\f153"; }
+            .brands-timelines .brand-timeline ul li .point span.point-hsquare:before {
+              content: "\f0fd"; }
+            .brands-timelines .brand-timeline ul li .point span.point-bomb:before {
+              content: "\f1e2"; }
+            .brands-timelines .brand-timeline ul li .point span.point-windows:before {
+              content: "\f17a"; }
+            .brands-timelines .brand-timeline ul li .point span.point-handshake:before {
+              content: "\f2b5"; }
+            .brands-timelines .brand-timeline ul li .point span.point-gamepad:before {
+              content: "\f11b"; }
+            .brands-timelines .brand-timeline ul li .point span.point-tv:before {
+              content: "\f26c"; }
+            .brands-timelines .brand-timeline ul li .point span.point-desktop:before {
+              content: "\f108"; }
+            .brands-timelines .brand-timeline ul li .point span.point-microchip:before {
+              content: "\f2db"; }
+            .brands-timelines .brand-timeline ul li .point span.point-textfile:before {
+              content: "\f0f6"; }
+            .brands-timelines .brand-timeline ul li .point span.point-coffee:before {
+              content: "\f0f4"; }
+            .brands-timelines .brand-timeline ul li .point span.point-cutlery:before {
+              content: "\f0f5"; }
+            .brands-timelines .brand-timeline ul li .point span.point-clock:before {
+              content: "\f017"; }
+            .brands-timelines .brand-timeline ul li .point span.point-code:before {
+              content: "\f121"; }
+        .brands-timelines .brand-timeline ul li .box {
+          visibility: hidden;
+          opacity: 0;
+          transform: translateY(-15px);
+          position: absolute;
+          width: 200px;
+          left: 50%;
+          top: 100%;
+          margin-left: -100px;
+          padding: 20px;
+          border-radius: 5px;
+          color: #fff;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+          transition: opacity .15s, transform .25s, visibility .15s; }
+          .brands-timelines .brand-timeline ul li .box .triangle {
+            position: absolute;
+            top: -15px;
+            margin-left: -10px;
+            width: 0;
+            height: 0;
+            left: 50%;
+            border-style: solid;
+            border-width: 15px 10px 0 10px;
+            border-color: transparent; }
+          .brands-timelines .brand-timeline ul li .box p {
+            text-align: left;
+            font-size: .8em;
+            line-height: 1.5;
+            margin-top: 10px; }
+
+@media screen and (min-width: 1024px) {
+  #board {
+    padding-top: 114px; }
+  .board-inner {
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    bottom: 0;
+    top: 0; }
+  .brands-dropdown-wrapper {
+    display: none; }
+  .timeline {
+    top: -25px; }
+    .timeline li:before {
+      width: calc(100% - 75px); }
+  .brands-list-wrapper {
+    position: fixed;
+    background: #fff;
+    z-index: 1001;
+    top: 0; }
+  .brands-list {
+    position: relative;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    font-size: .8em;
+    height: 60px;
+    color: #46514E;
+    background: #fff;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-bottom: 4px solid #3F8846; }
+    .brands-list li {
+      display: table-cell;
+      vertical-align: bottom;
+      padding-top: 20px; }
+  .info {
+    display: block !important;
+    z-index: 102;
+    position: relative;
+    right: auto;
+    top: auto;
+    margin: 15px 0; }
+    .info .desc {
+      width: 260px;
+      top: 50%;
+      bottom: auto;
+      left: 50%; }
+      .brands-list li:nth-last-child(1) .info .desc,
+      .brands-list li:nth-last-child(2) .info .desc,
+      .brands-list li:nth-last-child(3) .info .desc {
+        left: auto;
+        right: 50%; }
+  .brands-timelines {
+    top: 114px;
+    bottom: 52px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    max-width: 1000px; }
+    .brands-timelines .brand-timeline {
+      display: block !important;
+      position: absolute;
+      left: 0; } }

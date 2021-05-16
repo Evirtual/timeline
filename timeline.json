@@ -1,0 +1,727 @@
+[
+	{
+		"brand": "Amazon",
+		"info": "From garage-based book seller in Seattle to a behemoth of online retailing and entertainment",
+		"logo": "assets/img/logos/amazon.svg",
+		"color": "#231F20",
+		"years": [{
+			"year": 1995,
+			"icon": "amazon",
+			"text": "Amazon, founded in a Seattle garage by Jeff Bezos, starts simply by selling a huge array of books online. Originally Bezos wants to call the company Relentless and buys relentless.com – even today, that domain still redirects users to Amazon"
+		}, {
+			"year": 1997,
+			"icon": "dollar",
+			"text": "Just two years into its history, Amazon lists on the NASDAQ at $18 per share"
+		}, {
+			"year": 1998,
+			"icon": "expand",
+			"text": "The company starts selling CDs and DVDs, with toys and electronics following on in 1999. Amazon expands into the UK the same year"
+		}, {
+			"year": 2001,
+			"icon": "dollar",
+			"text": "Six years in, Amazon makes a quarterly profit of $5 million on revenues of more than $1 billion"
+		}, {
+			"year": 2003,
+			"icon": "cube",
+			"text": "Amazon makes an annual profit for the first time ($35.3 million). The previous year had seen a loss of nearly $150 million"
+		}, {
+			"year": 2005,
+			"icon": "up",
+			"text": "Amazon Prime is introduced in the US, giving consumers faster deliveries for an annual charge. The UK gets Prime two years later"
+		}, {
+			"year": 2007,
+			"icon": "play",
+			"text": "Amazon launches the Kindle"
+		}, {
+			"year": 2010,
+			"icon": "tablet",
+			"text": "Amazon Studios is born, with the aim of providing original video content for the company’s streaming offering"
+		}, {
+			"year": 2011,
+			"icon": "dollar",
+			"text": "Amazon moves into the tablet market with the Kindle Fire; meanwhile, its Netflix-style online video streaming service is launched at $79 a year"
+		}, {
+			"year": 2012,
+			"icon": "mobile",
+			"text": "Amazon’s stock reaches $222 a share, while its market capitalisation smashes $100 billion"
+		}, {
+			"year": 2014,
+			"icon": "book",
+			"text": "The Amazon Fire smartphone is launched. Amazon also purchases the .buy top level domain name for $4.6 million. Amazon now offers more than 2.5 million eBook titles for the Kindle"
+		}, {
+			"year": 2015,
+			"icon": "cake",
+			"text": "Amazon turns 20: it has a market capitalisation of nearly £250 billion"
+		}, {
+			"year": 2017,
+			"icon": "users",
+			"text": "Amazon owns over 40 subsidiaries, and has nearly 270,000 employees around the world"
+		}]
+	}, {
+		"brand": "Jaguar <br> Land Rover",
+		"info": "They started off selling motorbike sidecars. Now they shift over half a million cars every year",
+		"logo": "assets/img/logos/jaguar-land-rover.png",
+		"color": "#878787",
+		"years": [{
+			"year": 1922,
+			"icon": "star",
+			"text": "Jaguar begins in 1922 as the Swallow Sidecar Company, a business making motorbike sidecars, thanks to a £1000 loan from a local bank"
+		}, {
+			"year": 1928,
+			"icon": "users",
+			"text": "Expansion is so rapid that the company and its 50 employees relocate from Blackpool to Coventry, closer to the heart of the British motor industry"
+		}, {
+			"year": 1938,
+			"icon": "expand",
+			"text": "The workforce in Coventry stands at 15,00"
+		}, {
+			"year": 1945,
+			"icon": "refresh",
+			"text": "The company’s name changes to Jaguar; the XK120 is launched three years later"
+		}, {
+			"year": 1948,
+			"icon": "up",
+			"text": "Meanwhile, in Anglesey, Rover’s chief designer Maurice Wilks begins work on a Jeep prototype. The first Land Rover is officially launched the following year"
+		}, {
+			"year": 1952,
+			"icon": "car",
+			"text": "Over 20 constabularies in Britain have Jaguar police cars"
+		}, {
+			"year": 1961,
+			"icon": "wrench",
+			"text": "Jaguar starts building the legendary E-Type"
+		}, {
+			"year": 1970,
+			"icon": "up",
+			"text": "The Range Rover is launched"
+		}, {
+			"year": 1976,
+			"icon": "cake",
+			"text": "The one millionth Land Rover is made"
+		}, {
+			"year": 1989,
+			"icon": "dollar",
+			"text": "Ford offers to buy Jaguar"
+		}, {
+			"year": 1992,
+			"icon": "car",
+			"text": "The Jaguar XJ220 becomes the world’s fastest car"
+		}, {
+			"year": 1994,
+			"icon": "dollar",
+			"text": "After a period of difficulty for Jaguar, sales increase to 40,000 units and $2 billion. Meanwhile, the Rover Group – including Land Rover – is bought by BMW"
+		}, {
+			"year": 2000,
+			"icon": "dollar",
+			"text": "BMW sells Land Rover to Ford for $3 billion. Ford aligns the brand closely with Jaguar"
+		}, {
+			"year": 2008,
+			"icon": "dollar",
+			"text": "Ford sells Jaguar Land Rover to Tata after nearly 10 months of negotiations; the deal is financed with a $3 billion loan"
+		}, {
+			"year": 2010,
+			"icon": "dollar",
+			"text": "An 11 per cent rise in profits sees Jaguar Land Rover head towards a £1 billion annual profit"
+		}, {
+			"year": 2011,
+			"icon": "up",
+			"text": "The Range Rover Evoque is launched"
+		}, {
+			"year": 2016,
+			"icon": "dollar",
+			"text": "Jaguar Land Rover’s revenues are £22 billion and they sell over 500,000 cars in a year for the first time"
+		}]
+	}, {
+		"brand": "IKEA",
+		"info": "Its founder formed it at the age of just 17 with pocket money. These days, revenues are over €4 billion",
+		"logo": "assets/img/logos/ikea.svg",
+		"color": "#003399",
+		"years": [{
+			"year": 1933,
+			"icon": "user",
+			"text": "At the age of just seven, future Ikea founder Ingvar Kamprad starts bulk-buying cheap matches and re-selling them individually at a good profit. He soon expands to greeting cards, pencils and biros"
+		}, {
+			"year": 1943,
+			"icon": "star",
+			"text": "At just 17, using money he got from his father for doing well at school, Kamprad forms Ikea. Initially its range includes pens, wallets, picture frames and even nylon stockings"
+		}, {
+			"year": 1945,
+			"icon": "truck",
+			"text": "Kamprad takes out his first newspaper ad as demand begins to grow, using a local milk van to deliver products. Within three years, local manufacturers have helped Kamprad introduce furniture into the range"
+		}, {
+			"year": 1951,
+			"icon": "book",
+			"text": "The first Ikea catalogue is published"
+		}, {
+			"year": 1956,
+			"icon": "lightbulb",
+			"text": "While delivering a three-legged table to a customer, an Ikea worker struggles to get the table in the boot of his car, and removes the legs to make it fit and avoid damaging it. Inadvertently, flat-pack furniture is born"
+		}, {
+			"year": 1958,
+			"icon": "cart",
+			"text": "The first Ikea store opens in Almhult, Sweden"
+		}, {
+			"year": 1963,
+			"icon": "cart",
+			"text": "The first Ikea outside of Sweden opens in Oslo, Norway"
+		}, {
+			"year": 1973,
+			"icon": "cart",
+			"text": "The first Ikea outside of Scandinavia opens in Switzerland. Two later, they expand to Sydney, Australia"
+		}, {
+			"year": 1978,
+			"icon": "book",
+			"text": "The iconic Billy bookcase is born"
+		}, {
+			"year": 1985,
+			"icon": "users",
+			"text": "Ikea arrives in the USA. By this time it has 10,000 employees and 60 stores"
+		}, {
+			"year": 1986,
+			"icon": "hourglass",
+			"text": "Kamprad retires from CEO duties"
+		}, {
+			"year": 1996,
+			"icon": "home",
+			"text": "Customers in Sweden can now buy the BoKlok – a flat-pack house"
+		}, {
+			"year": 1997,
+			"icon": "globe",
+			"text": "ikea.com is launched"
+		}, {
+			"year": 1999,
+			"icon": "users",
+			"text": "By the end of the millennium, Ikea has 50,000 employees working in 158 stores in 29 countries"
+		}, {
+			"year": 2000,
+			"icon": "globe",
+			"text": "Customers in Sweden and Denmark are now able to buy via the website"
+		}, {
+			"year": 2006,
+			"icon": "users",
+			"text": "Ikea now has over 100,000 employees in 44 countries"
+		}, {
+			"year": 2011,
+			"icon": "book",
+			"text": "The famous Ikea catalogue now has 55 editions in 27 languages; the print run of around 200 million makes it twice as widely distributed as the Bible. The company is now so big that it is estimated that 10 per cent of all Europeans were conceived on an Ikea bed. The same year, pre-tax profits total £3.76 billion. "
+		}, {
+			"year": 2016,
+			"icon": "euro",
+			"text": "Net profit increases to €4.2 billion, with revenue standing at an astonishing €35.1 billion"
+		}]
+	}, {
+		"brand": "Marriott",
+		"info": "What began as a root beer stand in the 1920s is now one of the world’s leading hotel chains",
+		"logo": "assets/img/logos/marriott.svg",
+		"color": "#C6003D",
+		"years": [{
+			"year": 1927,
+			"icon": "star",
+			"text": "The Marriott company starts not as a hotel, but a root beer stand in Washington DC opened by JW Marriott and his wife Alice. It opens thanks to $6000 in savings that helped to pay for equipment and rent"
+		}, {
+			"year": 1957,
+			"icon": "hsquare",
+			"text": "The first Marriott hotel – the Twin Bridges Motor Hotel – opens in Virginia"
+		}, {
+			"year": 1969,
+			"icon": "hsquare",
+			"text": "The first Marriott to be built outside of the US is opened in Mexico"
+		}, {
+			"year": 1981,
+			"icon": "hsquare",
+			"text": "Cairo is home to the first Marriott hotel in Africa "
+		}, {
+			"year": 1990,
+			"icon": "bomb",
+			"text": "The Twin Bridges Motor Hotel is demolished"
+		}, {
+			"year": 1995,
+			"icon": "dollar",
+			"text": "Marriott buys 49 per cent of the Ritz-Carlton Hotel Company. That same year, it becomes the first company to offer its customers online reservation facilities"
+		}, {
+			"year": 2012,
+			"icon": "hourglass",
+			"text": "JW Marriott Jnr, son of JW Marriott, steps down as CEO after more than 40 years"
+		}, {
+			"year": 2015,
+			"icon": "dollar",
+			"text": "Annual revenue exceeds $14 billion"
+		}, {
+			"year": 2017,
+			"icon": "users",
+			"text": "The Marriott group has over 5,700 hotels in over 110 countries, with around 365,000 employees. Some way to celebrate a company’s 90th anniversary"
+		}]
+	}, {
+		"brand": "Microsoft",
+		"info": "Started by two computer geeks, it’s the company that made Bill Gates a billionaire at 31",
+		"logo": "assets/img/logos/microsoft.svg",
+		"color": "#00A1F1",
+		"years": [{
+			"year": 1975,
+			"icon": "star",
+			"text": "Microsoft is started by two young Americans, Paul Allen and Bill Gates, after they write a bespoke programming language for the MITS Altair 8800 microcomputer. Gates is its first CEO"
+		}, {
+			"year": 1980,
+			"icon": "up",
+			"text": "The company releases its first operating system, Xenix"
+		}, {
+			"year": 1981,
+			"icon": "up",
+			"text": "Microsoft creates the MS-DOS operating system and only licences it to IBM, while retaining the rights"
+		}, {
+			"year": 1983,
+			"icon": "windows",
+			"text": "The fabled Microsoft Windows is released. Microsoft goes public and Gates is a billionaire at the age of 31"
+		}, {
+			"year": 1989,
+			"icon": "up",
+			"text": "The company continues to evolve, with Microsoft Office the next program to be launched"
+		}, {
+			"year": 1995,
+			"icon": "windows",
+			"text": "Windows 95 is released, allowing people to connect to the internet via dial-up networking and the first version of Internet Explorer"
+		}, {
+			"year": 2000,
+			"icon": "handshake",
+			"text": "Gates becomes chairman, handing over the CEO reins to Steve Ballmer, who’s been with Microsoft since 1980"
+		}, {
+			"year": 2001,
+			"icon": "gamepad",
+			"text": "Microsoft enters the gaming sector with the Xbox"
+		}, {
+			"year": 2005,
+			"icon": "gamepad",
+			"text": "The Xbox makes way for the Xbox 360, which is still available today"
+		}, {
+			"year": 2008,
+			"icon": "user",
+			"text": "Gates is now an advisor to Microsoft, dedicating most of his time to his philanthropic Bill & Melinda Gates Foundation"
+		}, {
+			"year": 2013,
+			"icon": "dollar",
+			"text": "Gates’s fortune is estimated at $78.5 billion, while he still owns 4.5 per cent of Microsoft"
+		}, {
+			"year": 2017,
+			"icon": "dollar",
+			"text": "Microsoft reports a 27.8 per cent profit rise, with net income at $4.8 billion"
+		}]
+	}, {
+		"brand": "Samsung",
+		"info": "Who’d have thought that this electronics giant began life as a £20 start-up exporting dried fish?",
+		"logo": "assets/img/logos/samsung.svg",
+		"color": "#0057b8",
+		"years": [{
+			"year": 1938,
+			"icon": "star",
+			"text": "Samsung is founded in Taegu, Korea, by Byung-Chull Lee with 30,000 Won – the equivalent of £20 at today’s exchange rate. Rather than electronics, its initial offering is the export of dried fish, fruit and vegetables to China"
+		}, {
+			"year": 1950,
+			"icon": "expand",
+			"text": "Samsung already has its own flour mills and confectionery machinery. During the 1950s and 1960s, they diversify into other sectors such as textiles and life insurance"
+		}, {
+			"year": 1970,
+			"icon": "tv",
+			"text": "The company makes its first foray into the sector it will soon become famous in, as Samsung-Sanyo starts production of its first black and white television, the P-3202"
+		}, {
+			"year": 1974,
+			"icon": "expand",
+			"text": "The company’s rapid expansion sees the set-up of many new companies, such as Samsung Heavy Industries and Samsung Petrochemical. They also start making washing machines and fridges"
+		}, {
+			"year": 1976,
+			"icon": "tv",
+			"text": "Samsung produces its millionth black and white television. A year later they begin making colour TVs"
+		}, {
+			"year": 1978,
+			"icon": "tv",
+			"text": "Their four millionth black and white TV is made; a year later Samsung moves into microwaves, followed by air conditioning units in 1980"
+		}, {
+			"year": 1983,
+			"icon": "desktop",
+			"text": "Samsung begins making personal computers, and starts exporting their newly-made VCR machines to America the following year"
+		}, {
+			"year": 1988,
+			"icon": "mobile",
+			"text": "Samsung’s first mobile phone, the SH-100, is launched in Korea. It sells fewer than 2000 units"
+		}, {
+			"year": 1989,
+			"icon": "tv",
+			"text": "The company has now produced 20 million colour TVs. Meanwhile, it starts Samsung BP Chemicals with BP, selling chemical products in Korea"
+		}, {
+			"year": 1992,
+			"icon": "microchip",
+			"text": "Samsung develops the world’s first 64M DRAM memory chip"
+		}, {
+			"year": 1999,
+			"icon": "mobile",
+			"text": "Brings out a wireless internet smartphone, as well a full range of digital TVs"
+		}, {
+			"year": 2010,
+			"icon": "mobile",
+			"text": "Samsung’s first Android phone, the Galaxy S, is introduced to the world. The following year, it is the world’s largest smartphone maker"
+		}, {
+			"year": 2012,
+			"icon": "dollar",
+			"text": "Samsung teams up with Biogen and invests $255 million in Korean biopharmaceutical manufacturing"
+		}, {
+			"year": 2015,
+			"icon": "textfile",
+			"text": "Samsung has over 7500 patents in America, more than any other company"
+		}, {
+			"year": 2016,
+			"icon": "dollar",
+			"text": "The company announces an operating profit for the year of £29.2 trillion Won – around £20 billion. Not bad for a company started with £20"
+		}]
+	}, {
+		"brand": "Starbucks",
+		"info": "A loan of under $10,000 in 1971 launched a company that now has nearly 23,000 stores worldwide",
+		"logo": "assets/img/logos/starbucks.svg",
+		"color": "#007042",
+		"years": [{
+			"year": 1971,
+			"icon": "star",
+			"text": "Starbucks is founded by three friends from San Francisco University – Jerry Baldwin, Zav Siegl and Gordon Bowker – with each borrowing $1350. A further $5000 is borrowed, and the first outlet opens in Seattle. It only sells whole roasted beans, not brewed coffee"
+		}, {
+			"year": 1987,
+			"icon": "dollar",
+			"text": "The company is bought by former employee Howard Schultz; there are currently six locations"
+		}, {
+			"year": 1992,
+			"icon": "dollar",
+			"text": "Starbucks goes public. In five years it’s gone from six outlets to over 150 and revenues of $73.5 million, up from $1.3 million in 1987"
+		}, {
+			"year": 1996,
+			"icon": "coffee",
+			"text": "Japanese branch becomes first Starbucks outside of North America. Total stores now stand at 1015"
+		}, {
+			"year": 2000,
+			"icon": "coffee",
+			"text": "Expansion continues with the total number of global stores standing at 3,500"
+		}, {
+			"year": 2003,
+			"icon": "coffee",
+			"text": "Buys Seattle Coffee Company. There are now 7,225 Starbucks stores around the world"
+		}, {
+			"year": 2010,
+			"icon": "coffee",
+			"text": "Incredible expansion continues: there are now 16,858 Starbucks on earth"
+		}, {
+			"year": 2012,
+			"icon": "dollar",
+			"text": "Starbucks buys the La Boulange bakery chain for $100 million"
+		}, {
+			"year": 2013,
+			"icon": "dollar",
+			"text": "Revenues are now $14.89 billion"
+		}, {
+			"year": 2014,
+			"icon": "mobile",
+			"text": "Starbucks iPhone app now has ‘shake to pay’ and digital tipping features"
+		}, {
+			"year": 2015,
+			"icon": "coffee",
+			"text": "Number of stores totals 22,519, with outlets in over 60 countries"
+		}]
+	}, {
+		"brand": "Tesco",
+		"info": "It started as a market stall 98 years ago. A century later, it’s Britain’s biggest supermarket",
+		"logo": "assets/img/logos/tesco.svg",
+		"color": "#E52922",
+		"years": [{
+			"year": 1919,
+			"icon": "star",
+			"text": "Jack Cohen starts selling groceries from an East End market stall; he uses demob money to buy the first day’s stock. Makes a profit of £1 on sales of £4"
+		}, {
+			"year": 1924,
+			"icon": "dollar",
+			"text": "Tesco Tea becomes the company’s first own-brand product"
+		}, {
+			"year": 1929,
+			"icon": "expand",
+			"text": "The first ever Tesco store opens in Edgware, North London"
+		}, {
+			"year": 1947,
+			"icon": "dollar",
+			"text": "Tesco floats on the Stock Exchange for 25p a share"
+		}, {
+			"year": 1955,
+			"icon": "expand",
+			"text": "Over 500 new stores are purchased during the next five years"
+		}, {
+			"year": 1958,
+			"icon": "up",
+			"text": "The first Tesco supermarket opens in Maldon, Essex, with a cheese and meat counter"
+		}, {
+			"year": 1961,
+			"icon": "cube",
+			"text": "Household goods and clothing added to the range"
+		}, {
+			"year": 1973,
+			"icon": "car",
+			"text": "Tesco opens its first petrol stations"
+		}, {
+			"year": 1979,
+			"icon": "dollar",
+			"text": "Sales reach £1 billion"
+		}, {
+			"year": 1982,
+			"icon": "dollar",
+			"text": "Sales reach £2 billion"
+		}, {
+			"year": 1985,
+			"icon": "cutlery",
+			"text": "Healthy Eating range launched"
+		}, {
+			"year": 1993,
+			"icon": "cutlery",
+			"text": "Tesco Value range and ‘Every Little Helps’ tagline launched"
+		}, {
+			"year": 1995,
+			"icon": "globe",
+			"text": "Tesco goes international by opening 26 stores in Hungary; meanwhile, it overtakes Sainsbury’s in UK market share"
+		}, {
+			"year": 1996,
+			"icon": "clock",
+			"text": "24-hour trading introduced"
+		}, {
+			"year": 1998,
+			"icon": "expand",
+			"text": "Tesco expands into Thailand, and South Korea the following year"
+		}, {
+			"year": 2000,
+			"icon": "code",
+			"text": "Tesco.com launches"
+		}, {
+			"year": 2004,
+			"icon": "expand",
+			"text": "Tesco now in China"
+		}, {
+			"year": 2007,
+			"icon": "dollar",
+			"text": "Buys garden centre chain, Dobbies, as it’s revealed that, as well as record profits of £2.5 billion, £1 in every £7 in the UK is spent in Tesco"
+		}, {
+			"year": 2010,
+			"icon": "refresh",
+			"text": "World’s first zero-carbon supermarket in Ramsey, Cambridgeshire"
+		}, {
+			"year": 2014,
+			"icon": "dollar",
+			"text": "Trading profit of Tesco is £1.4 billion"
+		}]
+	}, {
+		"brand": "Unilever",
+		"info": "A hundred years ago they were selling soap and margarine. Turnover is now more than €50 billion",
+		"logo": "assets/img/logos/unilever.svg",
+		"color": "#004976",
+		"years": [{
+			"year": 1917,
+			"icon": "star",
+			"text": "Having spent several years expanding their hand soap-making operation – now producing 135,000 tons of soap a year – William and James Lever buy Pears Soap. They also branch out into the margarine market"
+		}, {
+			"year": 1922,
+			"icon": "handshake",
+			"text": "The Lever Brothers buy Wall’s sausages, which is also expanding into ice cream at the same time"
+		}, {
+			"year": 1929,
+			"icon": "up",
+			"text": "The Lever Brothers and European company Margarine Unie agree to create Unilever"
+		}, {
+			"year": 1943,
+			"icon": "hourglass",
+			"text": "Despite the Second World War affecting Unilever’s European operations, it acquires Frozen Foods – owners of Bird’s Eye – as well as soup-makers Batchelor’s "
+		}, {
+			"year": 1954,
+			"icon": "star",
+			"text": "Unilever launches Sunsilk shampoo"
+		}, {
+			"year": 1955,
+			"icon": "tv",
+			"text": "Unilever makes the first ever commercial TV advert for Gibbs SR toothpaste. The same year, it introduces Britain to the fish finger"
+		}, {
+			"year": 1959,
+			"icon": "globe",
+			"text": "The company launches the first ever margarine available in a tub. Meanwhile, Sunsilk shampoo is now available in 18 countries"
+		}, {
+			"year": 1967,
+			"icon": "tv",
+			"text": "Continuing with their talent for creating effective TV advertising campaigns, Unilever introduce Captain Bird’s Eye to the nation’s screens. The character remained on British screens until 2014"
+		}, {
+			"year": 1977,
+			"icon": "expand",
+			"text": "Unilever employs around 177,000 people in over 200 offices, investing £30 million annually on expansion"
+		}, {
+			"year": 1982,
+			"icon": "dollar",
+			"text": "Unilever launches Vienetta ice cream. British dinner parties will never be the same again"
+		}, {
+			"year": 1995,
+			"icon": "users",
+			"text": "Unilever takes the decision to remove trans-fats from all its foods"
+		}, {
+			"year": 2001,
+			"icon": "expand",
+			"text": "In a bid to reduce its portfolio, Unilever sheds 700 brands and now owns 900"
+		}, {
+			"year": 2009,
+			"icon": "users",
+			"text": "Unilever’s World Food Programme delivers 17 million school meals to 80,000 children – just part of its mission of corporate responsibility"
+		}, {
+			"year": 2012,
+			"icon": "dollar",
+			"text": "Turnover exceeds €50 billion"
+		}, {
+			"year": 2015,
+			"icon": "star",
+			"text": "Unilever achieves its aim of saving a million tonnes of CO2 emissions since 2008"
+		}]
+	}, {
+		"brand": "Walmart",
+		"info": "They’ve got over 2.3 million employees in 27 countries. Not bad for a company formed just 55 years ago",
+		"logo": "assets/img/logos/walmart.svg",
+		"color": "#1A75CF",
+		"years": [{
+			"year": 1962,
+			"icon": "star",
+			"text": "Aged 44, Sam Walton opens the first Walmart in Arkansas, US"
+		}, {
+			"year": 1967,
+			"icon": "dollar",
+			"text": "Within five years Walmart owns 24 stores, with $12.7 million in sales"
+		}, {
+			"year": 1970,
+			"icon": "dollar",
+			"text": "Walmart goes public at $16.50 per share."
+		}, {
+			"year": 1972,
+			"icon": "dollar",
+			"text": "The company goes onto the New York stock exchange. There are 51 stores to date, with recorded sales of $78 million"
+		}, {
+			"year": 1992,
+			"icon": "expand",
+			"text": "Walmart has 371,000 employees and 1,928 stores"
+		}, {
+			"year": 1993,
+			"icon": "dollar",
+			"text": "Walmart records its first $1 billion sales week"
+		}, {
+			"year": 1997,
+			"icon": "dollar",
+			"text": "It smashes $100 billion sales in a year for the first time"
+		}, {
+			"year": 2000,
+			"icon": "expand",
+			"text": "Walmart now employs more than 1.1 million in 3,989 stores worldwide"
+		}, {
+			"year": 2002,
+			"icon": "star",
+			"text": "It tops the Fortune 500 ranking of US top companies for first time"
+		}, {
+			"year": 2014,
+			"icon": "expand",
+			"text": "Walmart has 2.3 million employees, with over 200 million customers a week in over 11,000 stores in 27 countries"
+		}]
+	}, {
+		"brand": "Amstrad",
+		"info": "Formed by Alan Sugar when he was just 20. Forty years later, he sold it and made £35 million",
+		"logo": "assets/img/logos/amstrad.png",
+		"color": "#A6024F",
+		"years": [{
+			"year": 1965,
+			"icon": "star",
+			"text": "Aged 17, Alan Sugar begins selling reconditioned TVs from his house in Hackney"
+		}, {
+			"year": 1968,
+			"icon": "dollar",
+			"text": "Amstrad, a company buying and selling electrical goods, is founded by Alan Sugar. The name is a play on Alan Michael Sugar Trading"
+		}, {
+			"year": 1970,
+			"icon": "dollar",
+			"text": "Amstrad’s first venture is injection-moulded plastic turntable covers for hi-fis, which at £2.95 are considerably cheaper than their competitors’. A year later, the company records sales of £207,000, with a profit of £24,000"
+		}, {
+			"year": 1973,
+			"icon": "dollar",
+			"text": "Profits now stand at £194,000"
+		}, {
+			"year": 1980,
+			"icon": "expand",
+			"text": "Amstrad lists on the London Stock Exchange. That year, turnover is £8.8 million and profit stands at £1.4 million"
+		}, {
+			"year": 1984,
+			"icon": "dollar",
+			"text": "The first mass-market home computer package is launched, allowing Amstrad to take market share from Sinclair and Commodore. Meanwhile, at 37, Sugar wins The Guardian’s Young Businessman of the Year award"
+		}, {
+			"year": 1985,
+			"icon": "dollar",
+			"text": "On a roll, Amstrad unveils the first mass-market word processor, the PCW 8,256. The following year, they bring out the first mass-market IBM-compatible PC, which at £399 costs a quarter of those from other market leaders"
+		}, {
+			"year": 1986,
+			"icon": "expand",
+			"text": "Amstrad now has a quarter of the PC market in Europe, and buys Sinclair computing for £5 million"
+		}, {
+			"year": 1989,
+			"icon": "star",
+			"text": "It’s a big year for Amstrad: they launch the first mass-market satellite dish for Sky TV as well as the first combined phone, fax and answering machine"
+		}, {
+			"year": 1990,
+			"icon": "expand",
+			"text": "Amstrad enters the games console market with the GX4000. Its 8-bit technology can’t compete with the Sega Mega Drive and Super Nintendo’s 16-bit offering, and it flops"
+		}, {
+			"year": 1992,
+			"icon": "expand",
+			"text": "Amstrad acquires a 29.9% stake in telecommunications company Betacom – the first of several similar moves that steers the company away from computing"
+		}, {
+			"year": 2000,
+			"icon": "expand",
+			"text": "Amstrad launches the e-m@iler, a phone with an LCD screen and keyboard that allowed people to send emails and surf the web"
+		}, {
+			"year": 2005,
+			"icon": "expand",
+			"text": "Amstrad records sales of £102 million and a profit of £19 million"
+		}, {
+			"year": 2007,
+			"icon": "expand",
+			"text": "BskyB buys Amstrad for £125 million – a deal that makes sense given that Amstrad makes a third of the firm’s set-top boxes. Sir Alan Sugar makes £34.5 million from the deal"
+		}]
+	}, {
+		"brand": "Poundland",
+		"info": "Steve Smith started it with a loan from his dad in 1990. Ten years later, he sold it for £50 million",
+		"logo": "assets/img/logos/poundland.png",
+		"color": "#107E87",
+		"years": [{
+			"year": 1990,
+			"icon": "star",
+			"text": "Steve Smith opens the first Poundland in Burton-upon-Trent, partly thanks to a £50,000 loan from his dad. The store takes £13,000 on its first day"
+		}, {
+			"year": 1991,
+			"icon": "dollar",
+			"text": "After a year, turnover stands at around £1 million with profits of £6000"
+		}, {
+			"year": 2000,
+			"icon": "dollar",
+			"text": "With annual profits of over £4 million and 5500 employees, Smith sells Poundland for £50 million. He immediately gives his dad half as a thank you for the £50,000 loan back in 1991"
+		}, {
+			"year": 2003,
+			"icon": "dollar",
+			"text": "The 100th Poundland store opens"
+		}, {
+			"year": 2008,
+			"icon": "expand",
+			"text": "The 200th Poundland store open"
+		}, {
+			"year": 2009,
+			"icon": "dollar",
+			"text": "Poundland sells 185 million batteries, 21 million metres of tin foil, four million jars of coffee and half a million garden gnomes"
+		}, {
+			"year": 2012,
+			"icon": "dollar",
+			"text": "The new store in Haringey becomes the 400th Poundland"
+		}, {
+			"year": 2014,
+			"icon": "expand",
+			"text": "Turnover is nearly £1 billion"
+		}, {
+			"year": 2016,
+			"icon": "star",
+			"text": "Poundland is sold for £610 million"
+		}]
+	}
+]
