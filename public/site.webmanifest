@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "Timeline — the AI race",
+  "short_name": "Timeline",
+  "description": "A comparative timeline: who shipped what, and when. Frontier AI labs and the infrastructure underneath them, side by side on a shared axis.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#0a0b0c",
+  "background_color": "#0a0b0c",
+  "categories": ["reference", "education"],
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
