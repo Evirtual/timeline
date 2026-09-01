@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "timeline",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "out", "-l", "4180"],
+      "port": 4180
+    }
+  ]
+}

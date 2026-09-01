@@ -1,0 +1,673 @@
+{
+  "id": "ai",
+  "title": "The AI race",
+  "description": "Who shipped what, and when. Frontier labs and the infrastructure underneath them, from the founding of OpenAI to the current generation of models.",
+  "entities": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "color": "#10A37F",
+      "founded": "2015",
+      "blurb": "Founded as a non-profit research lab, restructured under a capped-profit arm in 2019. Put generative AI in front of the public with ChatGPT."
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "color": "#D97757",
+      "founded": "2021",
+      "blurb": "Started by former OpenAI research leadership. Built Claude, and published the Constitutional AI and interpretability work the field now builds on."
+    },
+    {
+      "id": "google-deepmind",
+      "name": "Google DeepMind",
+      "color": "#4285F4",
+      "founded": "2010",
+      "blurb": "DeepMind, acquired by Google in 2014 and merged with Google Brain in 2023. Produced the Transformer paper, AlphaGo and AlphaFold before Gemini."
+    },
+    {
+      "id": "meta-ai",
+      "name": "Meta AI",
+      "color": "#0668E1",
+      "founded": "2013",
+      "blurb": "FAIR under Yann LeCun, then the Llama family — the models that made open weights a serious competitive position rather than a compromise."
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "color": "#FA520F",
+      "founded": "2023",
+      "blurb": "Paris-based, founded by ex-DeepMind and ex-Meta researchers. Europe's frontier lab, built on small efficient models and open weights."
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "color": "#7C8794",
+      "founded": "2023",
+      "blurb": "Elon Musk's lab, launched a year after he left OpenAI's board. Grok ships tightly coupled to X."
+    },
+    {
+      "id": "nvidia",
+      "name": "Nvidia",
+      "color": "#76B900",
+      "founded": "1993",
+      "blurb": "Not a lab, but the reason the labs can train anything. CUDA and the datacentre GPU line are the substrate the whole race runs on."
+    },
+    {
+      "id": "hugging-face",
+      "name": "Hugging Face",
+      "color": "#E0A800",
+      "founded": "2016",
+      "blurb": "The commons. Transformers, the model hub and the datasets that made open research distributable."
+    }
+  ],
+  "events": [
+    {
+      "id": "openai-founded",
+      "entity": "openai",
+      "date": "2015-12-11",
+      "title": "OpenAI founded",
+      "kind": "org",
+      "weight": 3,
+      "summary": "Announced as a non-profit research company with a $1bn funding commitment, explicitly framed around distributing the benefits of AI rather than concentrating them.",
+      "source": "https://openai.com/index/introducing-openai/"
+    },
+    {
+      "id": "openai-gpt1",
+      "entity": "openai",
+      "date": "2018-06-11",
+      "title": "GPT-1",
+      "kind": "research",
+      "weight": 2,
+      "summary": "Generative pre-training on unlabelled text, then fine-tuning per task. The paper that established the recipe every model here still follows.",
+      "source": "https://openai.com/index/language-unsupervised/"
+    },
+    {
+      "id": "openai-gpt2",
+      "entity": "openai",
+      "date": "2019-02-14",
+      "title": "GPT-2",
+      "kind": "model",
+      "weight": 2,
+      "summary": "Withheld at full size on misuse grounds, which set off the first real argument about staged release. The full model followed nine months later.",
+      "source": "https://openai.com/index/better-language-models/",
+      "model": { "modality": ["text"], "openWeights": true }
+    },
+    {
+      "id": "openai-microsoft-1b",
+      "entity": "openai",
+      "date": "2019-07-22",
+      "title": "Microsoft invests $1bn",
+      "kind": "funding",
+      "weight": 2,
+      "summary": "Azure becomes OpenAI's exclusive compute provider. The template for every lab-and-hyperscaler pairing that followed.",
+      "source": "https://openai.com/index/microsoft-invests-in-and-partners-with-openai/"
+    },
+    {
+      "id": "openai-gpt3",
+      "entity": "openai",
+      "date": "2020-06-11",
+      "title": "GPT-3 and the API",
+      "kind": "model",
+      "weight": 3,
+      "summary": "175 billion parameters, and the first time few-shot prompting alone was enough to be useful. Shipped as an API rather than weights, which set the commercial pattern.",
+      "source": "https://openai.com/index/openai-api/",
+      "model": { "context": 2048, "modality": ["text"], "openWeights": false }
+    },
+    {
+      "id": "openai-dalle",
+      "entity": "openai",
+      "date": "2021-01-05",
+      "title": "DALL·E",
+      "kind": "model",
+      "weight": 2,
+      "summary": "Text-to-image from the same transformer recipe, and the first broad signal that generative models were not going to stay inside text.",
+      "source": "https://openai.com/index/dall-e/",
+      "model": { "modality": ["text", "vision"], "openWeights": false }
+    },
+    {
+      "id": "openai-chatgpt",
+      "entity": "openai",
+      "date": "2022-11-30",
+      "title": "ChatGPT",
+      "kind": "product",
+      "weight": 3,
+      "summary": "A research preview wrapped around GPT-3.5 that reached a hundred million users in two months. The moment the field stopped being an industry story.",
+      "source": "https://openai.com/index/chatgpt/"
+    },
+    {
+      "id": "openai-gpt4",
+      "entity": "openai",
+      "date": "2023-03-14",
+      "title": "GPT-4",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Multimodal input and a large jump on professional benchmarks, published with no architecture or training details at all — the point where frontier work went closed.",
+      "source": "https://openai.com/index/gpt-4-research/",
+      "model": { "context": 8192, "modality": ["text", "vision"], "openWeights": false }
+    },
+    {
+      "id": "openai-altman-removal",
+      "entity": "openai",
+      "date": "2023-11-17",
+      "title": "Altman removed, then reinstated",
+      "kind": "org",
+      "weight": 3,
+      "summary": "The board dismissed its CEO on a Friday; almost all staff threatened to leave, and he was back within five days. The governance structure did not survive the week.",
+      "source": "https://en.wikipedia.org/wiki/Removal_of_Sam_Altman_from_OpenAI"
+    },
+    {
+      "id": "openai-sora",
+      "entity": "openai",
+      "date": "2024-02-15",
+      "title": "Sora",
+      "kind": "model",
+      "weight": 2,
+      "summary": "Minute-long video from text, shown well before anyone could use it. Set the expectation that video was the next modality to fall.",
+      "source": "https://openai.com/index/sora/",
+      "model": { "modality": ["text", "video"], "openWeights": false }
+    },
+    {
+      "id": "openai-gpt4o",
+      "entity": "openai",
+      "date": "2024-05-13",
+      "title": "GPT-4o",
+      "kind": "model",
+      "weight": 3,
+      "summary": "One model handling text, vision and audio end to end, at roughly half the price and twice the speed of GPT-4 Turbo. Native voice with conversational latency.",
+      "source": "https://openai.com/index/hello-gpt-4o/",
+      "model": { "context": 128000, "modality": ["text", "vision", "audio"], "openWeights": false }
+    },
+    {
+      "id": "openai-o1",
+      "entity": "openai",
+      "date": "2024-09-12",
+      "title": "o1 — reasoning at inference time",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Spends compute thinking before answering rather than only at training time. Opened a second scaling axis the whole field moved onto within a year.",
+      "source": "https://openai.com/index/introducing-openai-o1-preview/",
+      "model": { "context": 128000, "modality": ["text"], "openWeights": false }
+    },
+    {
+      "id": "openai-gpt5",
+      "entity": "openai",
+      "date": "2025-08-07",
+      "title": "GPT-5",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Reasoning folded into the default model with automatic routing, rather than sold as a separate mode the user has to choose.",
+      "source": "https://openai.com/index/introducing-gpt-5/",
+      "model": { "modality": ["text", "vision"], "openWeights": false }
+    },
+
+    {
+      "id": "anthropic-series-a",
+      "entity": "anthropic",
+      "date": "2021-05-28",
+      "title": "Anthropic emerges with $124m",
+      "kind": "funding",
+      "weight": 2,
+      "summary": "Founded by Dario and Daniela Amodei with a group who left OpenAI, around a bet that steerability and interpretability are the research problem, not a bolt-on.",
+      "source": "https://en.wikipedia.org/wiki/Anthropic"
+    },
+    {
+      "id": "anthropic-constitutional-ai",
+      "entity": "anthropic",
+      "date": "2022-12-15",
+      "title": "Constitutional AI",
+      "kind": "research",
+      "weight": 2,
+      "summary": "Training a model to critique and revise its own output against a written set of principles, cutting how much human feedback is needed to make it harmless.",
+      "source": "https://arxiv.org/abs/2212.08073"
+    },
+    {
+      "id": "anthropic-claude",
+      "entity": "anthropic",
+      "date": "2023-03-14",
+      "title": "Claude",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Launched the same day as GPT-4, positioned on being steerable and harder to push into harmful output rather than on raw capability.",
+      "source": "https://www.anthropic.com/news/introducing-claude",
+      "model": { "context": 9000, "modality": ["text"], "openWeights": false }
+    },
+    {
+      "id": "anthropic-claude2",
+      "entity": "anthropic",
+      "date": "2023-07-11",
+      "title": "Claude 2",
+      "kind": "model",
+      "weight": 2,
+      "summary": "A 100k-token context window when rivals offered a fraction of it, which made long-document work the first thing Claude was reached for.",
+      "source": "https://www.anthropic.com/news/claude-2",
+      "model": { "context": 100000, "modality": ["text"], "openWeights": false }
+    },
+    {
+      "id": "anthropic-claude3",
+      "entity": "anthropic",
+      "date": "2024-03-04",
+      "title": "Claude 3 family",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Haiku, Sonnet and Opus as one release across three price points — the tiering approach every lab now copies. Opus took the benchmark lead from GPT-4.",
+      "source": "https://www.anthropic.com/news/claude-3-family",
+      "model": { "context": 200000, "modality": ["text", "vision"], "openWeights": false }
+    },
+    {
+      "id": "anthropic-claude35",
+      "entity": "anthropic",
+      "date": "2024-06-20",
+      "title": "Claude 3.5 Sonnet",
+      "kind": "model",
+      "weight": 3,
+      "summary": "The mid-tier model beating the previous flagship, at a fifth of the price. Coding performance made it the default for engineering work.",
+      "source": "https://www.anthropic.com/news/claude-3-5-sonnet",
+      "model": { "context": 200000, "modality": ["text", "vision", "code"], "openWeights": false }
+    },
+    {
+      "id": "anthropic-mcp",
+      "entity": "anthropic",
+      "date": "2024-11-25",
+      "title": "Model Context Protocol",
+      "kind": "product",
+      "weight": 3,
+      "summary": "An open standard for connecting models to tools and data, given away rather than kept proprietary. Adopted across the industry within a year.",
+      "source": "https://www.anthropic.com/news/model-context-protocol"
+    },
+    {
+      "id": "anthropic-claude4",
+      "entity": "anthropic",
+      "date": "2025-05-22",
+      "title": "Claude 4",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Opus 4 and Sonnet 4, built for agents that run for hours rather than turns. Claude Code shipped alongside as the reference case.",
+      "source": "https://www.anthropic.com/news/claude-4",
+      "model": { "context": 200000, "modality": ["text", "vision", "code"], "openWeights": false }
+    },
+    {
+      "id": "anthropic-sonnet5",
+      "entity": "anthropic",
+      "date": "2026-06-30",
+      "title": "Claude Sonnet 5",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Frontier performance in the mid tier — coding, agents and professional work at a price meant for volume rather than demonstrations.",
+      "source": "https://www.anthropic.com/news",
+      "model": { "modality": ["text", "vision", "code"], "openWeights": false }
+    },
+    {
+      "id": "anthropic-opus5",
+      "entity": "anthropic",
+      "date": "2026-07-24",
+      "title": "Claude Opus 5",
+      "kind": "model",
+      "weight": 3,
+      "summary": "A step change for the Opus tier, aimed at long-running agents and sustained coding work rather than single answers.",
+      "source": "https://www.anthropic.com/news",
+      "model": { "modality": ["text", "vision", "code"], "openWeights": false }
+    },
+
+    {
+      "id": "dm-founded",
+      "entity": "google-deepmind",
+      "date": "2010-09-23",
+      "title": "DeepMind founded",
+      "kind": "org",
+      "weight": 2,
+      "summary": "Hassabis, Legg and Suleyman set out to 'solve intelligence, and then use it to solve everything else' — a framing the field still argues about.",
+      "source": "https://en.wikipedia.org/wiki/Google_DeepMind"
+    },
+    {
+      "id": "dm-google-acquisition",
+      "entity": "google-deepmind",
+      "date": "2014-01-26",
+      "title": "Google acquires DeepMind",
+      "kind": "org",
+      "weight": 2,
+      "summary": "Around $500m, with an internal ethics board as a condition. Put frontier research inside a hyperscaler years before anyone else managed it.",
+      "source": "https://en.wikipedia.org/wiki/Google_DeepMind"
+    },
+    {
+      "id": "dm-alphago",
+      "entity": "google-deepmind",
+      "date": "2016-03-15",
+      "title": "AlphaGo beats Lee Sedol",
+      "kind": "research",
+      "weight": 3,
+      "summary": "4–1 at Go, a decade before anyone expected it. The result that convinced the public deep learning was not incremental.",
+      "source": "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol"
+    },
+    {
+      "id": "dm-transformer",
+      "entity": "google-deepmind",
+      "date": "2017-06-12",
+      "title": "Attention Is All You Need",
+      "kind": "research",
+      "weight": 3,
+      "summary": "The Transformer, published by Google Brain. Every model on this page descends from this paper, including those built by its authors' later companies.",
+      "source": "https://arxiv.org/abs/1706.03762"
+    },
+    {
+      "id": "dm-alphafold2",
+      "entity": "google-deepmind",
+      "date": "2020-11-30",
+      "title": "AlphaFold 2 solves CASP14",
+      "kind": "research",
+      "weight": 3,
+      "summary": "Protein structure prediction at experimental accuracy, closing a fifty-year problem in biology and later sharing a Nobel Prize.",
+      "source": "https://en.wikipedia.org/wiki/AlphaFold"
+    },
+    {
+      "id": "dm-merge",
+      "entity": "google-deepmind",
+      "date": "2023-04-20",
+      "title": "Brain and DeepMind merge",
+      "kind": "org",
+      "weight": 2,
+      "summary": "Google folded its two research organisations into one under Hassabis, five months after ChatGPT made the internal competition untenable.",
+      "source": "https://en.wikipedia.org/wiki/Google_DeepMind"
+    },
+    {
+      "id": "dm-gemini1",
+      "entity": "google-deepmind",
+      "date": "2023-12-06",
+      "title": "Gemini 1.0",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Natively multimodal from pre-training rather than stitched together afterwards, shipped in Nano, Pro and Ultra sizes.",
+      "source": "https://blog.google/technology/ai/google-gemini-ai/",
+      "model": { "context": 32000, "modality": ["text", "vision", "audio", "video"], "openWeights": false }
+    },
+    {
+      "id": "dm-gemini15",
+      "entity": "google-deepmind",
+      "date": "2024-02-15",
+      "title": "Gemini 1.5 Pro — one million tokens",
+      "kind": "model",
+      "weight": 3,
+      "summary": "A context window an order of magnitude beyond anyone else, which turned 'can it read my whole codebase' from a workaround into a feature.",
+      "source": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
+      "model": { "context": 1000000, "modality": ["text", "vision", "audio", "video"], "openWeights": false }
+    },
+    {
+      "id": "dm-gemini25pro",
+      "entity": "google-deepmind",
+      "date": "2025-03-25",
+      "title": "Gemini 2.5 Pro",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Reasoning built into the base model, and the point where Google's frontier offering was consistently competitive rather than catching up.",
+      "source": "https://en.wikipedia.org/wiki/Gemini_(language_model)",
+      "model": { "context": 1000000, "modality": ["text", "vision", "audio", "video"], "openWeights": false }
+    },
+    {
+      "id": "dm-gemini3pro",
+      "entity": "google-deepmind",
+      "date": "2025-11-18",
+      "title": "Gemini 3 Pro",
+      "kind": "model",
+      "weight": 3,
+      "summary": "The third generation, with Deep Think and Flash variants following within a month — a release cadence closer to weeks than years.",
+      "source": "https://en.wikipedia.org/wiki/Gemini_(language_model)",
+      "model": { "modality": ["text", "vision", "audio", "video"], "openWeights": false }
+    },
+    {
+      "id": "dm-gemini31pro",
+      "entity": "google-deepmind",
+      "date": "2026-02-19",
+      "title": "Gemini 3.1 Pro",
+      "kind": "model",
+      "weight": 2,
+      "summary": "An incremental frontier update, shipped four months after 3 Pro. By this point point releases arrive faster than most teams can evaluate them.",
+      "source": "https://en.wikipedia.org/wiki/Gemini_(language_model)",
+      "model": { "modality": ["text", "vision", "audio", "video"], "openWeights": false }
+    },
+
+    {
+      "id": "meta-fair",
+      "entity": "meta-ai",
+      "date": "2013-12-09",
+      "title": "FAIR founded under Yann LeCun",
+      "kind": "org",
+      "weight": 2,
+      "summary": "Facebook AI Research set up as an open publishing lab, a commitment that later made the Llama releases consistent rather than surprising.",
+      "source": "https://en.wikipedia.org/wiki/Meta_AI"
+    },
+    {
+      "id": "meta-pytorch",
+      "entity": "meta-ai",
+      "date": "2016-09-01",
+      "title": "PyTorch",
+      "kind": "product",
+      "weight": 3,
+      "summary": "Eager execution and a Python-native feel took research off TensorFlow within about three years. Most models here were trained in it.",
+      "source": "https://en.wikipedia.org/wiki/PyTorch"
+    },
+    {
+      "id": "meta-llama",
+      "entity": "meta-ai",
+      "date": "2023-02-24",
+      "title": "LLaMA",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Released to researchers, then leaked within a week. The leak seeded the entire local-model ecosystem and forced the open-weights question into the open.",
+      "source": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/",
+      "model": { "context": 2048, "modality": ["text"], "openWeights": true }
+    },
+    {
+      "id": "meta-llama2",
+      "entity": "meta-ai",
+      "date": "2023-07-18",
+      "title": "Llama 2 — open weights, commercial use",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Deliberately licensed for commercial use, turning the leak into a strategy. Made open weights a competitive position rather than a concession.",
+      "source": "https://ai.meta.com/blog/llama-2/",
+      "model": { "context": 4096, "modality": ["text"], "openWeights": true }
+    },
+    {
+      "id": "meta-llama31",
+      "entity": "meta-ai",
+      "date": "2024-07-23",
+      "title": "Llama 3.1 405B",
+      "kind": "model",
+      "weight": 3,
+      "summary": "The first open-weights model credibly compared with closed frontier models, and the strongest form of the argument that the gap was closing.",
+      "source": "https://ai.meta.com/blog/meta-llama-3-1/",
+      "model": { "context": 128000, "modality": ["text"], "openWeights": true }
+    },
+    {
+      "id": "meta-llama4",
+      "entity": "meta-ai",
+      "date": "2025-04-05",
+      "title": "Llama 4",
+      "kind": "model",
+      "weight": 2,
+      "summary": "A natively multimodal mixture-of-experts generation, released into a market where open weights had stopped being unusual.",
+      "source": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+      "model": { "modality": ["text", "vision"], "openWeights": true }
+    },
+
+    {
+      "id": "mistral-founded",
+      "entity": "mistral",
+      "date": "2023-06-13",
+      "title": "Mistral founded with a €105m seed",
+      "kind": "funding",
+      "weight": 2,
+      "summary": "Ex-DeepMind and ex-Meta researchers raised Europe's largest seed round four weeks after incorporating, on a deck and a track record.",
+      "source": "https://en.wikipedia.org/wiki/Mistral_AI"
+    },
+    {
+      "id": "mistral-7b",
+      "entity": "mistral",
+      "date": "2023-09-27",
+      "title": "Mistral 7B",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Beat Llama 2 13B at half the size, released under Apache 2.0 via a bare magnet link. Made 'small and efficient' a serious position.",
+      "source": "https://mistral.ai/news/announcing-mistral-7b/",
+      "model": { "context": 8192, "modality": ["text"], "openWeights": true }
+    },
+    {
+      "id": "mistral-mixtral",
+      "entity": "mistral",
+      "date": "2023-12-11",
+      "title": "Mixtral 8x7B",
+      "kind": "model",
+      "weight": 2,
+      "summary": "A sparse mixture-of-experts with open weights, matching much larger dense models while only activating a fraction of them per token.",
+      "source": "https://mistral.ai/news/mixtral-of-experts/",
+      "model": { "context": 32000, "modality": ["text"], "openWeights": true }
+    },
+    {
+      "id": "mistral-large",
+      "entity": "mistral",
+      "date": "2024-02-26",
+      "title": "Mistral Large and the Microsoft deal",
+      "kind": "model",
+      "weight": 2,
+      "summary": "A closed flagship alongside the open models, distributed on Azure — the point where Europe's open-source champion took a hyperscaler partner.",
+      "source": "https://mistral.ai/news/mistral-large/",
+      "model": { "context": 32000, "modality": ["text"], "openWeights": false }
+    },
+
+    {
+      "id": "xai-founded",
+      "entity": "xai",
+      "date": "2023-07-12",
+      "title": "xAI founded",
+      "kind": "org",
+      "weight": 2,
+      "summary": "Musk launched a rival lab five years after leaving OpenAI's board, staffed largely from DeepMind, OpenAI and Google.",
+      "source": "https://en.wikipedia.org/wiki/XAI_(company)"
+    },
+    {
+      "id": "xai-grok",
+      "entity": "xai",
+      "date": "2023-11-04",
+      "title": "Grok",
+      "kind": "model",
+      "weight": 2,
+      "summary": "Announced with live access to X as its distinguishing feature — real-time data as the moat rather than raw capability.",
+      "source": "https://en.wikipedia.org/wiki/Grok_(chatbot)",
+      "model": { "context": 8192, "modality": ["text"], "openWeights": false }
+    },
+    {
+      "id": "xai-grok1-open",
+      "entity": "xai",
+      "date": "2024-03-17",
+      "title": "Grok-1 weights released",
+      "kind": "model",
+      "weight": 2,
+      "summary": "A 314-billion-parameter mixture-of-experts published under Apache 2.0, the largest open-weights release at the time.",
+      "source": "https://en.wikipedia.org/wiki/Grok_(chatbot)",
+      "model": { "modality": ["text"], "openWeights": true }
+    },
+    {
+      "id": "xai-grok3",
+      "entity": "xai",
+      "date": "2025-02-17",
+      "title": "Grok 3",
+      "kind": "model",
+      "weight": 2,
+      "summary": "Trained on the Colossus cluster xAI built in Memphis in months rather than years — the clearest demonstration that compute could be bought as speed.",
+      "source": "https://en.wikipedia.org/wiki/Grok_(chatbot)",
+      "model": { "modality": ["text", "vision"], "openWeights": false }
+    },
+
+    {
+      "id": "nvidia-cuda",
+      "entity": "nvidia",
+      "date": "2007-06-23",
+      "title": "CUDA",
+      "kind": "product",
+      "weight": 3,
+      "summary": "General-purpose programming on GPUs, shipped years before deep learning needed it. The lock-in that every competitor still cannot dislodge.",
+      "source": "https://en.wikipedia.org/wiki/CUDA"
+    },
+    {
+      "id": "nvidia-a100",
+      "entity": "nvidia",
+      "date": "2020-05-14",
+      "title": "A100",
+      "kind": "product",
+      "weight": 3,
+      "summary": "The Ampere datacentre part that GPT-3 and most of the following generation were trained on. Became the unit of account for compute.",
+      "source": "https://en.wikipedia.org/wiki/Ampere_(microarchitecture)"
+    },
+    {
+      "id": "nvidia-h100",
+      "entity": "nvidia",
+      "date": "2022-03-22",
+      "title": "H100",
+      "kind": "product",
+      "weight": 3,
+      "summary": "Hopper, with a transformer engine built for exactly this workload. Supply of it, not ideas, became the binding constraint on frontier training.",
+      "source": "https://en.wikipedia.org/wiki/Hopper_(microarchitecture)"
+    },
+    {
+      "id": "nvidia-1t",
+      "entity": "nvidia",
+      "date": "2023-05-30",
+      "title": "Nvidia passes $1tn",
+      "kind": "funding",
+      "weight": 2,
+      "summary": "Six months after ChatGPT, the market repriced the supplier rather than the labs — the first hard financial read on where the value was accruing.",
+      "source": "https://en.wikipedia.org/wiki/Nvidia"
+    },
+    {
+      "id": "nvidia-blackwell",
+      "entity": "nvidia",
+      "date": "2024-03-18",
+      "title": "Blackwell",
+      "kind": "product",
+      "weight": 3,
+      "summary": "The generation after Hopper, announced with the datacentre treated as the unit of design rather than the chip.",
+      "source": "https://en.wikipedia.org/wiki/Blackwell_(microarchitecture)"
+    },
+
+    {
+      "id": "hf-transformers",
+      "entity": "hugging-face",
+      "date": "2018-11-17",
+      "title": "Transformers library",
+      "kind": "product",
+      "weight": 3,
+      "summary": "Started as a PyTorch port of BERT and became the default way to load a model. Reduced 'use this architecture' to a single line.",
+      "source": "https://en.wikipedia.org/wiki/Hugging_Face"
+    },
+    {
+      "id": "hf-hub",
+      "entity": "hugging-face",
+      "date": "2020-09-01",
+      "title": "The Model Hub",
+      "kind": "product",
+      "weight": 2,
+      "summary": "Hosting for weights and datasets with versioning, which made distributing an open model a push rather than a project.",
+      "source": "https://en.wikipedia.org/wiki/Hugging_Face"
+    },
+    {
+      "id": "hf-bloom",
+      "entity": "hugging-face",
+      "date": "2022-07-12",
+      "title": "BLOOM",
+      "kind": "model",
+      "weight": 2,
+      "summary": "A 176-billion-parameter multilingual model trained in the open by a thousand researchers, on public French supercomputing time.",
+      "source": "https://en.wikipedia.org/wiki/BLOOM_(language_model)",
+      "model": { "modality": ["text"], "openWeights": true }
+    },
+    {
+      "id": "hf-series-d",
+      "entity": "hugging-face",
+      "date": "2023-08-24",
+      "title": "$235m at a $4.5bn valuation",
+      "kind": "funding",
+      "weight": 2,
+      "summary": "Google, Amazon, Nvidia and Salesforce all invested in the same round — the commons funded by everyone competing on top of it.",
+      "source": "https://en.wikipedia.org/wiki/Hugging_Face"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* Same tokens as edgarasneverdauskas.com, so this reads as part of the family
+   rather than a stray side project. Dark is the default; light is the opt-in. */
+:root {
+  --color-bg: #0a0b0c;
+  --color-bg-raised: #101214;
+  --color-border: #1f2224;
+  --color-border-strong: #2c3033;
+  --color-ink: #f2f2f0;
+  --color-ink-muted: #a7abae;
+  --color-ink-faint: #6c7275;
+  --color-accent: #5eead4;
+  --color-accent-ink: #0a0b0c;
+}
+
+:root[data-theme="light"] {
+  --color-bg: #ffffff;
+  --color-bg-raised: #f6f6f7;
+  --color-border: #e8e8ea;
+  --color-border-strong: #d1d2d5;
+  --color-ink: #0b0c0d;
+  --color-ink-muted: #55585d;
+  --color-ink-faint: #86898e;
+  --color-accent: #0d9488;
+  --color-accent-ink: #ffffff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --color-bg: #ffffff;
+    --color-bg-raised: #f6f6f7;
+    --color-border: #e8e8ea;
+    --color-border-strong: #d1d2d5;
+    --color-ink: #0b0c0d;
+    --color-ink-muted: #55585d;
+    --color-ink-faint: #86898e;
+    --color-accent: #0d9488;
+    --color-accent-ink: #ffffff;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+  /* The grid is wide by design; keep the page itself from bouncing sideways. */
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* A restrained scrollbar for the horizontally scrolling grid. */
+/* Grid metrics live here so they can respond to the viewport. On a phone a
+   232px column shows barely one organisation at a time; narrowing it lets you
+   actually compare two, which is the entire point of the view. */
+:root {
+  --col: 232px;
+  /* Includes the page gutter, which lives inside the axis cell so the sticky
+     column has nothing scrolling out from under it. */
+  --axis: 108px;
+  --gutter: 2rem;
+}
+@media (max-width: 640px) {
+  :root {
+    --col: 176px;
+    --axis: 68px;
+    --gutter: 1rem;
+  }
+}
+
+.scroll-region {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+.scroll-region::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+.scroll-region::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-region::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 999px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
