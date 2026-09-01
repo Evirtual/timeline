@@ -252,7 +252,7 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
                 return (
                   <div
                     key={column.quarter.key}
-                    className={`flex flex-col justify-center gap-1 px-1 py-2 ${
+                    className={`flex flex-col justify-center gap-1 px-2 py-2 ${
                       isYearStart ? "border-l border-[var(--color-border-strong)]" : ""
                     }`}
                   >

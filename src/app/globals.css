@@ -92,7 +92,7 @@ body {
 :root {
   /* Width of one quarter column. Narrow enough to keep about a year and a
      half on screen, wide enough for a two-line title. */
-  --qcol: 150px;
+  --qcol: 156px;
   /* The organisation label column. Includes the page gutter, which lives inside
      the sticky cell so nothing scrolls out from under it and shifts it. */
   --label: 168px;
@@ -105,7 +105,7 @@ body {
 }
 @media (max-width: 640px) {
   :root {
-    --qcol: 132px;
+    --qcol: 138px;
     --label: 112px;
     --gapcol: 32px;
     --lead: 8px;
