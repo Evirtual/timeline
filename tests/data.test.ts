@@ -56,6 +56,16 @@ describe("ai dataset integrity", () => {
     expect(wrong.map((e) => e.id)).toEqual([]);
   });
 
+  it("each weight is actually used, so the detail control has three levels", () => {
+    // Two identical levels is worse than one: the control looks broken. This
+    // caught exactly that — the first pass authored nothing at weight 1.
+    const counts = { 1: 0, 2: 0, 3: 0 } as Record<number, number>;
+    for (const e of ai.events) counts[e.weight] += 1;
+    expect(counts[1]).toBeGreaterThan(0);
+    expect(counts[2]).toBeGreaterThan(0);
+    expect(counts[3]).toBeGreaterThan(0);
+  });
+
   it("summaries are a sentence or two, not an essay", () => {
     const tooLong = ai.events.filter((e) => e.summary.length > 320);
     expect(tooLong.map((e) => `${e.id} (${e.summary.length})`)).toEqual([]);

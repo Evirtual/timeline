@@ -81,18 +81,26 @@ body {
    232px column shows barely one organisation at a time; narrowing it lets you
    actually compare two, which is the entire point of the view. */
 :root {
-  --col: 232px;
-  /* Includes the page gutter, which lives inside the axis cell so the sticky
-     column has nothing scrolling out from under it. */
-  --axis: 108px;
-  --gutter: 2rem;
+  /* Width of one quarter column. Narrow enough to keep about a year and a
+     half on screen, wide enough for a two-line title. */
+  --qcol: 150px;
+  /* The organisation label column. Includes the page gutter, which lives inside
+     the sticky cell so nothing scrolls out from under it and shifts it. */
+  --label: 168px;
 }
 @media (max-width: 640px) {
   :root {
-    --col: 176px;
-    --axis: 68px;
-    --gutter: 1rem;
+    --qcol: 132px;
+    --label: 112px;
   }
+}
+
+/* Two lines of title in an event card, then ellipsis. */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .scroll-region {

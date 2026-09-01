@@ -90,7 +90,12 @@
       "weight": 2,
       "summary": "Withheld at full size on misuse grounds, which set off the first real argument about staged release. The full model followed nine months later.",
       "source": "https://openai.com/index/better-language-models/",
-      "model": { "modality": ["text"], "openWeights": true }
+      "model": {
+        "modality": [
+          "text"
+        ],
+        "openWeights": true
+      }
     },
     {
       "id": "openai-microsoft-1b",
@@ -98,7 +103,7 @@
       "date": "2019-07-22",
       "title": "Microsoft invests $1bn",
       "kind": "funding",
-      "weight": 2,
+      "weight": 1,
       "summary": "Azure becomes OpenAI's exclusive compute provider. The template for every lab-and-hyperscaler pairing that followed.",
       "source": "https://openai.com/index/microsoft-invests-in-and-partners-with-openai/"
     },
@@ -111,7 +116,13 @@
       "weight": 3,
       "summary": "175 billion parameters, and the first time few-shot prompting alone was enough to be useful. Shipped as an API rather than weights, which set the commercial pattern.",
       "source": "https://openai.com/index/openai-api/",
-      "model": { "context": 2048, "modality": ["text"], "openWeights": false }
+      "model": {
+        "context": 2048,
+        "modality": [
+          "text"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "openai-dalle",
@@ -122,7 +133,13 @@
       "weight": 2,
       "summary": "Text-to-image from the same transformer recipe, and the first broad signal that generative models were not going to stay inside text.",
       "source": "https://openai.com/index/dall-e/",
-      "model": { "modality": ["text", "vision"], "openWeights": false }
+      "model": {
+        "modality": [
+          "text",
+          "vision"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "openai-chatgpt",
@@ -143,7 +160,14 @@
       "weight": 3,
       "summary": "Multimodal input and a large jump on professional benchmarks, published with no architecture or training details at all — the point where frontier work went closed.",
       "source": "https://openai.com/index/gpt-4-research/",
-      "model": { "context": 8192, "modality": ["text", "vision"], "openWeights": false }
+      "model": {
+        "context": 8192,
+        "modality": [
+          "text",
+          "vision"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "openai-altman-removal",
@@ -164,7 +188,13 @@
       "weight": 2,
       "summary": "Minute-long video from text, shown well before anyone could use it. Set the expectation that video was the next modality to fall.",
       "source": "https://openai.com/index/sora/",
-      "model": { "modality": ["text", "video"], "openWeights": false }
+      "model": {
+        "modality": [
+          "text",
+          "video"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "openai-gpt4o",
@@ -175,7 +205,15 @@
       "weight": 3,
       "summary": "One model handling text, vision and audio end to end, at roughly half the price and twice the speed of GPT-4 Turbo. Native voice with conversational latency.",
       "source": "https://openai.com/index/hello-gpt-4o/",
-      "model": { "context": 128000, "modality": ["text", "vision", "audio"], "openWeights": false }
+      "model": {
+        "context": 128000,
+        "modality": [
+          "text",
+          "vision",
+          "audio"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "openai-o1",
@@ -186,7 +224,13 @@
       "weight": 3,
       "summary": "Spends compute thinking before answering rather than only at training time. Opened a second scaling axis the whole field moved onto within a year.",
       "source": "https://openai.com/index/introducing-openai-o1-preview/",
-      "model": { "context": 128000, "modality": ["text"], "openWeights": false }
+      "model": {
+        "context": 128000,
+        "modality": [
+          "text"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "openai-gpt5",
@@ -197,16 +241,21 @@
       "weight": 3,
       "summary": "Reasoning folded into the default model with automatic routing, rather than sold as a separate mode the user has to choose.",
       "source": "https://openai.com/index/introducing-gpt-5/",
-      "model": { "modality": ["text", "vision"], "openWeights": false }
+      "model": {
+        "modality": [
+          "text",
+          "vision"
+        ],
+        "openWeights": false
+      }
     },
-
     {
       "id": "anthropic-series-a",
       "entity": "anthropic",
       "date": "2021-05-28",
       "title": "Anthropic emerges with $124m",
       "kind": "funding",
-      "weight": 2,
+      "weight": 1,
       "summary": "Founded by Dario and Daniela Amodei with a group who left OpenAI, around a bet that steerability and interpretability are the research problem, not a bolt-on.",
       "source": "https://en.wikipedia.org/wiki/Anthropic"
     },
@@ -229,7 +278,13 @@
       "weight": 3,
       "summary": "Launched the same day as GPT-4, positioned on being steerable and harder to push into harmful output rather than on raw capability.",
       "source": "https://www.anthropic.com/news/introducing-claude",
-      "model": { "context": 9000, "modality": ["text"], "openWeights": false }
+      "model": {
+        "context": 9000,
+        "modality": [
+          "text"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "anthropic-claude2",
@@ -240,7 +295,13 @@
       "weight": 2,
       "summary": "A 100k-token context window when rivals offered a fraction of it, which made long-document work the first thing Claude was reached for.",
       "source": "https://www.anthropic.com/news/claude-2",
-      "model": { "context": 100000, "modality": ["text"], "openWeights": false }
+      "model": {
+        "context": 100000,
+        "modality": [
+          "text"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "anthropic-claude3",
@@ -251,7 +312,14 @@
       "weight": 3,
       "summary": "Haiku, Sonnet and Opus as one release across three price points — the tiering approach every lab now copies. Opus took the benchmark lead from GPT-4.",
       "source": "https://www.anthropic.com/news/claude-3-family",
-      "model": { "context": 200000, "modality": ["text", "vision"], "openWeights": false }
+      "model": {
+        "context": 200000,
+        "modality": [
+          "text",
+          "vision"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "anthropic-claude35",
@@ -262,7 +330,15 @@
       "weight": 3,
       "summary": "The mid-tier model beating the previous flagship, at a fifth of the price. Coding performance made it the default for engineering work.",
       "source": "https://www.anthropic.com/news/claude-3-5-sonnet",
-      "model": { "context": 200000, "modality": ["text", "vision", "code"], "openWeights": false }
+      "model": {
+        "context": 200000,
+        "modality": [
+          "text",
+          "vision",
+          "code"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "anthropic-mcp",
@@ -283,7 +359,15 @@
       "weight": 3,
       "summary": "Opus 4 and Sonnet 4, built for agents that run for hours rather than turns. Claude Code shipped alongside as the reference case.",
       "source": "https://www.anthropic.com/news/claude-4",
-      "model": { "context": 200000, "modality": ["text", "vision", "code"], "openWeights": false }
+      "model": {
+        "context": 200000,
+        "modality": [
+          "text",
+          "vision",
+          "code"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "anthropic-sonnet5",
@@ -294,7 +378,14 @@
       "weight": 3,
       "summary": "Frontier performance in the mid tier — coding, agents and professional work at a price meant for volume rather than demonstrations.",
       "source": "https://www.anthropic.com/news",
-      "model": { "modality": ["text", "vision", "code"], "openWeights": false }
+      "model": {
+        "modality": [
+          "text",
+          "vision",
+          "code"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "anthropic-opus5",
@@ -305,16 +396,22 @@
       "weight": 3,
       "summary": "A step change for the Opus tier, aimed at long-running agents and sustained coding work rather than single answers.",
       "source": "https://www.anthropic.com/news",
-      "model": { "modality": ["text", "vision", "code"], "openWeights": false }
+      "model": {
+        "modality": [
+          "text",
+          "vision",
+          "code"
+        ],
+        "openWeights": false
+      }
     },
-
     {
       "id": "dm-founded",
       "entity": "google-deepmind",
       "date": "2010-09-23",
       "title": "DeepMind founded",
       "kind": "org",
-      "weight": 2,
+      "weight": 1,
       "summary": "Hassabis, Legg and Suleyman set out to 'solve intelligence, and then use it to solve everything else' — a framing the field still argues about.",
       "source": "https://en.wikipedia.org/wiki/Google_DeepMind"
     },
@@ -324,7 +421,7 @@
       "date": "2014-01-26",
       "title": "Google acquires DeepMind",
       "kind": "org",
-      "weight": 2,
+      "weight": 1,
       "summary": "Around $500m, with an internal ethics board as a condition. Put frontier research inside a hyperscaler years before anyone else managed it.",
       "source": "https://en.wikipedia.org/wiki/Google_DeepMind"
     },
@@ -377,7 +474,16 @@
       "weight": 3,
       "summary": "Natively multimodal from pre-training rather than stitched together afterwards, shipped in Nano, Pro and Ultra sizes.",
       "source": "https://blog.google/technology/ai/google-gemini-ai/",
-      "model": { "context": 32000, "modality": ["text", "vision", "audio", "video"], "openWeights": false }
+      "model": {
+        "context": 32000,
+        "modality": [
+          "text",
+          "vision",
+          "audio",
+          "video"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "dm-gemini15",
@@ -388,7 +494,16 @@
       "weight": 3,
       "summary": "A context window an order of magnitude beyond anyone else, which turned 'can it read my whole codebase' from a workaround into a feature.",
       "source": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
-      "model": { "context": 1000000, "modality": ["text", "vision", "audio", "video"], "openWeights": false }
+      "model": {
+        "context": 1000000,
+        "modality": [
+          "text",
+          "vision",
+          "audio",
+          "video"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "dm-gemini25pro",
@@ -399,7 +514,16 @@
       "weight": 3,
       "summary": "Reasoning built into the base model, and the point where Google's frontier offering was consistently competitive rather than catching up.",
       "source": "https://en.wikipedia.org/wiki/Gemini_(language_model)",
-      "model": { "context": 1000000, "modality": ["text", "vision", "audio", "video"], "openWeights": false }
+      "model": {
+        "context": 1000000,
+        "modality": [
+          "text",
+          "vision",
+          "audio",
+          "video"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "dm-gemini3pro",
@@ -410,7 +534,15 @@
       "weight": 3,
       "summary": "The third generation, with Deep Think and Flash variants following within a month — a release cadence closer to weeks than years.",
       "source": "https://en.wikipedia.org/wiki/Gemini_(language_model)",
-      "model": { "modality": ["text", "vision", "audio", "video"], "openWeights": false }
+      "model": {
+        "modality": [
+          "text",
+          "vision",
+          "audio",
+          "video"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "dm-gemini31pro",
@@ -421,16 +553,23 @@
       "weight": 2,
       "summary": "An incremental frontier update, shipped four months after 3 Pro. By this point point releases arrive faster than most teams can evaluate them.",
       "source": "https://en.wikipedia.org/wiki/Gemini_(language_model)",
-      "model": { "modality": ["text", "vision", "audio", "video"], "openWeights": false }
+      "model": {
+        "modality": [
+          "text",
+          "vision",
+          "audio",
+          "video"
+        ],
+        "openWeights": false
+      }
     },
-
     {
       "id": "meta-fair",
       "entity": "meta-ai",
       "date": "2013-12-09",
       "title": "FAIR founded under Yann LeCun",
       "kind": "org",
-      "weight": 2,
+      "weight": 1,
       "summary": "Facebook AI Research set up as an open publishing lab, a commitment that later made the Llama releases consistent rather than surprising.",
       "source": "https://en.wikipedia.org/wiki/Meta_AI"
     },
@@ -453,7 +592,13 @@
       "weight": 3,
       "summary": "Released to researchers, then leaked within a week. The leak seeded the entire local-model ecosystem and forced the open-weights question into the open.",
       "source": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/",
-      "model": { "context": 2048, "modality": ["text"], "openWeights": true }
+      "model": {
+        "context": 2048,
+        "modality": [
+          "text"
+        ],
+        "openWeights": true
+      }
     },
     {
       "id": "meta-llama2",
@@ -464,7 +609,13 @@
       "weight": 3,
       "summary": "Deliberately licensed for commercial use, turning the leak into a strategy. Made open weights a competitive position rather than a concession.",
       "source": "https://ai.meta.com/blog/llama-2/",
-      "model": { "context": 4096, "modality": ["text"], "openWeights": true }
+      "model": {
+        "context": 4096,
+        "modality": [
+          "text"
+        ],
+        "openWeights": true
+      }
     },
     {
       "id": "meta-llama31",
@@ -475,7 +626,13 @@
       "weight": 3,
       "summary": "The first open-weights model credibly compared with closed frontier models, and the strongest form of the argument that the gap was closing.",
       "source": "https://ai.meta.com/blog/meta-llama-3-1/",
-      "model": { "context": 128000, "modality": ["text"], "openWeights": true }
+      "model": {
+        "context": 128000,
+        "modality": [
+          "text"
+        ],
+        "openWeights": true
+      }
     },
     {
       "id": "meta-llama4",
@@ -486,16 +643,21 @@
       "weight": 2,
       "summary": "A natively multimodal mixture-of-experts generation, released into a market where open weights had stopped being unusual.",
       "source": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
-      "model": { "modality": ["text", "vision"], "openWeights": true }
+      "model": {
+        "modality": [
+          "text",
+          "vision"
+        ],
+        "openWeights": true
+      }
     },
-
     {
       "id": "mistral-founded",
       "entity": "mistral",
       "date": "2023-06-13",
       "title": "Mistral founded with a €105m seed",
       "kind": "funding",
-      "weight": 2,
+      "weight": 1,
       "summary": "Ex-DeepMind and ex-Meta researchers raised Europe's largest seed round four weeks after incorporating, on a deck and a track record.",
       "source": "https://en.wikipedia.org/wiki/Mistral_AI"
     },
@@ -508,7 +670,13 @@
       "weight": 3,
       "summary": "Beat Llama 2 13B at half the size, released under Apache 2.0 via a bare magnet link. Made 'small and efficient' a serious position.",
       "source": "https://mistral.ai/news/announcing-mistral-7b/",
-      "model": { "context": 8192, "modality": ["text"], "openWeights": true }
+      "model": {
+        "context": 8192,
+        "modality": [
+          "text"
+        ],
+        "openWeights": true
+      }
     },
     {
       "id": "mistral-mixtral",
@@ -519,7 +687,13 @@
       "weight": 2,
       "summary": "A sparse mixture-of-experts with open weights, matching much larger dense models while only activating a fraction of them per token.",
       "source": "https://mistral.ai/news/mixtral-of-experts/",
-      "model": { "context": 32000, "modality": ["text"], "openWeights": true }
+      "model": {
+        "context": 32000,
+        "modality": [
+          "text"
+        ],
+        "openWeights": true
+      }
     },
     {
       "id": "mistral-large",
@@ -527,12 +701,17 @@
       "date": "2024-02-26",
       "title": "Mistral Large and the Microsoft deal",
       "kind": "model",
-      "weight": 2,
+      "weight": 1,
       "summary": "A closed flagship alongside the open models, distributed on Azure — the point where Europe's open-source champion took a hyperscaler partner.",
       "source": "https://mistral.ai/news/mistral-large/",
-      "model": { "context": 32000, "modality": ["text"], "openWeights": false }
+      "model": {
+        "context": 32000,
+        "modality": [
+          "text"
+        ],
+        "openWeights": false
+      }
     },
-
     {
       "id": "xai-founded",
       "entity": "xai",
@@ -552,7 +731,13 @@
       "weight": 2,
       "summary": "Announced with live access to X as its distinguishing feature — real-time data as the moat rather than raw capability.",
       "source": "https://en.wikipedia.org/wiki/Grok_(chatbot)",
-      "model": { "context": 8192, "modality": ["text"], "openWeights": false }
+      "model": {
+        "context": 8192,
+        "modality": [
+          "text"
+        ],
+        "openWeights": false
+      }
     },
     {
       "id": "xai-grok1-open",
@@ -560,10 +745,15 @@
       "date": "2024-03-17",
       "title": "Grok-1 weights released",
       "kind": "model",
-      "weight": 2,
+      "weight": 1,
       "summary": "A 314-billion-parameter mixture-of-experts published under Apache 2.0, the largest open-weights release at the time.",
       "source": "https://en.wikipedia.org/wiki/Grok_(chatbot)",
-      "model": { "modality": ["text"], "openWeights": true }
+      "model": {
+        "modality": [
+          "text"
+        ],
+        "openWeights": true
+      }
     },
     {
       "id": "xai-grok3",
@@ -574,9 +764,14 @@
       "weight": 2,
       "summary": "Trained on the Colossus cluster xAI built in Memphis in months rather than years — the clearest demonstration that compute could be bought as speed.",
       "source": "https://en.wikipedia.org/wiki/Grok_(chatbot)",
-      "model": { "modality": ["text", "vision"], "openWeights": false }
+      "model": {
+        "modality": [
+          "text",
+          "vision"
+        ],
+        "openWeights": false
+      }
     },
-
     {
       "id": "nvidia-cuda",
       "entity": "nvidia",
@@ -613,7 +808,7 @@
       "date": "2023-05-30",
       "title": "Nvidia passes $1tn",
       "kind": "funding",
-      "weight": 2,
+      "weight": 1,
       "summary": "Six months after ChatGPT, the market repriced the supplier rather than the labs — the first hard financial read on where the value was accruing.",
       "source": "https://en.wikipedia.org/wiki/Nvidia"
     },
@@ -627,7 +822,6 @@
       "summary": "The generation after Hopper, announced with the datacentre treated as the unit of design rather than the chip.",
       "source": "https://en.wikipedia.org/wiki/Blackwell_(microarchitecture)"
     },
-
     {
       "id": "hf-transformers",
       "entity": "hugging-face",
@@ -644,7 +838,7 @@
       "date": "2020-09-01",
       "title": "The Model Hub",
       "kind": "product",
-      "weight": 2,
+      "weight": 1,
       "summary": "Hosting for weights and datasets with versioning, which made distributing an open model a push rather than a project.",
       "source": "https://en.wikipedia.org/wiki/Hugging_Face"
     },
@@ -654,10 +848,15 @@
       "date": "2022-07-12",
       "title": "BLOOM",
       "kind": "model",
-      "weight": 2,
+      "weight": 1,
       "summary": "A 176-billion-parameter multilingual model trained in the open by a thousand researchers, on public French supercomputing time.",
       "source": "https://en.wikipedia.org/wiki/BLOOM_(language_model)",
-      "model": { "modality": ["text"], "openWeights": true }
+      "model": {
+        "modality": [
+          "text"
+        ],
+        "openWeights": true
+      }
     },
     {
       "id": "hf-series-d",
@@ -665,7 +864,7 @@
       "date": "2023-08-24",
       "title": "$235m at a $4.5bn valuation",
       "kind": "funding",
-      "weight": 2,
+      "weight": 1,
       "summary": "Google, Amazon, Nvidia and Salesforce all invested in the same round — the commons funded by everyone competing on top of it.",
       "source": "https://en.wikipedia.org/wiki/Hugging_Face"
     }

@@ -1,6 +1,5 @@
 import TimelineGrid from "@/components/TimelineGrid";
 import ThemeToggle from "@/components/ThemeToggle";
-import Legend from "@/components/Legend";
 import { loadCategory, CATEGORY_IDS, DEFAULT_CATEGORY } from "@/lib/timeline";
 
 export default function Home() {
@@ -11,16 +10,16 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <header className="px-4 pb-8 pt-10 md:px-8 md:pt-14">
+      <header className="px-4 pb-5 pt-8 md:px-8 md:pt-10">
         <div className="flex items-start justify-between gap-6">
           <div className="max-w-2xl">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--color-accent)]">
               {span}
             </p>
-            <h1 className="mt-3 text-3xl font-medium tracking-tight text-[var(--color-ink)] md:text-5xl">
+            <h1 className="mt-2 text-3xl font-medium tracking-tight text-[var(--color-ink)] md:text-4xl">
               {category.title}
             </h1>
-            <p className="mt-4 text-balance leading-relaxed text-[var(--color-ink-muted)] md:text-lg">
+            <p className="mt-3 text-balance leading-relaxed text-[var(--color-ink-muted)]">
               {category.description}
             </p>
           </div>
@@ -36,13 +35,11 @@ export default function Home() {
           </nav>
         )}
 
-        <div className="mt-8">
-          <Legend entities={category.entities} />
-        </div>
-
-        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-[var(--color-ink-faint)]">
-          Read across a row to see what happened in the same quarter. Every entry
-          links to a primary source — select one for the detail.
+        {/* No legend: every organisation names itself at the head of its own
+            row, so a colour key would only repeat what the grid already says. */}
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--color-ink-faint)]">
+          Read down a column to see what happened in the same quarter. Select any
+          entry for the detail and its source.
         </p>
       </header>
 

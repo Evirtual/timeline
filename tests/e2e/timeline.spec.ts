@@ -66,22 +66,51 @@ test("the page never scrolls sideways, only the grid does", async ({ page }) => 
   expect(scrollable).toBe(true);
 });
 
-test("the date axis survives horizontal scrolling", async ({ page }) => {
+test("organisation labels stay put while time scrolls under them", async ({ page }) => {
   await page.goto("/");
-  const axis = page.getByText("2023", { exact: true }).first();
-  await axis.scrollIntoViewIfNeeded();
-  const before = await axis.boundingBox();
+  const label = page.getByText("OpenAI", { exact: true }).last();
+  const before = await label.boundingBox();
 
   await page.evaluate(() => {
     const region = document.querySelector(".scroll-region");
-    if (region) region.scrollLeft = 600;
+    if (region) region.scrollLeft = 0;
+  });
+  await page.evaluate(() => {
+    const region = document.querySelector(".scroll-region");
+    if (region) region.scrollLeft = 900;
   });
 
-  const after = await axis.boundingBox();
+  const after = await label.boundingBox();
   expect(before).not.toBeNull();
   expect(after).not.toBeNull();
-  // Sticky: the axis holds its x position while the columns move under it.
+  // Sticky: the label column holds its x while the quarters move beneath it.
   expect(Math.abs((after?.x ?? 0) - (before?.x ?? 0))).toBeLessThan(4);
+});
+
+test("every organisation is on screen at once, which is the point", async ({ page }) => {
+  await page.goto("/");
+  const viewport = page.viewportSize();
+  const names = ["OpenAI", "Anthropic", "Google DeepMind", "Meta AI", "Mistral AI", "xAI", "Nvidia", "Hugging Face"];
+  for (const name of names) {
+    const box = await page.getByText(name, { exact: true }).last().boundingBox();
+    expect(box, `${name} has no box`).not.toBeNull();
+    // Within the horizontal viewport without scrolling sideways.
+    expect(box!.x).toBeLessThan(viewport!.width);
+  }
+});
+
+test("opens scrolled to the most recent events", async ({ page }) => {
+  await page.goto("/");
+  // Polled: the grid settles a frame after mount, so a single read can race it.
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const region = document.querySelector(".scroll-region");
+        if (!region) return false;
+        return region.scrollLeft + region.clientWidth >= region.scrollWidth - 4;
+      }),
+    )
+    .toBe(true);
 });
 
 test("theme toggle switches and persists across reload", async ({ page }) => {
