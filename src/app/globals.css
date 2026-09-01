@@ -11,8 +11,8 @@
   /* The pinned column edge. Deliberately stronger than --color-border-strong:
      sharing that token made it read as one more year separator rather than the
      boundary of a fixed pane. */
-  --color-divider: #474e54;
-  --shadow-sticky: rgba(0, 0, 0, 0.72);
+  --color-divider: #5f676f;
+  --shadow-sticky: rgba(0, 0, 0, 0.42);
   --color-bg: #0a0b0c;
   --color-bg-raised: #101214;
   --color-border: #1f2224;
@@ -25,8 +25,8 @@
 }
 
 :root[data-theme="light"] {
-  --color-divider: #a7abb0;
-  --shadow-sticky: rgba(0, 0, 0, 0.22);
+  --color-divider: #9aa0a7;
+  --shadow-sticky: rgba(0, 0, 0, 0.12);
   --color-bg: #ffffff;
   --color-bg-raised: #f6f6f7;
   --color-border: #e8e8ea;
@@ -40,8 +40,8 @@
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --color-divider: #a7abb0;
-    --shadow-sticky: rgba(0, 0, 0, 0.22);
+    --color-divider: #9aa0a7;
+    --shadow-sticky: rgba(0, 0, 0, 0.12);
     --color-bg: #ffffff;
     --color-bg-raised: #f6f6f7;
     --color-border: #e8e8ea;
@@ -138,7 +138,10 @@ body {
 }
 
 .sticky-label {
-  border-right: 1px solid var(--color-divider);
+  /* Two pixels, not one. With the shadow pulled back to a hint, the line is
+     what actually separates the organisations from their timeline, so it has
+     to hold that job on its own. */
+  border-right: 2px solid var(--color-divider);
 }
 
 /* A gradient on the right edge rather than a box-shadow. A shadow blurs in
