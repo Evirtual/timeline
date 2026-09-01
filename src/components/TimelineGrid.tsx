@@ -279,10 +279,6 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
         </div>
       </div>
 
-      <p className="px-4 pt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-ink-faint)] md:px-8">
-        Drag or scroll to move through time · ctrl + scroll to zoom · ··· is a skipped stretch where nothing happened
-      </p>
-
       <EventDialog
         event={selected}
         entity={
