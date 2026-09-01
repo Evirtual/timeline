@@ -1,4 +1,22 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
+
+/**
+ * The grid scrolls itself to the present one frame after mount. Any test that
+ * positions the scroll must let that settle first, or it sets a value the
+ * component immediately overwrites — which is exactly what made the drag test
+ * flake in CI and pass locally.
+ */
+async function settled(page: Page) {
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const region = document.querySelector(".scroll-region");
+        if (!region) return false;
+        return region.scrollLeft + region.clientWidth >= region.scrollWidth - 4;
+      }),
+    )
+    .toBe(true);
+}
 
 // The grid is the product, so these cover the ways it could break silently:
 // losing its sticky headers, overflowing the page sideways on a phone, or
@@ -54,8 +72,11 @@ test("detail level changes how many events are shown", async ({ page }) => {
 
 test("the page never scrolls sideways, only the grid does", async ({ page }) => {
   await page.goto("/");
+  await settled(page);
+  // Two pixels of slack: sub-pixel layout at a device pixel ratio above 1 can
+  // report a scrollWidth a fraction wider without anything actually spilling.
   const overflows = await page.evaluate(
-    () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+    () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 2,
   );
   expect(overflows).toBe(false);
 
@@ -141,6 +162,7 @@ test("a plain vertical wheel moves through time", async ({ page }) => {
 
   // From the middle: the view opens pinned to the present, where scrolling
   // forward has nowhere to go and the handler correctly defers to the page.
+  await settled(page);
   await page.evaluate(() => {
     const region = document.querySelector(".scroll-region")!;
     region.scrollLeft = region.scrollWidth / 2;
@@ -210,6 +232,7 @@ test("dragging the grid pans it", async ({ page, isMobile }) => {
     page.evaluate(() => document.querySelector(".scroll-region")!.scrollLeft);
 
   // Pinned to the present on load, so there is no room to drag further.
+  await settled(page);
   await page.evaluate(() => {
     document.querySelector(".scroll-region")!.scrollLeft = 0;
   });
