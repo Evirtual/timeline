@@ -31,7 +31,8 @@ test("loads with no console errors", async ({ page }) => {
   expect(errors).toEqual([]);
 });
 
-test("renders a column per organisation and events inside them", async ({ page }) => {
+test("renders a column per organisation and events inside them", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "the race grid is desktop only; mobile gets the single-organisation view");
   await page.goto("/");
   for (const name of ["OpenAI", "Anthropic", "Google DeepMind", "Nvidia"]) {
     await expect(page.getByText(name, { exact: true }).first()).toBeVisible();
@@ -56,7 +57,8 @@ test("opens an event, shows its source, and closes on Escape", async ({ page }) 
   await expect(dialog).toBeHidden();
 });
 
-test("detail level changes how many events are shown", async ({ page }) => {
+test("detail level changes how many events are shown", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "the race grid is desktop only; mobile gets the single-organisation view");
   await page.goto("/");
   const count = async () => page.locator("[data-event]").count();
 
@@ -70,9 +72,9 @@ test("detail level changes how many events are shown", async ({ page }) => {
   expect(key).toBeGreaterThan(0);
 });
 
-test("the page never scrolls sideways, only the grid does", async ({ page }) => {
+test("the page never scrolls sideways, only the grid does", async ({ page, isMobile }) => {
   await page.goto("/");
-  await settled(page);
+  if (!isMobile) await settled(page);
   // Two pixels of slack: sub-pixel layout at a device pixel ratio above 1 can
   // report a scrollWidth a fraction wider without anything actually spilling.
   const overflows = await page.evaluate(
@@ -80,14 +82,18 @@ test("the page never scrolls sideways, only the grid does", async ({ page }) => 
   );
   expect(overflows).toBe(false);
 
-  const scrollable = await page.evaluate(() => {
-    const region = document.querySelector(".scroll-region");
-    return region ? region.scrollWidth > region.clientWidth : false;
-  });
+  // Something on the page must be the thing that scrolls sideways — the grid on
+  // desktop, the organisation picker on a phone — but never the page itself.
+  const scrollable = await page.evaluate(() =>
+    [...document.querySelectorAll(".scroll-region")].some(
+      (region) => region.scrollWidth > region.clientWidth,
+    ),
+  );
   expect(scrollable).toBe(true);
 });
 
-test("organisation labels stay put while time scrolls under them", async ({ page }) => {
+test("organisation labels stay put while time scrolls under them", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "the race grid is desktop only; mobile gets the single-organisation view");
   await page.goto("/");
   const label = page.getByText("OpenAI", { exact: true }).last();
   const before = await label.boundingBox();
@@ -108,7 +114,8 @@ test("organisation labels stay put while time scrolls under them", async ({ page
   expect(Math.abs((after?.x ?? 0) - (before?.x ?? 0))).toBeLessThan(4);
 });
 
-test("every organisation is on screen at once, which is the point", async ({ page }) => {
+test("every organisation is on screen at once, which is the point", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "the race grid is desktop only; mobile gets the single-organisation view");
   await page.goto("/");
   const viewport = page.viewportSize();
   const names = ["OpenAI", "Anthropic", "Google DeepMind", "Meta AI", "Mistral AI", "xAI", "Nvidia", "Hugging Face"];
@@ -120,7 +127,8 @@ test("every organisation is on screen at once, which is the point", async ({ pag
   }
 });
 
-test("opens scrolled to the most recent events", async ({ page }) => {
+test("opens scrolled to the most recent events", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "the race grid is desktop only; mobile gets the single-organisation view");
   await page.goto("/");
   // Polled: the grid settles a frame after mount, so a single read can race it.
   await expect
@@ -155,7 +163,8 @@ test("theme toggle switches and persists across reload", async ({ page }) => {
 // The point of these: a horizontal region that only responds to its scrollbar
 // is unusable with a mouse, and that is easy to regress without noticing.
 
-test("a plain vertical wheel moves through time", async ({ page }) => {
+test("a plain vertical wheel moves through time", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "the race grid is desktop only; mobile gets the single-organisation view");
   await page.goto("/");
   const scrollLeft = () =>
     page.evaluate(() => document.querySelector(".scroll-region")!.scrollLeft);
@@ -179,7 +188,8 @@ test("a plain vertical wheel moves through time", async ({ page }) => {
   await expect.poll(scrollLeft).toBeGreaterThan(before);
 });
 
-test("ctrl and wheel zooms the time axis", async ({ page }) => {
+test("ctrl and wheel zooms the time axis", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "the race grid is desktop only; mobile gets the single-organisation view");
   await page.goto("/");
   const columnWidth = () =>
     page.evaluate(
@@ -197,7 +207,8 @@ test("ctrl and wheel zooms the time axis", async ({ page }) => {
   await expect.poll(columnWidth).toBeGreaterThan(before);
 });
 
-test("the zoom buttons work and clamp at the ends", async ({ page }) => {
+test("the zoom buttons work and clamp at the ends", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "the race grid is desktop only; mobile gets the single-organisation view");
   await page.goto("/");
   const columnWidth = () =>
     page.evaluate(
@@ -246,4 +257,46 @@ test("dragging the grid pans it", async ({ page, isMobile }) => {
   await page.mouse.up();
 
   await expect.poll(scrollLeft).toBeGreaterThan(before);
+});
+
+// Below md the race grid is replaced by one organisation at a time, because
+// eight columns of quarters on a 360px screen make the comparison it exists
+// for impossible. These cover that view on its own terms.
+
+test.describe("the phone view", () => {
+  test.beforeEach(async ({ isMobile }) => {
+    test.skip(!isMobile, "desktop shows the race grid instead");
+  });
+
+  test("offers every organisation and starts on the first", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("tab")).toHaveCount(8);
+    await expect(page.getByRole("tab", { name: /OpenAI/ })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
+  });
+
+  test("switching organisation changes the events shown", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator('[data-event="openai-chatgpt"]')).toHaveCount(1);
+
+    await page.getByRole("tab", { name: /Anthropic/ }).click();
+    await expect(page.locator('[data-event="openai-chatgpt"]')).toHaveCount(0);
+    await expect(page.locator('[data-event="anthropic-claude3"]')).toHaveCount(1);
+  });
+
+  test("lists newest first", async ({ page }) => {
+    await page.goto("/");
+    const ids = await page.locator("[data-event]").evaluateAll((els) =>
+      els.map((el) => (el as HTMLElement).dataset.event),
+    );
+    // GPT-5 (2025) must come before ChatGPT (2022).
+    expect(ids.indexOf("openai-gpt5")).toBeLessThan(ids.indexOf("openai-chatgpt"));
+  });
+
+  test("shows the summary inline rather than hiding it behind a tap", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByText(/reached a hundred million users/)).toBeVisible();
+  });
 });

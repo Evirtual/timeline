@@ -4,7 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { TimelineCategory, TimelineEvent } from "@/lib/schema";
 import { buildRows, quarterOf, quarterRange } from "@/lib/timeline";
 import { useTimelineControls, ZOOM_MAX, ZOOM_MIN } from "@/lib/useTimelineControls";
+import { useIsNarrow } from "@/lib/useIsNarrow";
 import EventDialog from "./EventDialog";
+import MobileTimeline from "./MobileTimeline";
 
 const KIND_LABEL: Record<TimelineEvent["kind"], string> = {
   model: "Model",
@@ -31,6 +33,7 @@ const DETAIL_LEVELS = [
  * rows, all of them stay visible and only time scrolls.
  */
 export default function TimelineGrid({ category }: { category: TimelineCategory }) {
+  const narrow = useIsNarrow();
   const [minWeight, setMinWeight] = useState<number>(2);
   const [selected, setSelected] = useState<TimelineEvent | null>(null);
   const scroller = useRef<HTMLDivElement>(null);
@@ -86,7 +89,13 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
     return () => cancelAnimationFrame(id);
   }, [columns]);
 
-  const template = `var(--label) repeat(${columns.length}, ${zoom}px)`;
+  // Below md the race grid cannot show enough columns to compare anything, so
+  // the phone gets a view built for the question it can actually answer.
+  if (narrow) return <MobileTimeline category={category} />;
+
+  const template = `var(--label) ${columns
+    .map((c) => (c.type === "gap" ? "var(--gapcol)" : `${zoom}px`))
+    .join(" ")}`;
 
   return (
     <>
@@ -94,7 +103,7 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-ink-faint)]">
           {visible.length} events
         </p>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center justify-end gap-2">
           <div className="flex items-center gap-1 rounded-full border border-[var(--color-border)] p-1">
             <button
               type="button"
@@ -165,9 +174,15 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
                 return (
                   <div
                     key={`gap-${column.from.key}`}
-                    className="border-b border-[var(--color-border-strong)] px-1 pb-2 pt-2 text-center"
+                    title={`${column.quarters} quarters with nothing in them, skipped`}
+                    className="gap-break border-b border-[var(--color-border-strong)] pb-2 pt-2 text-center"
                   >
-                    <span className="font-mono text-[10px] text-[var(--color-ink-faint)]">···</span>
+                    <span className="block font-mono text-[10px] leading-tight text-[var(--color-ink-faint)]">
+                      ···
+                      <span className="mt-0.5 block">
+                        {Math.max(1, Math.round(column.quarters / 4))}y
+                      </span>
+                    </span>
                   </div>
                 );
               }
@@ -214,15 +229,9 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
 
               {columns.map((column) => {
                 if (column.type === "gap") {
-                  return (
-                    <div
-                      key={`gap-${column.from.key}`}
-                      className="flex items-center justify-center py-3"
-                      title={`${column.quarters} quarters with nothing`}
-                    >
-                      <span className="h-px w-full bg-[var(--color-border)]" />
-                    </div>
-                  );
+                  // No content, and no line either: the break is drawn on the
+                  // column itself, once, rather than repeated in every row.
+                  return <div key={`gap-${column.from.key}`} className="gap-break py-3" />;
                 }
                 const events = cells.get(column.quarter.key)?.get(entity.id) ?? [];
                 const isYearStart = column.quarter.q === 1;
@@ -271,7 +280,7 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
       </div>
 
       <p className="px-4 pt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-ink-faint)] md:px-8">
-        Drag or scroll to move through time · ctrl + scroll to zoom · ··· marks a stretch with nothing in it
+        Drag or scroll to move through time · ctrl + scroll to zoom · ··· is a skipped stretch where nothing happened
       </p>
 
       <EventDialog

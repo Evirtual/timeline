@@ -1,4 +1,5 @@
 import TimelineGrid from "@/components/TimelineGrid";
+import Guide from "@/components/Guide";
 import ThemeToggle from "@/components/ThemeToggle";
 import { loadCategory, CATEGORY_IDS, DEFAULT_CATEGORY } from "@/lib/timeline";
 
@@ -38,10 +39,18 @@ export default function Home() {
         {/* No legend: every organisation names itself at the head of its own
             row, so a colour key would only repeat what the grid already says. */}
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--color-ink-faint)]">
-          Read down a column to see what happened in the same quarter. Select any
-          entry for the detail and its source.
+          <span className="hidden md:inline">
+            Every organisation is a row and time runs left to right, so a column
+            is one quarter — read down it to see who was shipping at the same
+            moment.
+          </span>
+          <span className="md:hidden">
+            Pick an organisation to read its history, newest first.
+          </span>
         </p>
       </header>
+
+      <Guide />
 
       <TimelineGrid category={category} />
 
