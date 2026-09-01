@@ -86,7 +86,11 @@ writeFileSync(
     .map((line) => line.trim())
     .filter(Boolean)
     .join("\n  ")
-    .replace("\n  </svg>", "\n</svg>") + "\n",
+    .replace("\n  </svg>", "\n</svg>")
+    // Cropped to the ink. As an icon the mark needs breathing room inside its
+    // plate, but as a logo on a card it has to fill its box or it reads as
+    // smaller than every other logo beside it.
+    .replace('viewBox="0 0 64 64"', 'viewBox="6 6 52 52"') + "\n",
 );
 console.log("  mark.svg");
 
