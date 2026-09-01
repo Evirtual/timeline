@@ -110,6 +110,33 @@ body {
 
 /* The pinned organisation column. Without an edge, an event card scrolling
    under it appears to start inside the name, and the two read as one thing. */
+/* The row wash, and the stronger one on its pinned label. Both resolve per
+   theme: a mid-tone brand colour at low opacity reads as neon over near-black
+   only if it is brightened first, and as pastel over white only if it is not. */
+.row-band {
+  background-color: var(--tint-row-dark);
+}
+.row-label {
+  background-color: var(--color-bg);
+  background-image: linear-gradient(var(--tint-label-dark), var(--tint-label-dark));
+}
+
+:root[data-theme="light"] .row-band {
+  background-color: var(--tint-row-light);
+}
+:root[data-theme="light"] .row-label {
+  background-image: linear-gradient(var(--tint-label-light), var(--tint-label-light));
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .row-band {
+    background-color: var(--tint-row-light);
+  }
+  :root:not([data-theme="dark"]) .row-label {
+    background-image: linear-gradient(var(--tint-label-light), var(--tint-label-light));
+  }
+}
+
 .sticky-label {
   border-right: 1px solid var(--color-divider);
 }
