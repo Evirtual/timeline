@@ -99,12 +99,16 @@ body {
   /* A skipped stretch collapses to this, wide enough to read as a deliberate
      break in the axis rather than a missing column. */
   --gapcol: 52px;
+  /* Breathing room either side of the quarters, so the first and last cards do
+     not sit flush against the divider or the viewport edge. */
+  --lead: 14px;
 }
 @media (max-width: 640px) {
   :root {
     --qcol: 132px;
     --label: 112px;
     --gapcol: 32px;
+    --lead: 8px;
   }
 }
 

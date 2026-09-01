@@ -94,9 +94,14 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
   // the phone gets a view built for the question it can actually answer.
   if (narrow) return <MobileTimeline category={category} />;
 
-  const template = `var(--label) ${columns
+  // A gutter either side of the quarters. Without the leading one the first
+  // card sits flush against the divider the moment you scroll to the start,
+  // and the trailing one keeps the last card off the viewport edge. They are
+  // grid tracks rather than padding on the scrolling content, which would
+  // unstick the pinned column.
+  const template = `var(--label) var(--lead) ${columns
     .map((c) => (c.type === "gap" ? "var(--gapcol)" : `${zoom}px`))
-    .join(" ")}`;
+    .join(" ")} var(--lead)`;
 
   return (
     <>
@@ -170,6 +175,7 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
               ref={labelRef}
               className="sticky-label sticky left-0 z-40 border-b border-[var(--color-border-strong)] bg-[var(--color-bg)] pl-4 md:pl-8"
             />
+            <div className="border-b border-[var(--color-border-strong)]" />
             {columns.map((column) => {
               if (column.type === "gap") {
                 return (
@@ -232,6 +238,8 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
                   {entity.name}
                 </span>
               </div>
+
+              <div />
 
               {columns.map((column) => {
                 if (column.type === "gap") {
