@@ -130,3 +130,97 @@ test("theme toggle switches and persists across reload", async ({ page }) => {
   );
   expect(persisted).toBe(after);
 });
+
+// The point of these: a horizontal region that only responds to its scrollbar
+// is unusable with a mouse, and that is easy to regress without noticing.
+
+test("a plain vertical wheel moves through time", async ({ page }) => {
+  await page.goto("/");
+  const scrollLeft = () =>
+    page.evaluate(() => document.querySelector(".scroll-region")!.scrollLeft);
+
+  // From the middle: the view opens pinned to the present, where scrolling
+  // forward has nowhere to go and the handler correctly defers to the page.
+  await page.evaluate(() => {
+    const region = document.querySelector(".scroll-region")!;
+    region.scrollLeft = region.scrollWidth / 2;
+  });
+  const before = await scrollLeft();
+
+  // The region is taller than the viewport, so its centre can sit below the
+  // fold — a wheel dispatched there lands on nothing.
+  const box = await page.locator(".scroll-region").boundingBox();
+  const viewport = page.viewportSize()!;
+  const y = Math.min(box!.y + box!.height / 2, viewport.height - 80);
+  await page.mouse.move(box!.x + box!.width / 2, y);
+  await page.mouse.wheel(0, 400);
+  await expect.poll(scrollLeft).toBeGreaterThan(before);
+});
+
+test("ctrl and wheel zooms the time axis", async ({ page }) => {
+  await page.goto("/");
+  const columnWidth = () =>
+    page.evaluate(
+      () =>
+        document.querySelector<HTMLElement>("[data-event]")!.parentElement!
+          .getBoundingClientRect().width,
+    );
+
+  const before = await columnWidth();
+  await page.locator(".scroll-region").hover();
+  await page.keyboard.down("Control");
+  await page.mouse.wheel(0, -300);
+  await page.keyboard.up("Control");
+
+  await expect.poll(columnWidth).toBeGreaterThan(before);
+});
+
+test("the zoom buttons work and clamp at the ends", async ({ page }) => {
+  await page.goto("/");
+  const columnWidth = () =>
+    page.evaluate(
+      () =>
+        document.querySelector<HTMLElement>("[data-event]")!.parentElement!
+          .getBoundingClientRect().width,
+    );
+
+  const start = await columnWidth();
+  await page.getByRole("button", { name: "Zoom in" }).click();
+  await expect.poll(columnWidth).toBeGreaterThan(start);
+
+  await page.getByRole("button", { name: "Reset zoom" }).click();
+  await expect.poll(columnWidth).toBe(start);
+
+  // Held down to the floor, the control disables rather than going negative.
+  for (let i = 0; i < 12; i++) {
+    const button = page.getByRole("button", { name: "Zoom out" });
+    if (await button.isDisabled()) break;
+    await button.click();
+  }
+  await expect(page.getByRole("button", { name: "Zoom out" })).toBeDisabled();
+  expect(await columnWidth()).toBeGreaterThan(0);
+});
+
+// Mouse drag only: on touch the browser scrolls natively and the hook stays
+// out of the way, which the horizontal-overflow test already covers.
+test("dragging the grid pans it", async ({ page, isMobile }) => {
+  test.skip(!!isMobile, "touch uses native scrolling, not the drag handler");
+  await page.goto("/");
+  const scrollLeft = () =>
+    page.evaluate(() => document.querySelector(".scroll-region")!.scrollLeft);
+
+  // Pinned to the present on load, so there is no room to drag further.
+  await page.evaluate(() => {
+    document.querySelector(".scroll-region")!.scrollLeft = 0;
+  });
+  const before = await scrollLeft();
+
+  const box = await page.locator(".scroll-region").boundingBox();
+  const y = box!.y + box!.height / 2;
+  await page.mouse.move(box!.x + box!.width - 60, y);
+  await page.mouse.down();
+  await page.mouse.move(box!.x + 60, y, { steps: 10 });
+  await page.mouse.up();
+
+  await expect.poll(scrollLeft).toBeGreaterThan(before);
+});

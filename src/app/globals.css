@@ -103,7 +103,11 @@ body {
   overflow: hidden;
 }
 
+/* The scrollbar is a fallback, not the way in: wheel, drag, keys and pinch all
+   pan or zoom the grid. Kept visible and thin so it still signals how much
+   timeline is off-screen. */
 .scroll-region {
+  overscroll-behavior-x: contain;
   scrollbar-width: thin;
   scrollbar-color: var(--color-border-strong) transparent;
 }
