@@ -12,7 +12,7 @@
      sharing that token made it read as one more year separator rather than the
      boundary of a fixed pane. */
   --color-divider: #474e54;
-  --shadow-sticky: rgba(0, 0, 0, 0.9);
+  --shadow-sticky: rgba(0, 0, 0, 0.72);
   --color-bg: #0a0b0c;
   --color-bg-raised: #101214;
   --color-border: #1f2224;
@@ -150,9 +150,18 @@ body {
   top: 0;
   bottom: 0;
   left: 100%;
-  width: 16px;
+  width: 28px;
   pointer-events: none;
-  background: linear-gradient(to right, var(--shadow-sticky), transparent);
+  /* Stepped rather than a straight linear fade. A two-stop gradient falls off
+     evenly, which the eye reads as a hard edge at the start; easing it out over
+     more distance is what makes it look like light rather than a band. */
+  background: linear-gradient(
+    to right,
+    var(--shadow-sticky),
+    color-mix(in srgb, var(--shadow-sticky) 45%, transparent) 32%,
+    color-mix(in srgb, var(--shadow-sticky) 16%, transparent) 62%,
+    transparent
+  );
 }
 
 /* A break in the time axis, the way a chart marks a broken scale. Hatched so

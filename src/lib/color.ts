@@ -38,17 +38,24 @@ function hexToHsl(hex: string): Hsl {
 export function brandTints(hex: string, strength: "row" | "label") {
   const { h, s } = hexToHsl(hex);
 
+  // A saturation floor matters more than the ceiling. Several of these brands
+  // are inherently dull — a grey, an olive, a mustard — and at low alpha over
+  // near-black a dull hue does not read as subtle, it reads as sludge. Lifting
+  // saturation to a minimum keeps every row looking like a colour.
   const neon = (alpha: number) =>
-    `hsl(${h.toFixed(0)} ${Math.min(95, s + 22).toFixed(0)}% 66% / ${alpha})`;
+    `hsl(${h.toFixed(0)} ${Math.max(68, Math.min(95, s + 25)).toFixed(0)}% 72% / ${alpha})`;
   const pastel = (alpha: number) =>
-    `hsl(${h.toFixed(0)} ${Math.max(40, s - 12).toFixed(0)}% 60% / ${alpha})`;
+    `hsl(${h.toFixed(0)} ${Math.max(52, Math.min(82, s - 8)).toFixed(0)}% 62% / ${alpha})`;
 
   // Kept deliberately faint. The band only has to be enough to follow a row
   // across the screen; any stronger and it competes with the cards sitting on
   // it, which are the thing you are actually meant to read.
+  // The label sits only a little above the row rather than at double it. A
+  // strong two-tone row draws the eye to the left edge, when the thing worth
+  // looking at is the events out to the right.
   return strength === "row"
-    ? { dark: neon(0.035), light: pastel(0.055) }
-    : { dark: neon(0.075), light: pastel(0.1) };
+    ? { dark: neon(0.028), light: pastel(0.05) }
+    : { dark: neon(0.042), light: pastel(0.085) };
 }
 
 /** The custom properties a row sets for itself and its pinned label cell. */
