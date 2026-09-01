@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { TimelineCategory, TimelineEvent } from "@/lib/schema";
 import EventDialog from "./EventDialog";
+import { tint } from "@/lib/color";
 
 const KIND_LABEL: Record<TimelineEvent["kind"], string> = {
   model: "Model",
@@ -64,9 +65,10 @@ export default function MobileTimeline({ category }: { category: TimelineCategor
                 role="tab"
                 aria-selected={active}
                 onClick={() => setEntityId(e.id)}
+                style={active ? { backgroundColor: tint(e.color, 0.14) } : undefined}
                 className={`flex shrink-0 items-center gap-2 rounded-full border px-3 py-1.5 text-[13px] transition-colors ${
                   active
-                    ? "border-[var(--color-border-strong)] bg-[var(--color-bg-raised)] text-[var(--color-ink)]"
+                    ? "border-[var(--color-border-strong)] text-[var(--color-ink)]"
                     : "border-[var(--color-border)] text-[var(--color-ink-muted)]"
                 }`}
               >

@@ -5,6 +5,7 @@ import type { TimelineCategory, TimelineEvent } from "@/lib/schema";
 import { buildRows, quarterOf, quarterRange } from "@/lib/timeline";
 import { useTimelineControls, ZOOM_MAX, ZOOM_MIN } from "@/lib/useTimelineControls";
 import { useIsNarrow } from "@/lib/useIsNarrow";
+import { opaqueTint, tint } from "@/lib/color";
 import EventDialog from "./EventDialog";
 import MobileTimeline from "./MobileTimeline";
 
@@ -214,9 +215,19 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
             <div
               key={entity.id}
               className="grid border-b border-[var(--color-border)]"
-              style={{ gridTemplateColumns: template }}
+              style={{
+                gridTemplateColumns: template,
+                // A wash of the organisation own colour, so eight rows read as
+                // eight bands rather than one striped block.
+                backgroundColor: tint(entity.color, 0.05),
+              }}
             >
-              <div className="sticky-label sticky left-0 z-20 flex items-start gap-2 bg-[var(--color-bg)] py-3 pl-4 pr-3 md:pl-8">
+              {/* Stronger tint, painted opaquely: cards scroll under this
+                  cell, so a translucent fill would let them show through. */}
+              <div
+                className="sticky-label sticky left-0 z-20 flex items-start gap-2 py-3 pl-4 pr-3 md:pl-8"
+                style={opaqueTint(entity.color, 0.11)}
+              >
                 <span
                   aria-hidden="true"
                   className="mt-1.5 h-2 w-2 shrink-0 rounded-full"

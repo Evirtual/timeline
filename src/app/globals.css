@@ -112,7 +112,20 @@ body {
    under it appears to start inside the name, and the two read as one thing. */
 .sticky-label {
   border-right: 1px solid var(--color-divider);
-  box-shadow: 10px 0 18px -6px var(--shadow-sticky);
+}
+
+/* A gradient on the right edge rather than a box-shadow. A shadow blurs in
+   every direction, so it haloed above and below the column as well; this falls
+   only where the timeline actually passes underneath. */
+.sticky-label::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 16px;
+  pointer-events: none;
+  background: linear-gradient(to right, var(--shadow-sticky), transparent);
 }
 
 /* A break in the time axis, the way a chart marks a broken scale. Hatched so
