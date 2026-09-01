@@ -228,10 +228,10 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
             >
               {/* Stronger tint, painted opaquely: cards scroll under this
                   cell, so a translucent fill would let them show through. */}
-              <div className="sticky-label row-label sticky left-0 z-20 flex items-start gap-2 py-3 pl-4 pr-3 md:pl-8">
+              <div className="sticky-label row-label sticky left-0 z-20 flex items-center gap-2 py-3 pl-4 pr-3 md:pl-8">
                 <span
                   aria-hidden="true"
-                  className="mt-1.5 h-2 w-2 shrink-0 rounded-full"
+                  className="h-2 w-2 shrink-0 rounded-full"
                   style={{ background: entity.color }}
                 />
                 <span className="text-[13px] font-medium leading-tight text-[var(--color-ink)]">
@@ -252,7 +252,7 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
                 return (
                   <div
                     key={column.quarter.key}
-                    className={`px-1 py-2 ${
+                    className={`flex flex-col justify-center gap-1 px-1 py-2 ${
                       isYearStart ? "border-l border-[var(--color-border-strong)]" : ""
                     }`}
                   >
@@ -263,7 +263,7 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
                         data-event={event.id}
                         onClick={() => setSelected(event)}
                         title={`${event.title} — ${event.summary}`}
-                        className={`mb-1 block w-full rounded border border-[var(--color-border)] bg-[var(--color-bg-raised)] text-left transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-border)] ${
+                        className={`block w-full rounded border border-[var(--color-border)] bg-[var(--color-bg-raised)] text-left transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-border)] ${
                           compact ? "h-3.5" : "px-2 py-1.5"
                         }`}
                         style={{ borderLeft: `2px solid ${entity.color}` }}
