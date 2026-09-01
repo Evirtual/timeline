@@ -167,7 +167,7 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
           >
             <div
               ref={labelRef}
-              className="sticky left-0 z-40 border-b border-[var(--color-border-strong)] bg-[var(--color-bg)] pl-4 md:pl-8"
+              className="sticky-label sticky left-0 z-40 border-b border-[var(--color-border-strong)] bg-[var(--color-bg)] pl-4 md:pl-8"
             />
             {columns.map((column) => {
               if (column.type === "gap") {
@@ -216,7 +216,7 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
               className="grid border-b border-[var(--color-border)]"
               style={{ gridTemplateColumns: template }}
             >
-              <div className="sticky left-0 z-20 flex items-start gap-2 bg-[var(--color-bg)] py-3 pl-4 pr-3 md:pl-8">
+              <div className="sticky-label sticky left-0 z-20 flex items-start gap-2 bg-[var(--color-bg)] py-3 pl-4 pr-3 md:pl-8">
                 <span
                   aria-hidden="true"
                   className="mt-1.5 h-2 w-2 shrink-0 rounded-full"

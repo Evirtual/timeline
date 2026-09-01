@@ -8,6 +8,9 @@
 /* Same tokens as edgarasneverdauskas.com, so this reads as part of the family
    rather than a stray side project. Dark is the default; light is the opt-in. */
 :root {
+  /* Cast to the right of the pinned organisation column, so cards read as
+     passing underneath it rather than merging into the names. */
+  --shadow-sticky: rgba(0, 0, 0, 0.85);
   --color-bg: #0a0b0c;
   --color-bg-raised: #101214;
   --color-border: #1f2224;
@@ -20,6 +23,7 @@
 }
 
 :root[data-theme="light"] {
+  --shadow-sticky: rgba(0, 0, 0, 0.16);
   --color-bg: #ffffff;
   --color-bg-raised: #f6f6f7;
   --color-border: #e8e8ea;
@@ -33,6 +37,7 @@
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
+    --shadow-sticky: rgba(0, 0, 0, 0.16);
     --color-bg: #ffffff;
     --color-bg-raised: #f6f6f7;
     --color-border: #e8e8ea;
@@ -97,6 +102,13 @@ body {
     --label: 112px;
     --gapcol: 32px;
   }
+}
+
+/* The pinned organisation column. Without an edge, an event card scrolling
+   under it appears to start inside the name, and the two read as one thing. */
+.sticky-label {
+  border-right: 1px solid var(--color-border-strong);
+  box-shadow: 6px 0 12px -8px var(--shadow-sticky);
 }
 
 /* A break in the time axis, the way a chart marks a broken scale. Hatched so
