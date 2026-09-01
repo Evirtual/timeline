@@ -1,11 +1,10 @@
-// One-off asset generator: renders the timeline mark via Playwright/Chromium at
-// exact pixel sizes, then writes the favicon, app icons and OG image to
-// /public. Not part of the build — run manually:
+// One-off asset generator: renders the timeline mark through Chromium at exact
+// pixel sizes, then writes the favicon, app icons and OG image to /public.
+// Not part of the build — run manually:
 //
 //   npm run assets
 //
-// Same approach as the portfolio, so the two sites' icons are made the same way
-// and land on a phone home screen looking like siblings.
+// Same approach as the portfolio, so both sites' icons are made the same way.
 import { chromium } from "@playwright/test";
 import pngToIco from "png-to-ico";
 import { writeFileSync, mkdirSync } from "node:fs";
@@ -20,52 +19,77 @@ const BG = "#0a0b0c";
 /**
  * The mark: four bars against a shared axis — the product's own shape, one row
  * per organisation, offset so they read as events at different moments. Colours
- * are taken from the four leading organisations in the dataset.
+ * come from the four leading organisations in the dataset.
+ *
+ * The ink is a 48×48 square inside the 64 viewBox: the axis sets the left edge,
+ * the longest bar the right, and the four rows together span exactly the same
+ * height. A mark whose ink is square sits correctly in a tab, a rounded app
+ * tile and a rectangular card without being re-centred for each one.
  */
-function markSvg(size) {
+function markSvg(size, { plate }) {
   return `
     <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 64 64">
-      <rect width="64" height="64" fill="${BG}"/>
-      <line x1="17" y1="11" x2="17" y2="53" stroke="#3a4045" stroke-width="1.6" stroke-linecap="round"/>
-      <rect x="23" y="14" width="24" height="7" rx="3.5" fill="#5eead4"/>
-      <rect x="23" y="25" width="15" height="7" rx="3.5" fill="#d97757"/>
-      <rect x="23" y="36" width="31" height="7" rx="3.5" fill="#4285f4"/>
-      <rect x="23" y="47" width="11" height="7" rx="3.5" fill="#e0a800"/>
+      ${plate ? `<rect width="64" height="64" fill="${BG}"/>` : ""}
+      <rect x="8" y="8" width="2.5" height="48" rx="1.25" fill="#6c7275"/>
+      <rect x="16" y="8" width="28" height="8" rx="4" fill="#5eead4"/>
+      <rect x="16" y="21.33" width="18" height="8" rx="4" fill="#d97757"/>
+      <rect x="16" y="34.67" width="40" height="8" rx="4" fill="#4285f4"/>
+      <rect x="16" y="48" width="14" height="8" rx="4" fill="#e0a800"/>
     </svg>
   `.trim();
 }
 
 /**
- * Icons are full-bleed on purpose: the background reaches every edge, with no
- * rounding and no transparency. Android treats an icon with transparent corners
- * as a legacy icon and drops it onto a white circle, which is what produces the
- * white ring around an installed app.
+ * `plate: true` fills the square edge to edge, for icons that get installed.
+ * Android treats an icon with transparent corners as a legacy icon and drops it
+ * onto a white circle, which is where the white ring around an installed app
+ * comes from — so home-screen icons must be full-bleed.
+ *
+ * `plate: false` leaves it transparent, which is what a browser tab wants. A
+ * favicon carrying its own dark plate looks like a sticker stuck on the tab
+ * strip, and looks plainly wrong in a light-themed browser.
  */
-async function shoot(page, size, file) {
+async function shoot(page, size, file, { plate }) {
   await page.setViewportSize({ width: size, height: size });
   await page.setContent(
-    `<style>html,body{margin:0;padding:0;background:${BG};}svg{display:block}</style>${markSvg(size)}`,
+    `<style>html,body{margin:0;padding:0;background:${
+      plate ? BG : "transparent"
+    };}svg{display:block}</style>${markSvg(size, { plate })}`,
   );
-  const buffer = await page.screenshot({ omitBackground: false });
+  const buffer = await page.screenshot({ omitBackground: !plate });
   writeFileSync(path.join(publicDir, file), buffer);
-  console.log(`  ${file} (${size}x${size})`);
+  console.log(`  ${file} (${size}px, ${plate ? "plated" : "transparent"})`);
   return buffer;
 }
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ deviceScaleFactor: 1 });
 
-console.log("Icons:");
-const ico32 = await shoot(page, 32, "favicon-32x32.png");
-await shoot(page, 16, "favicon-16x16.png");
-await shoot(page, 180, "apple-touch-icon.png");
-await shoot(page, 192, "android-chrome-192x192.png");
-await shoot(page, 512, "android-chrome-512x512.png");
-
+console.log("Browser icons — transparent, so they sit in any tab strip:");
+const ico32 = await shoot(page, 32, "favicon-32x32.png", { plate: false });
+await shoot(page, 16, "favicon-16x16.png", { plate: false });
 writeFileSync(path.join(publicDir, "favicon.ico"), await pngToIco([ico32]));
 console.log("  favicon.ico");
 
-// Open Graph card: the mark beside the title, on the site's own background.
+console.log("Installed app icons — full-bleed, so no white ring:");
+await shoot(page, 180, "apple-touch-icon.png", { plate: true });
+await shoot(page, 192, "android-chrome-192x192.png", { plate: true });
+await shoot(page, 512, "android-chrome-512x512.png", { plate: true });
+
+// The in-app and portfolio logo, as a file rather than a render.
+writeFileSync(
+  path.join(publicDir, "mark.svg"),
+  // Reflowed: the template is indented for readability inside this file, and
+  // that indentation has no business ending up in the committed asset.
+  markSvg(64, { plate: false })
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .join("\n  ")
+    .replace("\n  </svg>", "\n</svg>") + "\n",
+);
+console.log("  mark.svg");
+
 console.log("Open Graph:");
 await page.setViewportSize({ width: 1200, height: 630 });
 await page.setContent(`
@@ -79,7 +103,7 @@ await page.setContent(`
     .meta{font-family:ui-monospace,monospace;font-size:20px;letter-spacing:0.16em;
           text-transform:uppercase;color:#5eead4;margin:0;}
   </style>
-  <div style="flex:0 0 260px">${markSvg(260)}</div>
+  <div style="flex:0 0 240px">${markSvg(240, { plate: false })}</div>
   <div>
     <p class="meta">2007 — 2026</p>
     <div class="rule"></div>
