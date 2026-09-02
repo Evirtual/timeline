@@ -42,9 +42,16 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
   const { zoom, zoomAt, resetZoom } = useTimelineControls(scroller, () =>
     labelRef.current ? labelRef.current.getBoundingClientRect().width : 0,
   );
-  // Below this a title cannot fit, so cards become bars and lean on the tooltip
-  // and the dialog instead of truncating into noise.
-  const compact = zoom < 108;
+  // The title scales with the column rather than switching off. Hiding it
+  // below a threshold left rows of blank boxes with nothing to read at all —
+  // text too small to read comfortably is still recognisably text, and still
+  // says what sort of thing sits there and roughly how much of it. The 0.08
+  // holds 12px at the default zoom, so nothing changes at or above it; only
+  // the way down is different.
+  const titlePx = Math.min(12, Math.max(4.5, zoom * 0.08));
+  // Under about 8px a second line reads as a smudge rather than a word, so the
+  // title drops to one line and the padding tightens to give it that room.
+  const dense = titlePx < 8;
 
   const visible = useMemo(
     () => category.events.filter((e) => e.weight >= minWeight),
@@ -252,9 +259,9 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
                 return (
                   <div
                     key={column.quarter.key}
-                    className={`flex flex-col justify-center gap-1 px-2 py-2 ${
-                      isYearStart ? "border-l border-[var(--color-border-strong)]" : ""
-                    }`}
+                    className={`flex flex-col justify-center ${
+                      dense ? "gap-0.5 px-1 py-1" : "gap-1 px-2 py-2"
+                    } ${isYearStart ? "border-l border-[var(--color-border-strong)]" : ""}`}
                   >
                     {events.map((event) => (
                       <button
@@ -263,26 +270,44 @@ export default function TimelineGrid({ category }: { category: TimelineCategory 
                         data-event={event.id}
                         onClick={() => setSelected(event)}
                         title={`${event.title} — ${event.summary}`}
-                        className={`block w-full rounded border border-[var(--color-border)] bg-[var(--color-bg-raised)] text-left transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-border)] ${
-                          compact ? "h-3.5" : "px-2 py-1.5"
-                        }`}
-                        style={{ borderLeft: `2px solid ${entity.color}` }}
+                        className="block w-full overflow-hidden rounded border border-[var(--color-border)] bg-[var(--color-bg-raised)] text-left transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-border)]"
+                        style={{
+                          borderLeft: `2px solid ${entity.color}`,
+                          padding: dense ? "1px 3px" : "6px 8px",
+                          // A floor, so a card stays a thing you can see and hit
+                          // even where its one line of text is 5px tall.
+                          minHeight: dense ? "12px" : undefined,
+                        }}
                       >
-                        {compact ? (
-                          <span className="sr-only">{event.title}</span>
-                        ) : (
-                          <span className="flex items-start justify-between gap-1">
-                            <span className="line-clamp-2 text-[12px] font-medium leading-snug text-[var(--color-ink)]">
-                              {event.title}
-                            </span>
-                            {event.weight === 3 && (
-                              <span
-                                aria-hidden="true"
-                                className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
-                              />
-                            )}
+                        <span className="flex items-start justify-between gap-1">
+                          <span
+                            className="font-medium text-[var(--color-ink)]"
+                            style={{
+                              fontSize: `${titlePx}px`,
+                              lineHeight: 1.25,
+                              display: "-webkit-box",
+                              WebkitLineClamp: dense ? 1 : 2,
+                              WebkitBoxOrient: "vertical",
+                              overflow: "hidden",
+                            }}
+                          >
+                            {event.title}
                           </span>
-                        )}
+                          {/* Shrinks rather than disappears: the guide teaches
+                              this dot as the landmark marker, so a zoom level
+                              that drops it quietly withdraws the legend. */}
+                          {event.weight === 3 && (
+                            <span
+                              aria-hidden="true"
+                              className="shrink-0 rounded-full bg-[var(--color-accent)]"
+                              style={{
+                                width: dense ? 3 : 6,
+                                height: dense ? 3 : 6,
+                                marginTop: dense ? 1 : 4,
+                              }}
+                            />
+                          )}
+                        </span>
                       </button>
                     ))}
                   </div>

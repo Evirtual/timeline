@@ -234,6 +234,43 @@ test("the zoom buttons work and clamp at the ends", async ({ page, isMobile }) =
   expect(await columnWidth()).toBeGreaterThan(0);
 });
 
+test("zooming right out shrinks the event titles rather than hiding them", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(!!isMobile, "the race grid is desktop only; mobile gets the single-organisation view");
+  await page.goto("/");
+
+  const title = page.locator("[data-event] span span").first();
+  const size = () =>
+    title.evaluate((el) => ({
+      font: parseFloat(getComputedStyle(el).fontSize),
+      box: el.getBoundingClientRect().height,
+      text: (el.textContent ?? "").trim(),
+    }));
+
+  const wide = await size();
+  expect(wide.font).toBe(12);
+
+  // All the way to the floor.
+  for (let i = 0; i < 12; i++) {
+    const button = page.getByRole("button", { name: "Zoom out" });
+    if (await button.isDisabled()) break;
+    await button.click();
+  }
+
+  const narrow = await size();
+  // The regression this guards: the title used to be swapped for a
+  // screen-reader-only span below a zoom threshold, leaving rows of blank
+  // boxes. Small is the intent; absent is the bug, so the assertions are that
+  // it shrank AND that it is still laid out with its text intact.
+  expect(narrow.font).toBeLessThan(wide.font);
+  expect(narrow.font).toBeGreaterThan(0);
+  expect(narrow.box).toBeGreaterThan(0);
+  expect(narrow.text).toBe(wide.text);
+  await expect(title).toBeVisible();
+});
+
 // Mouse drag only: on touch the browser scrolls natively and the hook stays
 // out of the way, which the horizontal-overflow test already covers.
 test("dragging the grid pans it", async ({ page, isMobile }) => {
