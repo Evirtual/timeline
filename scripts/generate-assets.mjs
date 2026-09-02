@@ -16,6 +16,19 @@ mkdirSync(publicDir, { recursive: true });
 
 const BG = "#0a0b0c";
 
+// The mark's ink spans 48 of the 64 viewBox.
+const INK = 48 / 64;
+
+// How much of the icon the ink should occupy, per use.
+//
+// Android crops a "maskable" icon to a squircle and guarantees only the centre
+// 80% survives — a mark running corner to corner loses its corners. These are
+// the same ratios the portfolio settled on, so the two apps sit on a home
+// screen at matching visual weight.
+const FAVICON_GLYPH = 0.86; // no mask, so it can breathe
+const APPLE_GLYPH = 0.74; // iOS rounds the corners but does not crop hard
+const MASKABLE_GLYPH = 0.64; // survives any mask shape Android applies
+
 /**
  * The mark: four bars against a shared axis — the product's own shape, one row
  * per organisation, offset so they read as events at different moments. Colours
@@ -26,15 +39,18 @@ const BG = "#0a0b0c";
  * height. A mark whose ink is square sits correctly in a tab, a rounded app
  * tile and a rectangular card without being re-centred for each one.
  */
-function markSvg(size, { plate }) {
+function markSvg(size, { plate, glyph = INK }) {
+  const scale = glyph / INK;
   return `
     <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 64 64">
       ${plate ? `<rect width="64" height="64" fill="${BG}"/>` : ""}
-      <rect x="8" y="8" width="2.5" height="48" rx="1.25" fill="#6c7275"/>
-      <rect x="16" y="8" width="28" height="8" rx="4" fill="#5eead4"/>
-      <rect x="16" y="21.33" width="18" height="8" rx="4" fill="#d97757"/>
-      <rect x="16" y="34.67" width="40" height="8" rx="4" fill="#4285f4"/>
-      <rect x="16" y="48" width="14" height="8" rx="4" fill="#e0a800"/>
+      <g transform="translate(32 32) scale(${scale.toFixed(4)}) translate(-32 -32)">
+        <rect x="8" y="8" width="2.5" height="48" rx="1.25" fill="#6c7275"/>
+        <rect x="16" y="8" width="28" height="8" rx="4" fill="#5eead4"/>
+        <rect x="16" y="21.33" width="18" height="8" rx="4" fill="#d97757"/>
+        <rect x="16" y="34.67" width="40" height="8" rx="4" fill="#4285f4"/>
+        <rect x="16" y="48" width="14" height="8" rx="4" fill="#e0a800"/>
+      </g>
     </svg>
   `.trim();
 }
@@ -49,12 +65,12 @@ function markSvg(size, { plate }) {
  * favicon carrying its own dark plate looks like a sticker stuck on the tab
  * strip, and looks plainly wrong in a light-themed browser.
  */
-async function shoot(page, size, file, { plate }) {
+async function shoot(page, size, file, { plate, glyph }) {
   await page.setViewportSize({ width: size, height: size });
   await page.setContent(
     `<style>html,body{margin:0;padding:0;background:${
       plate ? BG : "transparent"
-    };}svg{display:block}</style>${markSvg(size, { plate })}`,
+    };}svg{display:block}</style>${markSvg(size, { plate, glyph })}`,
   );
   const buffer = await page.screenshot({ omitBackground: !plate });
   writeFileSync(path.join(publicDir, file), buffer);
@@ -66,15 +82,24 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ deviceScaleFactor: 1 });
 
 console.log("Browser icons — transparent, so they sit in any tab strip:");
-const ico32 = await shoot(page, 32, "favicon-32x32.png", { plate: false });
-await shoot(page, 16, "favicon-16x16.png", { plate: false });
+const ico32 = await shoot(page, 32, "favicon-32x32.png", {
+  plate: false,
+  glyph: FAVICON_GLYPH,
+});
+await shoot(page, 16, "favicon-16x16.png", { plate: false, glyph: FAVICON_GLYPH });
 writeFileSync(path.join(publicDir, "favicon.ico"), await pngToIco([ico32]));
 console.log("  favicon.ico");
 
 console.log("Installed app icons — full-bleed, so no white ring:");
-await shoot(page, 180, "apple-touch-icon.png", { plate: true });
-await shoot(page, 192, "android-chrome-192x192.png", { plate: true });
-await shoot(page, 512, "android-chrome-512x512.png", { plate: true });
+await shoot(page, 180, "apple-touch-icon.png", { plate: true, glyph: APPLE_GLYPH });
+await shoot(page, 192, "android-chrome-192x192.png", {
+  plate: true,
+  glyph: MASKABLE_GLYPH,
+});
+await shoot(page, 512, "android-chrome-512x512.png", {
+  plate: true,
+  glyph: MASKABLE_GLYPH,
+});
 
 // The in-app and portfolio logo, as a file rather than a render.
 writeFileSync(
@@ -82,6 +107,8 @@ writeFileSync(
   // Reflowed: the template is indented for readability inside this file, and
   // that indentation has no business ending up in the committed asset.
   markSvg(64, { plate: false })
+    .replace(/\n\s*<g transform[^>]*>/, "")
+    .replace(/\n\s*<\/g>/, "")
     .split("\n")
     .map((line) => line.trim())
     .filter(Boolean)
