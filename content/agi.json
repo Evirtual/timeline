@@ -211,11 +211,11 @@
     },
     {
       "id": "gpt-3-learns-tasks-from-the-prompt",
-      "date": "2020-06-11",
-      "display": "Jun 2020",
+      "date": "2020-05-28",
+      "display": "May 2020",
       "title": "GPT-3 learns tasks from the prompt",
       "kind": "release",
-      "summary": "At 175B parameters it performs new tasks from a few examples, with no retraining. The first serious evidence that generality might fall out of scale rather than design.",
+      "summary": "\"Language Models are Few-Shot Learners\": at 175B parameters it performs new tasks from a handful of examples in the prompt, with no retraining. The first serious evidence that generality might fall out of scale rather than design. The API followed in June.",
       "sources": [
         {
           "label": "Brown et al., arXiv",
@@ -243,7 +243,7 @@
       "display": "Nov 30, 2022",
       "title": "ChatGPT launches",
       "kind": "release",
-      "summary": "A chat interface on top of GPT-3.5 reaches 100 million users in two months. The capability was mostly two years old; putting it behind a text box is what made the question public.",
+      "summary": "A chat interface on top of GPT-3.5. Nothing underneath it was new — the few-shot behaviour had been published two and a half years earlier — and that is the point: no threshold was crossed here, but the question stopped being a research one and became a public one. Adoption figures from this period are all third-party estimates, so this entry does not quote any.",
       "counter": "since ChatGPT shipped",
       "sources": [
         {
@@ -258,7 +258,7 @@
       "display": "Mar 2023",
       "title": "\"Top 10% on the bar exam\"",
       "kind": "claim",
-      "summary": "OpenAI reports GPT-4 passing a simulated bar exam in the 90th percentile, and the figure travels everywhere. A later re-analysis finds the percentile was against repeat takers who had already failed; against first-time takers it is closer to the 68th.",
+      "summary": "OpenAI reports GPT-4 passing a simulated bar exam in the 90th percentile, and the figure travels everywhere. A later re-analysis finds that percentile was benchmarked against February repeat takers who had already failed once. Measured against July data it falls below the 69th percentile, to roughly the 62nd against first-time takers, and to about the 48th against those who actually passed — with essays weakest of all.",
       "sources": [
         {
           "label": "OpenAI",
@@ -276,7 +276,7 @@
       "display": "Jul 2024",
       "title": "OpenAI's five levels of AGI, leaked",
       "kind": "claim",
-      "summary": "An internal framework ranks progress from Chatbots through Reasoners, Agents, Innovators, to Organizations — the ladder this page borrows. Note that the company grading the exam also wrote it.",
+      "summary": "Bloomberg reports a framework OpenAI put to an all-hands, ranking progress from Chatbots through Reasoners, Agents, Innovators, to Organizations — the ladder this view borrows. Two things worth holding onto: the company grading the exam also wrote it, and at the time it told staff it was still on level one, on the cusp of two.",
       "sources": [
         {
           "label": "Bloomberg",
@@ -304,7 +304,7 @@
       "display": "Jan 2025",
       "title": "DeepSeek R1 rattles markets",
       "kind": "breakthrough",
-      "summary": "An open-weight reasoning model close to the frontier, released nearly free, wipes hundreds of billions off AI-linked stocks in a day. Frontier capability turns out not to be scarce, which changes who the arrival question is about.",
+      "summary": "An open-weight reasoning model close to the frontier, released nearly free. A week later the market reads what it means: on 27 January, Nvidia falls about 17% and loses roughly $593bn of market value in a day — the largest single-day loss in Wall Street history at the time. Frontier capability turns out not to be scarce, which changes who the arrival question is even about.",
       "sources": [
         {
           "label": "DeepSeek-AI, arXiv",

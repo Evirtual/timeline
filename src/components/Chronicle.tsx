@@ -33,7 +33,18 @@ export default function Chronicle({ data }: { data: ChronicleData }) {
   const [now] = useState(() => new Date());
   const thisYear = now.getFullYear();
 
-  const groups = useMemo(() => groupByEra(data), [data]);
+  // Newest first. The data is stored oldest-first because that is the order it
+  // is reasoned about and validated in, but the thing a reader arrives wanting
+  // is what just happened — and on this view the newest entry is the live claim
+  // the whole page is arguing with. Reading back into the winters from there is
+  // the right direction of travel.
+  const groups = useMemo(
+    () =>
+      groupByEra(data)
+        .reverse()
+        .map((g) => ({ ...g, milestones: [...g.milestones].reverse() })),
+    [data],
+  );
   const bins = useMemo(() => computeBins(data, thisYear), [data, thisYear]);
   const fastest = useMemo(() => openIsFastest(bins), [bins]);
   const counters = useMemo(() => data.milestones.filter((m) => m.counter), [data]);
@@ -77,7 +88,9 @@ export default function Chronicle({ data }: { data: ChronicleData }) {
           <MilestoneHistogram bins={bins} openIsFastest={fastest} onPick={jumpTo} />
         </div>
 
-        <div className="mt-8 max-w-3xl">
+        {/* Full measure, matching the chart above and the cards below. It was
+            narrower, which made the three read as unrelated blocks. */}
+        <div className="mt-8">
           <CapabilityGauge />
         </div>
       </div>

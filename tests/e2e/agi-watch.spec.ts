@@ -33,8 +33,13 @@ test("shows every milestone, with its era and a working source link", async ({ p
   await expect(page.getByRole("heading", { name: "Foundations" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "“The AGI Era”" })).toBeVisible();
 
-  // The claim that the whole view is built around, and its citation.
-  const astra = page.locator("article").last();
+  // Newest era leads, oldest closes.
+  const eras = await page.locator("main section h2").allInnerTexts();
+  expect(eras[0]).toBe("“The AGI Era”");
+  expect(eras[eras.length - 1]).toBe("Foundations");
+
+  // The view reads newest first, so the claim it is built around leads.
+  const astra = page.locator("article").first();
   await expect(astra.getByRole("link", { name: "OpenAI" })).toHaveAttribute(
     "href",
     /openai\.com/,

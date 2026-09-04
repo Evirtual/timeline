@@ -17,8 +17,21 @@ export const metadata: Metadata = {
     siteName: "Timeline",
     title: "AGI Watch — are we getting there?",
     description,
+    images: [
+      {
+        url: "/og-agi-watch.png",
+        width: 1200,
+        height: 630,
+        alt: "AGI Watch — milestones per half-decade, flat for fifty years then rising",
+      },
+    ],
   },
-  twitter: { card: "summary_large_image", title: "AGI Watch — are we getting there?", description },
+  twitter: {
+    card: "summary_large_image",
+    title: "AGI Watch — are we getting there?",
+    description,
+    images: ["/og-agi-watch.png"],
+  },
 };
 
 export default function AgiWatchPage() {
@@ -27,6 +40,8 @@ export default function AgiWatchPage() {
 
   return (
     <div className="min-h-screen">
+      {/* The masthead keeps the race view's exact gutter and type, so switching
+          between the two does not make the title jump. */}
       <header className="px-4 pb-2 pt-8 md:px-8 md:pt-10">
         <div className="flex items-start justify-between gap-6">
           <div className="max-w-2xl">
@@ -56,9 +71,16 @@ export default function AgiWatchPage() {
         </div>
       </header>
 
-      <Chronicle data={data} />
+      {/* Everything from the chart down shares one measure. The race grid is
+          full-bleed because it wants every pixel; this is a document, and a
+          chart, a panel and a card that each stop at a different point read as
+          three unrelated things. Anchored to the same gutter as the masthead
+          rather than centred, so nothing shifts against the header above it. */}
+      <div className="w-full max-w-[960px]">
+        <Chronicle data={data} />
+      </div>
 
-      <footer className="mt-10 border-t border-[var(--color-border)] px-4 py-8 md:px-8">
+      <footer className="mt-10 max-w-[960px] border-t border-[var(--color-border)] px-4 py-8 md:px-8">
         <p className="max-w-[70ch] text-sm leading-relaxed text-[var(--color-ink-faint)]">
           A curated, opinionated set of milestones — not an exhaustive history.
           &ldquo;AGI&rdquo; itself is contested; every entry marked as a claim is
