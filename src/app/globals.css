@@ -218,3 +218,53 @@ body {
   outline-offset: 2px;
   border-radius: 3px;
 }
+
+/* --------------------------------------------------------------------------
+   The chronicle view (AGI Watch).
+
+   Four milestone kinds, and amber belongs to `claim` alone. It is the loudest
+   colour in the set and it is spent entirely on the thing that view is
+   skeptical of — an assertion that a threshold was crossed. Teal stays the
+   site accent and is not reused here, so the two views never argue about what
+   the accent means.
+
+   Dark first, matching the rest of the site; light is the opt-in. -------- */
+:root {
+  --kind-breakthrough: #60a5fa;
+  --kind-release: #fb923c;
+  --kind-setback: #34d399;
+  --kind-claim: #fbbf24;
+  --kind-critical: #f87171;
+  --kind-critical-ink: #ffd9d9;
+}
+
+:root[data-theme="light"] {
+  --kind-breakthrough: #2563eb;
+  --kind-release: #c2410c;
+  --kind-setback: #047857;
+  --kind-claim: #b45309;
+  --kind-critical: #dc2626;
+  --kind-critical-ink: #7f1d1d;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --kind-breakthrough: #2563eb;
+    --kind-release: #c2410c;
+    --kind-setback: #047857;
+    --kind-claim: #b45309;
+    --kind-critical: #dc2626;
+    --kind-critical-ink: #7f1d1d;
+  }
+}
+
+/* The half-decade we are standing in is unfinished, so its bar is short for a
+   reason that has nothing to do with the pace. The dashed outline carries the
+   current rate out to a full five years, rather than letting the chart imply a
+   slowdown that is not in the data. */
+.bin-ghost {
+  border: 1px dashed var(--kind-claim);
+  border-bottom: none;
+  border-radius: 2px 2px 0 0;
+  opacity: 0.55;
+}

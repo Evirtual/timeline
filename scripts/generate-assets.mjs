@@ -7,12 +7,16 @@
 // Same approach as the portfolio, so both sites' icons are made the same way.
 import { chromium } from "@playwright/test";
 import pngToIco from "png-to-ico";
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 const publicDir = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "public");
 mkdirSync(publicDir, { recursive: true });
+
+const agi = JSON.parse(
+  readFileSync(new URL("../content/agi.json", import.meta.url), "utf8"),
+);
 
 const BG = "#0a0b0c";
 
@@ -121,6 +125,60 @@ writeFileSync(
 );
 console.log("  mark.svg");
 
+/**
+ * The chronicle's own shape: milestones per half-decade, drawn from the real
+ * dataset so the card cannot drift from the page it advertises. A flat century
+ * and then a curve is the entire argument of that view, which makes it a better
+ * cover than the site mark — and it tells the two OG cards apart at a glance in
+ * a feed, which is the job.
+ *
+ * The open half-decade is amber and carries the same dashed pro-rata outline
+ * the page draws, for the same reason: it is short because it is unfinished.
+ */
+function histogramSvg(width, height) {
+  const counts = new Map();
+  for (const m of agi.milestones) {
+    const start = Math.floor(Number(m.date.slice(0, 4)) / 5) * 5;
+    counts.set(start, (counts.get(start) ?? 0) + 1);
+  }
+  const thisYear = Math.max(...agi.milestones.map((m) => Number(m.date.slice(0, 4))));
+  const openStart = Math.floor(thisYear / 5) * 5;
+
+  const bars = [];
+  for (let s = 1950; s <= openStart; s += 5) bars.push({ s, count: counts.get(s) ?? 0 });
+
+  const open = bars.find((b) => b.s === openStart);
+  const yearsIn = thisYear - openStart + 1;
+  const projected = (open.count / yearsIn) * 5;
+  const max = Math.max(...bars.map((b) => b.count), projected);
+
+  const gap = 4;
+  const w = (width - gap * (bars.length - 1)) / bars.length;
+
+  const rects = bars
+    .map((b, i) => {
+      const x = i * (w + gap);
+      const h = Math.max(3, (b.count / max) * height);
+      const isOpen = b.s === openStart;
+      const ghostH = isOpen ? ((projected - b.count) / max) * height : 0;
+      const ghost = isOpen
+        ? `<rect x="${x.toFixed(1)}" y="${(height - h - ghostH).toFixed(1)}" width="${w.toFixed(
+            1,
+          )}" height="${ghostH.toFixed(
+            1,
+          )}" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.55"/>`
+        : "";
+      return `${ghost}<rect x="${x.toFixed(1)}" y="${(height - h).toFixed(1)}" width="${w.toFixed(
+        1,
+      )}" height="${h.toFixed(1)}" rx="2" fill="${
+        isOpen ? "#fbbf24" : "#6c7275"
+      }" ${isOpen ? "" : 'opacity="0.5"'}/>`;
+    })
+    .join("");
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${rects}</svg>`;
+}
+
 console.log("Open Graph:");
 await page.setViewportSize({ width: 1200, height: 630 });
 await page.setContent(`
@@ -144,6 +202,39 @@ await page.setContent(`
 `);
 writeFileSync(path.join(publicDir, "og-image.png"), await page.screenshot());
 console.log("  og-image.png (1200x630)");
+
+// The chronicle's card. Amber where the race card is teal, and the histogram
+// where the race card puts the mark, so the two are never mistaken for each
+// other in a feed.
+await page.setContent(`
+  <style>
+    html,body{margin:0;height:100%;background:${BG};}
+    body{display:flex;flex-direction:column;justify-content:center;padding:0 96px;
+         font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#f2f2f0;}
+    h1{font-size:74px;font-weight:500;letter-spacing:-0.02em;margin:0 0 18px;}
+    p{font-size:32px;line-height:1.4;color:#a7abae;margin:0;max-width:34ch;}
+    .rule{height:1px;background:#1f2224;margin:26px 0;}
+    /* Both of these are <p>, so they inherit the 34ch measure meant for the
+       standfirst — which wraps the date and bunches the axis labels. */
+    .meta{font-family:ui-monospace,monospace;font-size:20px;letter-spacing:0.16em;
+          text-transform:uppercase;color:#fbbf24;margin:0;max-width:none;
+          white-space:nowrap;}
+    .chart{margin-top:44px;}
+    .axis{font-family:ui-monospace,monospace;font-size:16px;letter-spacing:0.12em;
+          color:#5c6165;margin:10px 0 0;display:flex;justify-content:space-between;
+          width:1008px;max-width:none;}
+  </style>
+  <div>
+    <p class="meta">Instrument log · 1950 — ${new Date().getFullYear()}</p>
+    <div class="rule"></div>
+    <h1>AGI Watch</h1>
+    <p>Seventy-six years of the same promise. Are we getting there?</p>
+    <div class="chart">${histogramSvg(1008, 132)}</div>
+    <p class="axis"><span>1950</span><span>now</span></p>
+  </div>
+`);
+writeFileSync(path.join(publicDir, "og-agi-watch.png"), await page.screenshot());
+console.log("  og-agi-watch.png (1200x630)");
 
 await browser.close();
 console.log("Done.");

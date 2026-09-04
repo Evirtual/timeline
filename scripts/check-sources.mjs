@@ -7,12 +7,27 @@
 // should not fail a build. Run it after adding a batch of events.
 import { readFile } from "node:fs/promises";
 
-const raw = JSON.parse(
-  await readFile(new URL("../content/ai.json", import.meta.url), "utf8"),
-);
-const urls = [...new Set(raw.events.map((e) => e.source))];
+const load = async (name) =>
+  JSON.parse(await readFile(new URL(`../content/${name}`, import.meta.url), "utf8"));
 
-console.log(`Checking ${urls.length} sources from ${raw.events.length} events...\n`);
+const ai = await load("ai.json");
+const agi = await load("agi.json");
+
+// Both datasets, one list. The race grid has one source per event; the
+// chronicle has an array, because a contested figure should cite the claim and
+// the correction together.
+const tagged = new Map();
+const add = (url, where) => {
+  if (!tagged.has(url)) tagged.set(url, new Set());
+  tagged.get(url).add(where);
+};
+for (const e of ai.events) add(e.source, `ai:${e.id}`);
+for (const m of agi.milestones) for (const s of m.sources) add(s.url, `agi:${m.id}`);
+
+const urls = [...tagged.keys()];
+console.log(
+  `Checking ${urls.length} sources — ${ai.events.length} race events, ${agi.milestones.length} chronicle milestones...\n`,
+);
 
 // Sequential with a small pause. Firing fifty parallel requests gets you
 // rate-limited by Wikipedia and tells you nothing about whether the links work.
@@ -38,13 +53,34 @@ for (const url of urls) {
   await sleep(120);
 }
 
+// A 401/403/429 is a bot wall answering, not a missing page — ACM, Oxford
+// Academic and most news publishers refuse any script on principle. Reporting
+// those as failures trains everyone to ignore this script, so they get their
+// own bucket: visible every run, but they do not fail it. Only a 404/410, a
+// 5xx or a connection error means the citation is actually gone.
+const isWall = (r) => [401, 403, 429].includes(r.status);
+const walls = results.filter(isWall);
+const broken = results.filter((r) => !r.ok && !isWall(r));
+
 for (const r of [...results].sort((a, b) => a.status - b.status)) {
-  console.log(`${String(r.status).padEnd(4)} ${r.url}`);
+  const mark = r.ok ? "ok  " : isWall(r) ? "wall" : "FAIL";
+  console.log(`${mark} ${String(r.status).padEnd(4)} ${r.url}`);
 }
 
-const broken = results.filter((r) => !r.ok);
+console.log(
+  `\n${urls.length} sources: ${results.length - walls.length - broken.length} verified, ` +
+    `${walls.length} behind a bot wall, ${broken.length} broken.`,
+);
+
+if (walls.length > 0) {
+  console.log("\nBehind a wall — cannot be confirmed by machine, check by hand if in doubt:");
+  for (const r of walls) console.log(`  · ${r.url}`);
+}
+
 if (broken.length > 0) {
-  console.error(`\n${broken.length} source(s) did not resolve.`);
+  console.error("\nBroken:");
+  for (const r of broken) {
+    console.error(`  · ${[...tagged.get(r.url)].join(", ")} — ${r.url}`);
+  }
   process.exit(1);
 }
-console.log(`\nAll ${urls.length} sources resolve.`);
