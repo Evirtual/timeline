@@ -1,0 +1,359 @@
+{
+  "id": "agi",
+  "title": "AGI Watch",
+  "description": "Seventy-six years of a field promising the same destination. Not a release log: only the moments that changed the answer to whether we are getting there.",
+  "eras": [
+    {
+      "from": "1950",
+      "before": "1974",
+      "name": "Foundations",
+      "note": "The question gets asked, the field gets a name, and the first schedule is set."
+    },
+    {
+      "from": "1974",
+      "before": "1997",
+      "name": "Winters & Expert Systems",
+      "note": "Two boom-bust cycles teach the field to be embarrassed about its own predictions."
+    },
+    {
+      "from": "1997",
+      "before": "2012",
+      "name": "Quiet Machine Learning",
+      "note": "No “AI” branding, just statistics and search beating humans one narrow game at a time."
+    },
+    {
+      "from": "2012",
+      "before": "2020",
+      "name": "The Deep Learning Turn",
+      "note": "Learned representations beat hand-written ones, and the estimates for what is decades away start coming back badly wrong."
+    },
+    {
+      "from": "2020",
+      "before": "2023",
+      "name": "Language Models Go Mainstream",
+      "note": "Generality starts falling out of scale rather than design — and then a chat window puts the question in everyone’s hands."
+    },
+    {
+      "from": "2023",
+      "before": "2024",
+      "name": "The Gold Rush",
+      "note": "Every major lab ships a frontier model within months of the others, and exam scores become the currency of the claim. Those scores turn out to need reading carefully."
+    },
+    {
+      "from": "2024",
+      "before": "2025",
+      "name": "Reasoning Arrives",
+      "note": "Capability starts coming from time spent thinking, not only from training scale — and the first “levels of AGI” framework leaks."
+    },
+    {
+      "from": "2025",
+      "before": "2026",
+      "name": "The Acceleration",
+      "note": "Frontier capability stops being scarce. An open-weight model reaches it and is given away, which changes who the arrival question is even about."
+    },
+    {
+      "from": "2026",
+      "before": "2027",
+      "name": "“The AGI Era”",
+      "note": "The industry starts saying the word out loud, on the record — while flagging its own model as a security risk."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "turing-asks-can-machines-think",
+      "date": "1950-10",
+      "display": "Oct 1950",
+      "title": "Turing asks \"can machines think?\"",
+      "kind": "breakthrough",
+      "summary": "The Imitation Game paper proposes a behavioral test for machine intelligence, before the field even has a name. Every argument on this page is downstream of it.",
+      "sources": [
+        {
+          "label": "Turing, Mind LIX(236)",
+          "url": "https://doi.org/10.1093/mind/LIX.236.433"
+        }
+      ]
+    },
+    {
+      "id": "dartmouth-workshop-names-the-field",
+      "date": "1956-06-18",
+      "display": "Summer 1956",
+      "title": "Dartmouth Workshop names the field",
+      "kind": "breakthrough",
+      "summary": "McCarthy, Minsky, Shannon and colleagues coin \"artificial intelligence\" — and propose that ten people could make significant progress on language and abstraction in a single summer. The first schedule, and the first one missed.",
+      "counter": "since Dartmouth named the field",
+      "sources": [
+        {
+          "label": "The 1955 proposal",
+          "url": "http://jmc.stanford.edu/articles/dartmouth.html"
+        }
+      ]
+    },
+    {
+      "id": "eliza-the-first-chatbot",
+      "date": "1966-01",
+      "display": "Jan 1966",
+      "title": "ELIZA, the first chatbot",
+      "kind": "release",
+      "summary": "Joseph Weizenbaum's pattern-matching therapist script convinces some users they're talking to something that understands them. The gap between seeming and being opens here, and never closes.",
+      "sources": [
+        {
+          "label": "Weizenbaum, CACM 9(1)",
+          "url": "https://doi.org/10.1145/365153.365168"
+        }
+      ]
+    },
+    {
+      "id": "first-ai-winter",
+      "date": "1974",
+      "display": "1974–80",
+      "title": "First AI Winter",
+      "kind": "setback",
+      "summary": "Funding collapses after symbolic AI fails to deliver on its promises; the Lighthill report guts UK research money. The field's confidence had been the loudest evidence for its timelines.",
+      "sources": [
+        {
+          "label": "The Lighthill Report, 1973",
+          "url": "https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/contents.htm"
+        }
+      ]
+    },
+    {
+      "id": "xcon-goes-into-production",
+      "date": "1980",
+      "display": "1980",
+      "title": "XCON goes into production",
+      "kind": "release",
+      "summary": "The first commercially successful expert system starts configuring computer orders for Digital Equipment Corp, saving millions — and restarts the argument that general intelligence is a matter of enough hand-written rules.",
+      "sources": [
+        {
+          "label": "McDermott, Artificial Intelligence 19(1)",
+          "url": "https://doi.org/10.1016/0004-3702(82)90021-2"
+        }
+      ]
+    },
+    {
+      "id": "second-ai-winter",
+      "date": "1987",
+      "display": "1987–93",
+      "title": "Second AI Winter",
+      "kind": "setback",
+      "summary": "The market for specialized Lisp machines and expert systems collapses; \"AI\" becomes a word researchers avoid using. Two for two on the promises.",
+      "sources": []
+    },
+    {
+      "id": "deep-blue-beats-kasparov",
+      "date": "1997-05-11",
+      "display": "May 11, 1997",
+      "title": "Deep Blue beats Kasparov",
+      "kind": "breakthrough",
+      "summary": "IBM's chess machine defeats the reigning world champion in a full match. Chess had been the standing proxy for machine intellect; passing it moved the goalposts instead of settling anything.",
+      "sources": [
+        {
+          "label": "IBM",
+          "url": "https://www.ibm.com/history/deep-blue"
+        }
+      ]
+    },
+    {
+      "id": "watson-wins-jeopardy",
+      "date": "2011-02-16",
+      "display": "Feb 16, 2011",
+      "title": "Watson wins Jeopardy!",
+      "kind": "breakthrough",
+      "summary": "IBM's question-answering system beats the show's two greatest champions on live television — the first time a machine handled open-domain language well enough to look general.",
+      "sources": [
+        {
+          "label": "IBM",
+          "url": "https://www.ibm.com/history/watson-jeopardy"
+        }
+      ]
+    },
+    {
+      "id": "alexnet-wins-imagenet",
+      "date": "2012-09-30",
+      "display": "Sep 2012",
+      "title": "AlexNet wins ImageNet",
+      "kind": "breakthrough",
+      "summary": "A deep convolutional network trained on GPUs blows past every prior image-recognition result. Learned representations beat hand-written rules decisively, and the field changes method.",
+      "sources": [
+        {
+          "label": "Krizhevsky, Sutskever & Hinton (CACM reprint)",
+          "url": "https://doi.org/10.1145/3065386"
+        }
+      ]
+    },
+    {
+      "id": "alphago-beats-lee-sedol",
+      "date": "2016-03-15",
+      "display": "Mar 15, 2016",
+      "title": "AlphaGo beats Lee Sedol",
+      "kind": "breakthrough",
+      "summary": "DeepMind's system defeats a top Go champion at a game widely held to be decades from falling. The estimate was not wrong by a little.",
+      "sources": [
+        {
+          "label": "DeepMind",
+          "url": "https://deepmind.google/research/alphago/"
+        }
+      ]
+    },
+    {
+      "id": "gpt-2-held-back-as-too-dangerous",
+      "date": "2019-02-14",
+      "display": "Feb 2019",
+      "title": "GPT-2, held back as \"too dangerous\"",
+      "kind": "claim",
+      "summary": "OpenAI stages the release rather than publishing outright, citing misuse risk. The first time a lab's own capability warning was itself the announcement — a genre this page now tracks closely.",
+      "sources": [
+        {
+          "label": "OpenAI",
+          "url": "https://openai.com/index/better-language-models/"
+        }
+      ]
+    },
+    {
+      "id": "gpt-3-learns-tasks-from-the-prompt",
+      "date": "2020-06-11",
+      "display": "Jun 2020",
+      "title": "GPT-3 learns tasks from the prompt",
+      "kind": "release",
+      "summary": "At 175B parameters it performs new tasks from a few examples, with no retraining. The first serious evidence that generality might fall out of scale rather than design.",
+      "sources": [
+        {
+          "label": "Brown et al., arXiv",
+          "url": "https://arxiv.org/abs/2005.14165"
+        }
+      ]
+    },
+    {
+      "id": "alphafold2-solves-protein-folding",
+      "date": "2020-11-30",
+      "display": "Nov 2020",
+      "title": "AlphaFold2 solves protein folding",
+      "kind": "breakthrough",
+      "summary": "Near-experimental accuracy on a 50-year-old grand challenge in biology — the strongest case on this page that a machine did novel science rather than fast lookup.",
+      "sources": [
+        {
+          "label": "DeepMind",
+          "url": "https://deepmind.google/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology/"
+        }
+      ]
+    },
+    {
+      "id": "chatgpt-launches",
+      "date": "2022-11-30",
+      "display": "Nov 30, 2022",
+      "title": "ChatGPT launches",
+      "kind": "release",
+      "summary": "A chat interface on top of GPT-3.5 reaches 100 million users in two months. The capability was mostly two years old; putting it behind a text box is what made the question public.",
+      "counter": "since ChatGPT shipped",
+      "sources": [
+        {
+          "label": "OpenAI",
+          "url": "https://openai.com/index/chatgpt/"
+        }
+      ]
+    },
+    {
+      "id": "top-10-on-the-bar-exam",
+      "date": "2023-03-14",
+      "display": "Mar 2023",
+      "title": "\"Top 10% on the bar exam\"",
+      "kind": "claim",
+      "summary": "OpenAI reports GPT-4 passing a simulated bar exam in the 90th percentile, and the figure travels everywhere. A later re-analysis finds the percentile was against repeat takers who had already failed; against first-time takers it is closer to the 68th.",
+      "sources": [
+        {
+          "label": "OpenAI",
+          "url": "https://openai.com/index/gpt-4-research/"
+        },
+        {
+          "label": "Martínez, Artificial Intelligence and Law",
+          "url": "https://doi.org/10.1007/s10506-024-09396-9"
+        }
+      ]
+    },
+    {
+      "id": "openai-s-five-levels-of-agi-leaked",
+      "date": "2024-07-11",
+      "display": "Jul 2024",
+      "title": "OpenAI's five levels of AGI, leaked",
+      "kind": "claim",
+      "summary": "An internal framework ranks progress from Chatbots through Reasoners, Agents, Innovators, to Organizations — the ladder this page borrows. Note that the company grading the exam also wrote it.",
+      "sources": [
+        {
+          "label": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2024-07-11/openai-sets-levels-to-track-progress-toward-superintelligent-ai"
+        }
+      ]
+    },
+    {
+      "id": "o1-preview-the-first-reasoner",
+      "date": "2024-09-12",
+      "display": "Sep 2024",
+      "title": "o1-preview, the first \"reasoner\"",
+      "kind": "breakthrough",
+      "summary": "A model that visibly thinks step by step before answering, trading speed for deliberation. Capability starts coming from time spent at inference, not only from training scale — a second axis to grow along.",
+      "sources": [
+        {
+          "label": "OpenAI",
+          "url": "https://openai.com/index/introducing-openai-o1-preview/"
+        }
+      ]
+    },
+    {
+      "id": "deepseek-r1-rattles-markets",
+      "date": "2025-01-20",
+      "display": "Jan 2025",
+      "title": "DeepSeek R1 rattles markets",
+      "kind": "breakthrough",
+      "summary": "An open-weight reasoning model close to the frontier, released nearly free, wipes hundreds of billions off AI-linked stocks in a day. Frontier capability turns out not to be scarce, which changes who the arrival question is about.",
+      "sources": [
+        {
+          "label": "DeepSeek-AI, arXiv",
+          "url": "https://arxiv.org/abs/2501.12948"
+        }
+      ]
+    },
+    {
+      "id": "altman-a-couple-of-years-away",
+      "date": "2026-02",
+      "display": "Feb 2026",
+      "title": "Altman: \"a couple of years away\"",
+      "kind": "claim",
+      "summary": "At the India AI Impact Summit, Sam Altman says the current trajectory may put us a couple of years from early versions of true superintelligence — and that systems have gone from struggling with high-school math to doing research-level mathematics and deriving novel results in theoretical physics. He also dates a threshold: by the end of 2028, more of the world's intellectual capacity inside data centres than outside.",
+      "sources": [
+        {
+          "label": "MediaNama",
+          "url": "https://www.medianama.com/2026/02/223-superintelligence-within-years-sam-altman-meta-ai-scientist-disagrees/"
+        },
+        {
+          "label": "Outlook Business",
+          "url": "https://www.outlookbusiness.com/news/by-2028-more-of-the-worlds-intellectual-capacity-could-reside-in-data-centres-than-outside-says-sam-altman"
+        }
+      ]
+    },
+    {
+      "id": "gpt-6-astra-welcome-to-the-agi-era",
+      "date": "2026-09-03",
+      "display": "Sep 3, 2026",
+      "title": "GPT-6 “Astra”: “Welcome to the AGI era”",
+      "kind": "claim",
+      "summary": "President Greg Brockman ends a closed press briefing with the line, and every headline takes it as a declaration. Pressed on whether Astra actually is AGI, the on-record answer is two hedges deep: that it is “not unreasonable to feel” we are now in that era, and that calling this the first such model is “reasonable” if you want to. The gap between the sign-off and the answer is the entry. Astra is also the first model OpenAI has flagged at a “critical” cybersecurity risk threshold.",
+      "now": true,
+      "critical": true,
+      "counter": "since OpenAI said “the AGI era” out loud",
+      "sources": [
+        {
+          "label": "OpenAI",
+          "url": "https://openai.com/index/gpt-6-astra/"
+        },
+        {
+          "label": "Axios",
+          "url": "https://www.axios.com/2026/09/03/openai-astra-gpt-6-agi-brockman"
+        },
+        {
+          "label": "The New Stack",
+          "url": "https://thenewstack.io/openai-gpt6-astra-benchmarks/"
+        }
+      ]
+    }
+  ]
+}

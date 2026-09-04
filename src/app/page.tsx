@@ -1,6 +1,7 @@
 import TimelineGrid from "@/components/TimelineGrid";
 import Guide from "@/components/Guide";
 import ThemeToggle from "@/components/ThemeToggle";
+import ViewSwitcher from "@/components/ViewSwitcher";
 import { loadCategory, CATEGORY_IDS, DEFAULT_CATEGORY } from "@/lib/timeline";
 
 export default function Home() {
@@ -29,12 +30,15 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Only when there is somewhere to switch to. One tab is not a tab. */}
-        {CATEGORY_IDS.length > 1 && (
-          <nav aria-label="Timelines" className="mt-6">
-            {/* Category switcher renders here once a second dataset exists. */}
-          </nav>
-        )}
+        {/* Two views over the same subject, so there is somewhere to switch to
+            even while there is still only one dataset in the grid. */}
+        <div className="mt-6">
+          <ViewSwitcher current="race" />
+        </div>
+
+        {/* The category switcher is a separate question — it appears here once
+            a second dataset exists for the grid itself. */}
+        {CATEGORY_IDS.length > 1 && <nav aria-label="Timelines" className="mt-3" />}
 
         {/* No legend: every organisation names itself at the head of its own
             row, so a colour key would only repeat what the grid already says. */}
