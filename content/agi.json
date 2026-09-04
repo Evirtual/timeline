@@ -258,7 +258,7 @@
       "display": "Mar 2023",
       "title": "\"Top 10% on the bar exam\"",
       "kind": "claim",
-      "summary": "OpenAI reports GPT-4 passing a simulated bar exam in the 90th percentile, and the figure travels everywhere. A later re-analysis finds that percentile was benchmarked against February repeat takers who had already failed once. Measured against July data it falls below the 69th percentile, to roughly the 62nd against first-time takers, and to about the 48th against those who actually passed — with essays weakest of all.",
+      "summary": "OpenAI reports GPT-4 passing a simulated bar exam in the 90th percentile, and the figure travels everywhere. A later re-analysis finds that percentile was benchmarked against February repeat takers who had already failed once. Measured against July data it falls below the 69th percentile, to roughly the 62nd against first-time takers, and to roughly the mid-40s among people who actually passed — with essays weakest of all.",
       "sources": [
         {
           "label": "OpenAI",
@@ -336,7 +336,7 @@
       "display": "Sep 3, 2026",
       "title": "GPT-6 “Astra”: “Welcome to the AGI era”",
       "kind": "claim",
-      "summary": "President Greg Brockman ends a closed press briefing with the line, and every headline takes it as a declaration. Pressed on whether Astra actually is AGI, the on-record answer is two hedges deep: that it is “not unreasonable to feel” we are now in that era, and that calling this the first such model is “reasonable” if you want to. The gap between the sign-off and the answer is the entry. Astra is also the first model OpenAI has flagged at a “critical” cybersecurity risk threshold.",
+      "summary": "President Greg Brockman ends a press briefing with the line. Pressed on whether Astra actually is AGI, he calls the term a “gray, fuzzy thing,” says it is “not unreasonable to feel” we are now in that era, and leaves readers to decide. The gap between the sign-off and the answer is the entry. Astra is also the first model OpenAI has flagged at a “critical” cybersecurity risk threshold.",
       "now": true,
       "critical": true,
       "counter": "since OpenAI said “the AGI era” out loud",

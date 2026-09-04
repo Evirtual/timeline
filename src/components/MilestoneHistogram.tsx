@@ -40,7 +40,7 @@ export default function MilestoneHistogram({
           const ghostPct = b.open ? Math.max(0, ((b.projected - b.count) / max) * 100) : 0;
 
           const title = b.open
-            ? `${b.start}–${b.start + 4}: ${b.count} so far, ${b.yearsIn} of 5 years in — running at ${(
+            ? `${b.start}–${b.start + 4}: ${b.count} so far, ${b.yearsIn.toFixed(1)} of 5 years elapsed — running at ${(
                 b.count / b.yearsIn
               ).toFixed(1)}/yr${
                 openIsFastest ? ", the fastest stretch on this chart" : ""

@@ -65,19 +65,24 @@ export type Bin = {
  * because it is unfinished, not because the pace dropped, and a bar chart that
  * does not say so implies a slowdown that is not in the data.
  */
-export function bins(c: Chronicle, thisYear: number): Bin[] {
+export function bins(c: Chronicle, now: Date): Bin[] {
   const counts = new Map<number, number>();
   for (const m of c.milestones) {
     const start = Math.floor(yearOf(m.date) / 5) * 5;
     counts.set(start, (counts.get(start) ?? 0) + 1);
   }
 
+  const thisYear = now.getFullYear();
   const openStart = Math.floor(thisYear / 5) * 5;
+  const openYearsElapsed = Math.max(
+    (now.getTime() - Date.UTC(openStart, 0, 1)) / (365.25 * 86_400_000),
+    1 / 365.25,
+  );
   const out: Bin[] = [];
   for (let start = 1950; start <= openStart; start += 5) {
     const count = counts.get(start) ?? 0;
     const open = start === openStart;
-    const yearsIn = open ? thisYear - start + 1 : 5;
+    const yearsIn = open ? openYearsElapsed : 5;
     out.push({ start, count, open, yearsIn, projected: (count / yearsIn) * 5 });
   }
   return out;

@@ -45,7 +45,7 @@ export default function Chronicle({ data }: { data: ChronicleData }) {
         .map((g) => ({ ...g, milestones: [...g.milestones].reverse() })),
     [data],
   );
-  const bins = useMemo(() => computeBins(data, thisYear), [data, thisYear]);
+  const bins = useMemo(() => computeBins(data, now), [data, now]);
   const fastest = useMemo(() => openIsFastest(bins), [bins]);
   const counters = useMemo(() => data.milestones.filter((m) => m.counter), [data]);
 

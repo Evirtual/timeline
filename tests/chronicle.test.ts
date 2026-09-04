@@ -103,7 +103,7 @@ describe("era grouping", () => {
 
 describe("histogram bins", () => {
   it("covers 1950 to the open half-decade in steps of five", () => {
-    const b = bins(data, 2026);
+    const b = bins(data, new Date("2026-09-04T00:00:00Z"));
     expect(b[0].start).toBe(1950);
     expect(b[b.length - 1].start).toBe(2025);
     expect(b[b.length - 1].open).toBe(true);
@@ -111,19 +111,19 @@ describe("histogram bins", () => {
   });
 
   it("counts every milestone exactly once", () => {
-    const b = bins(data, 2026);
+    const b = bins(data, new Date("2026-09-04T00:00:00Z"));
     expect(b.reduce((n, x) => n + x.count, 0)).toBe(data.milestones.length);
   });
 
   it("projects the open bin at its current rate", () => {
-    const b = bins(data, 2026);
+    const b = bins(data, new Date("2026-09-04T00:00:00Z"));
     const open = b.find((x) => x.open)!;
-    expect(open.yearsIn).toBe(2); // 2025 and 2026
-    expect(open.projected).toBeCloseTo((open.count / 2) * 5);
+    expect(open.yearsIn).toBeCloseTo(1.675, 2);
+    expect(open.projected).toBeCloseTo((open.count / open.yearsIn) * 5);
   });
 
   it("closed bins are never projected up", () => {
-    for (const b of bins(data, 2026).filter((x) => !x.open)) {
+    for (const b of bins(data, new Date("2026-09-04T00:00:00Z")).filter((x) => !x.open)) {
       expect(b.yearsIn).toBe(5);
       expect(b.projected).toBe(b.count);
     }
