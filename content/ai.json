@@ -177,7 +177,7 @@
       "kind": "org",
       "weight": 3,
       "summary": "The board dismissed its CEO on a Friday; almost all staff threatened to leave, and he was back within five days. The governance structure did not survive the week.",
-      "source": "https://en.wikipedia.org/wiki/Removal_of_Sam_Altman_from_OpenAI"
+      "source": "https://openai.com/index/openai-announces-leadership-transition/"
     },
     {
       "id": "openai-sora",
@@ -250,6 +250,24 @@
       }
     },
     {
+      "id": "openai-gpt6-astra",
+      "entity": "openai",
+      "date": "2026-09-03",
+      "title": "GPT-6 Astra",
+      "kind": "model",
+      "weight": 3,
+      "summary": "The first model OpenAI rated critical for cyber capability under its preparedness framework, held back for extra safety testing before release — the safety case became part of the launch rather than a footnote to it.",
+      "source": "https://openai.com/index/gpt-6-astra/",
+      "model": {
+        "context": 1050000,
+        "modality": [
+          "text",
+          "vision"
+        ],
+        "openWeights": false
+      }
+    },
+    {
       "id": "anthropic-series-a",
       "entity": "anthropic",
       "date": "2021-05-28",
@@ -257,7 +275,7 @@
       "kind": "funding",
       "weight": 1,
       "summary": "Founded by Dario and Daniela Amodei with a group who left OpenAI, around a bet that steerability and interpretability are the research problem, not a bolt-on.",
-      "source": "https://en.wikipedia.org/wiki/Anthropic"
+      "source": "https://www.anthropic.com/news/anthropic-raises-124-million-to-build-more-reliable-general-ai-systems"
     },
     {
       "id": "anthropic-constitutional-ai",
@@ -377,7 +395,7 @@
       "kind": "model",
       "weight": 3,
       "summary": "Frontier performance in the mid tier — coding, agents and professional work at a price meant for volume rather than demonstrations.",
-      "source": "https://www.anthropic.com/news",
+      "source": "https://www.anthropic.com/news/claude-sonnet-5",
       "model": {
         "modality": [
           "text",
@@ -395,7 +413,7 @@
       "kind": "model",
       "weight": 3,
       "summary": "A step change for the Opus tier, aimed at long-running agents and sustained coding work rather than single answers.",
-      "source": "https://www.anthropic.com/news",
+      "source": "https://www.anthropic.com/news/claude-opus-5",
       "model": {
         "modality": [
           "text",
@@ -413,17 +431,7 @@
       "kind": "org",
       "weight": 1,
       "summary": "Hassabis, Legg and Suleyman set out to 'solve intelligence, and then use it to solve everything else' — a framing the field still argues about.",
-      "source": "https://en.wikipedia.org/wiki/Google_DeepMind"
-    },
-    {
-      "id": "dm-google-acquisition",
-      "entity": "google-deepmind",
-      "date": "2014-01-26",
-      "title": "Google acquires DeepMind",
-      "kind": "org",
-      "weight": 1,
-      "summary": "Around $500m, with an internal ethics board as a condition. Put frontier research inside a hyperscaler years before anyone else managed it.",
-      "source": "https://en.wikipedia.org/wiki/Google_DeepMind"
+      "source": "https://deepmind.google/about/"
     },
     {
       "id": "dm-alphago",
@@ -433,7 +441,7 @@
       "kind": "research",
       "weight": 3,
       "summary": "4–1 at Go, a decade before anyone expected it. The result that convinced the public deep learning was not incremental.",
-      "source": "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol"
+      "source": "https://deepmind.google/research/alphago/"
     },
     {
       "id": "dm-transformer",
@@ -453,7 +461,7 @@
       "kind": "research",
       "weight": 3,
       "summary": "Protein structure prediction at experimental accuracy, closing a fifty-year problem in biology and later sharing a Nobel Prize.",
-      "source": "https://en.wikipedia.org/wiki/AlphaFold"
+      "source": "https://deepmind.google/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology/"
     },
     {
       "id": "dm-merge",
@@ -463,7 +471,7 @@
       "kind": "org",
       "weight": 2,
       "summary": "Google folded its two research organisations into one under Hassabis, five months after ChatGPT made the internal competition untenable.",
-      "source": "https://en.wikipedia.org/wiki/Google_DeepMind"
+      "source": "https://deepmind.google/blog/announcing-google-deepmind/"
     },
     {
       "id": "dm-gemini1",
@@ -513,7 +521,7 @@
       "kind": "model",
       "weight": 3,
       "summary": "Reasoning built into the base model, and the point where Google's frontier offering was consistently competitive rather than catching up.",
-      "source": "https://en.wikipedia.org/wiki/Gemini_(language_model)",
+      "source": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/",
       "model": {
         "context": 1000000,
         "modality": [
@@ -533,7 +541,7 @@
       "kind": "model",
       "weight": 3,
       "summary": "The third generation, with Deep Think and Flash variants following within a month — a release cadence closer to weeks than years.",
-      "source": "https://en.wikipedia.org/wiki/Gemini_(language_model)",
+      "source": "https://blog.google/products/gemini/gemini-3/",
       "model": {
         "modality": [
           "text",
@@ -552,7 +560,7 @@
       "kind": "model",
       "weight": 2,
       "summary": "An incremental frontier update, shipped four months after 3 Pro. By this point point releases arrive faster than most teams can evaluate them.",
-      "source": "https://en.wikipedia.org/wiki/Gemini_(language_model)",
+      "source": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
       "model": {
         "modality": [
           "text",
@@ -571,7 +579,7 @@
       "kind": "org",
       "weight": 1,
       "summary": "Facebook AI Research set up as an open publishing lab, a commitment that later made the Llama releases consistent rather than surprising.",
-      "source": "https://en.wikipedia.org/wiki/Meta_AI"
+      "source": "https://ai.meta.com/research/"
     },
     {
       "id": "meta-pytorch",
@@ -581,7 +589,7 @@
       "kind": "product",
       "weight": 3,
       "summary": "Eager execution and a Python-native feel took research off TensorFlow within about three years. Most models here were trained in it.",
-      "source": "https://en.wikipedia.org/wiki/PyTorch"
+      "source": "https://github.com/pytorch/pytorch"
     },
     {
       "id": "meta-llama",
@@ -652,16 +660,6 @@
       }
     },
     {
-      "id": "mistral-founded",
-      "entity": "mistral",
-      "date": "2023-06-13",
-      "title": "Mistral founded with a €105m seed",
-      "kind": "funding",
-      "weight": 1,
-      "summary": "Ex-DeepMind and ex-Meta researchers raised Europe's largest seed round four weeks after incorporating, on a deck and a track record.",
-      "source": "https://en.wikipedia.org/wiki/Mistral_AI"
-    },
-    {
       "id": "mistral-7b",
       "entity": "mistral",
       "date": "2023-09-27",
@@ -713,16 +711,6 @@
       }
     },
     {
-      "id": "xai-founded",
-      "entity": "xai",
-      "date": "2023-07-12",
-      "title": "xAI founded",
-      "kind": "org",
-      "weight": 2,
-      "summary": "Musk launched a rival lab five years after leaving OpenAI's board, staffed largely from DeepMind, OpenAI and Google.",
-      "source": "https://en.wikipedia.org/wiki/XAI_(company)"
-    },
-    {
       "id": "xai-grok",
       "entity": "xai",
       "date": "2023-11-04",
@@ -730,7 +718,7 @@
       "kind": "model",
       "weight": 2,
       "summary": "Announced with live access to X as its distinguishing feature — real-time data as the moat rather than raw capability.",
-      "source": "https://en.wikipedia.org/wiki/Grok_(chatbot)",
+      "source": "https://x.ai/news/grok",
       "model": {
         "context": 8192,
         "modality": [
@@ -747,7 +735,7 @@
       "kind": "model",
       "weight": 1,
       "summary": "A 314-billion-parameter mixture-of-experts published under Apache 2.0, the largest open-weights release at the time.",
-      "source": "https://en.wikipedia.org/wiki/Grok_(chatbot)",
+      "source": "https://x.ai/news/grok-os",
       "model": {
         "modality": [
           "text"
@@ -763,7 +751,7 @@
       "kind": "model",
       "weight": 2,
       "summary": "Trained on the Colossus cluster xAI built in Memphis in months rather than years — the clearest demonstration that compute could be bought as speed.",
-      "source": "https://en.wikipedia.org/wiki/Grok_(chatbot)",
+      "source": "https://x.ai/news/grok-3",
       "model": {
         "modality": [
           "text",
@@ -780,7 +768,7 @@
       "kind": "product",
       "weight": 3,
       "summary": "General-purpose programming on GPUs, shipped years before deep learning needed it. The lock-in that every competitor still cannot dislodge.",
-      "source": "https://en.wikipedia.org/wiki/CUDA"
+      "source": "https://developer.nvidia.com/cuda-zone"
     },
     {
       "id": "nvidia-a100",
@@ -790,7 +778,7 @@
       "kind": "product",
       "weight": 3,
       "summary": "The Ampere datacentre part that GPT-3 and most of the following generation were trained on. Became the unit of account for compute.",
-      "source": "https://en.wikipedia.org/wiki/Ampere_(microarchitecture)"
+      "source": "https://nvidianews.nvidia.com/news/nvidias-new-ampere-data-center-gpu-in-full-production"
     },
     {
       "id": "nvidia-h100",
@@ -800,17 +788,7 @@
       "kind": "product",
       "weight": 3,
       "summary": "Hopper, with a transformer engine built for exactly this workload. Supply of it, not ideas, became the binding constraint on frontier training.",
-      "source": "https://en.wikipedia.org/wiki/Hopper_(microarchitecture)"
-    },
-    {
-      "id": "nvidia-1t",
-      "entity": "nvidia",
-      "date": "2023-05-30",
-      "title": "Nvidia passes $1tn",
-      "kind": "funding",
-      "weight": 1,
-      "summary": "Six months after ChatGPT, the market repriced the supplier rather than the labs — the first hard financial read on where the value was accruing.",
-      "source": "https://en.wikipedia.org/wiki/Nvidia"
+      "source": "https://nvidianews.nvidia.com/news/nvidia-announces-hopper-architecture-the-next-generation-of-accelerated-computing"
     },
     {
       "id": "nvidia-blackwell",
@@ -820,7 +798,7 @@
       "kind": "product",
       "weight": 3,
       "summary": "The generation after Hopper, announced with the datacentre treated as the unit of design rather than the chip.",
-      "source": "https://en.wikipedia.org/wiki/Blackwell_(microarchitecture)"
+      "source": "https://nvidianews.nvidia.com/news/nvidia-blackwell-platform-arrives-to-power-a-new-era-of-computing"
     },
     {
       "id": "hf-transformers",
@@ -830,7 +808,7 @@
       "kind": "product",
       "weight": 3,
       "summary": "Started as a PyTorch port of BERT and became the default way to load a model. Reduced 'use this architecture' to a single line.",
-      "source": "https://en.wikipedia.org/wiki/Hugging_Face"
+      "source": "https://github.com/huggingface/transformers"
     },
     {
       "id": "hf-hub",
@@ -840,7 +818,7 @@
       "kind": "product",
       "weight": 1,
       "summary": "Hosting for weights and datasets with versioning, which made distributing an open model a push rather than a project.",
-      "source": "https://en.wikipedia.org/wiki/Hugging_Face"
+      "source": "https://huggingface.co/models"
     },
     {
       "id": "hf-bloom",
@@ -850,23 +828,13 @@
       "kind": "model",
       "weight": 1,
       "summary": "A 176-billion-parameter multilingual model trained in the open by a thousand researchers, on public French supercomputing time.",
-      "source": "https://en.wikipedia.org/wiki/BLOOM_(language_model)",
+      "source": "https://huggingface.co/blog/bloom",
       "model": {
         "modality": [
           "text"
         ],
         "openWeights": true
       }
-    },
-    {
-      "id": "hf-series-d",
-      "entity": "hugging-face",
-      "date": "2023-08-24",
-      "title": "$235m at a $4.5bn valuation",
-      "kind": "funding",
-      "weight": 1,
-      "summary": "Google, Amazon, Nvidia and Salesforce all invested in the same round — the commons funded by everyone competing on top of it.",
-      "source": "https://en.wikipedia.org/wiki/Hugging_Face"
     }
   ]
 }
