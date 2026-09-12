@@ -131,3 +131,9 @@ Vitest and Playwright. Deployed to GitHub Pages on push to `main`. Type is Geist
 and the palette is shared with
 [edgarasneverdauskas.com](https://edgarasneverdauskas.com), so the two read as
 one family.
+
+## Licence
+
+[AGPL-3.0](LICENSE). Use it, read it, change it, share it; if you run a
+changed version as a service for others, publish your changes too.
+© 2026 Edgaras Neverdauskas.
