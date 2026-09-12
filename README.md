@@ -1,4 +1,8 @@
-# timeline
+<p align="center"><img src="public/mark.svg" width="112" alt="Timeline's mark: coloured bars against one axis"></p>
+
+# Timeline
+
+[![Deploy to GitHub Pages](https://github.com/Evirtual/timeline/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/Evirtual/timeline/actions/workflows/deploy-pages.yml)
 
 A comparative timeline. Organisations run as rows against a shared time axis
 running left to right, so a column is one quarter — read down it to see who
