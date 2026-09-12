@@ -115,6 +115,11 @@ npm run test:e2e       # Playwright, against the built output
 npm run check:sources  # fetch every source URL and report failures
 ```
 
+## Support
+
+The timeline is free and open source. If it earns its keep,
+[buy me a coffee](https://ko-fi.com/edgarasneverdauskas) — one-off or monthly, nothing locked behind it.
+
 ## Stack
 
 Next.js static export, React, TypeScript, Tailwind, zod for the content schema,

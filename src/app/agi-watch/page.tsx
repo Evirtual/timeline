@@ -87,6 +87,14 @@ export default function AgiWatchPage() {
           >
             Edgaras Neverdauskas
           </a>
+          . If it earns its keep, <a
+            href="https://ko-fi.com/edgarasneverdauskas"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-ink-muted)] hover:text-[var(--color-accent)]"
+          >
+            buy me a coffee
+          </a>
           .
         </p>
       </footer>

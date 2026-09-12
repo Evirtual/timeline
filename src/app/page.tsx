@@ -74,7 +74,16 @@ export default function Home() {
           >
             Edgaras Neverdauskas
           </a>
-          . Dates are taken from primary announcements where one exists.
+          . Dates are taken from primary announcements where one exists. If it
+          earns its keep, <a
+            href="https://ko-fi.com/edgarasneverdauskas"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-ink-muted)] hover:text-[var(--color-accent)]"
+          >
+            buy me a coffee
+          </a>
+          .
         </p>
       </footer>
     </main>
