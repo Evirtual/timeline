@@ -273,7 +273,7 @@
       "date": "2026-07-09",
       "title": "GPT-5.6 Sol, Terra and Luna",
       "kind": "model",
-      "weight": 2,
+      "weight": 1,
       "summary": "Three tiers at once: Sol as the flagship, Terra in the middle, Luna fast and cheap. Released across ChatGPT, Codex and the API after a limited preview with trusted partners.",
       "source": "https://openai.com/index/gpt-5-6/",
       "model": {
@@ -286,7 +286,7 @@
       "date": "2026-09-22",
       "title": "GPT-6 Sol and Luna",
       "kind": "model",
-      "weight": 2,
+      "weight": 1,
       "summary": "The GPT-6 generation in the API, Codex and ChatGPT Work, three weeks after Astra, at half GPT-5.6's promotional API price.",
       "source": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
       "model": {
@@ -478,7 +478,7 @@
       "date": "2026-09-01",
       "title": "Claude Fable 5.1",
       "kind": "model",
-      "weight": 2,
+      "weight": 1,
       "summary": "Same list price as Fable 5, with about 25% lower costs on typical work and up to about 45% on agentic work. Cyber safeguards intervene about 60% less often in Claude Code. Fable can now find vulnerabilities, but exploit work still goes to Opus.",
       "source": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
       "model": {
@@ -491,7 +491,7 @@
       "date": "2026-09-22",
       "title": "Claude Opus 5.5",
       "kind": "model",
-      "weight": 2,
+      "weight": 1,
       "summary": "Performs at about Fable 5.1's level on most work and costs about 40% less to run than Opus 5. Ships with the same cyber and biology safeguards as Fable 5.1.",
       "source": "https://www.anthropic.com/claude-opus-5-5",
       "model": {
@@ -504,7 +504,7 @@
       "date": "2026-09-28",
       "title": "Claude Sonnet 5.5",
       "kind": "model",
-      "weight": 2,
+      "weight": 1,
       "summary": "Same input and output price as Sonnet 5, and within two points of Opus 5.5 on Anthropic's professional-work benchmark (GDPval-AA). The first Sonnet to launch with cyber safeguards.",
       "source": "https://www.anthropic.com/claude-sonnet-5-5",
       "model": {
@@ -517,7 +517,7 @@
       "date": "2026-10-07",
       "title": "Claude Haiku 5.5",
       "kind": "model",
-      "weight": 2,
+      "weight": 1,
       "summary": "Costs about 75% less to run than Haiku 4.5 on average, and is the first Haiku with an adjustable effort setting. Aimed at high-volume work and at running as a subagent for Opus and Sonnet.",
       "source": "https://www.anthropic.com/claude-haiku-5-5",
       "model": {
