@@ -1,4 +1,8 @@
+import { readFileSync } from "node:fs";
 import { test, expect } from "@playwright/test";
+
+// Counted from the data, so adding a milestone doesn't break the deploy.
+const milestoneCount: number = JSON.parse(readFileSync("content/agi.json", "utf8")).milestones.length;
 
 /**
  * The chronicle's failure modes are different from the grid's. It cannot lose
@@ -28,7 +32,8 @@ test("the two views link to each other", async ({ page }) => {
 
 test("shows every milestone, with its era and a working source link", async ({ page }) => {
   await page.goto("/agi-watch/");
-  await expect(page.locator("article")).toHaveCount(20);
+  expect(milestoneCount).toBeGreaterThan(0);
+  await expect(page.locator("article")).toHaveCount(milestoneCount);
 
   await expect(page.getByRole("heading", { name: "Foundations" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "“The AGI Era”" })).toBeVisible();
