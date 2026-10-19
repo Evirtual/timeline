@@ -331,6 +331,25 @@
       ]
     },
     {
+      "id": "export-controls-pull-fable-5",
+      "date": "2026-06-12",
+      "display": "Jun 12, 2026",
+      "title": "A government takes a model offline",
+      "kind": "setback",
+      "summary": "Three days after Anthropic releases Fable 5, the US government applies export controls to it and to Mythos 5. It acts after learning of a report describing a way around Fable's safeguards. Anthropic cannot verify every user's nationality, so it switches both models off for everyone. Fable 5 returns on 1 July with a stricter safety classifier.",
+      "critical": true,
+      "sources": [
+        {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com/news/redeploying-fable-5"
+        },
+        {
+          "label": "Anthropic, launch post",
+          "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+        }
+      ]
+    },
+    {
       "id": "gpt-6-astra-welcome-to-the-agi-era",
       "date": "2026-09-03",
       "display": "Sep 3, 2026",

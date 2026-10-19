@@ -268,6 +268,32 @@
       }
     },
     {
+      "id": "openai-gpt56",
+      "entity": "openai",
+      "date": "2026-07-09",
+      "title": "GPT-5.6 Sol, Terra and Luna",
+      "kind": "model",
+      "weight": 2,
+      "summary": "Three tiers at once: Sol as the flagship, Terra in the middle, Luna fast and cheap. Released across ChatGPT, Codex and the API after a limited preview with trusted partners.",
+      "source": "https://openai.com/index/gpt-5-6/",
+      "model": {
+        "openWeights": false
+      }
+    },
+    {
+      "id": "openai-gpt6-sol-luna",
+      "entity": "openai",
+      "date": "2026-09-22",
+      "title": "GPT-6 Sol and Luna",
+      "kind": "model",
+      "weight": 2,
+      "summary": "The GPT-6 generation in the API, Codex and ChatGPT Work, three weeks after Astra, at half GPT-5.6's promotional API price.",
+      "source": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "model": {
+        "openWeights": false
+      }
+    },
+    {
       "id": "anthropic-series-a",
       "entity": "anthropic",
       "date": "2021-05-28",
@@ -424,6 +450,81 @@
       }
     },
     {
+      "id": "anthropic-fable5",
+      "entity": "anthropic",
+      "date": "2026-06-09",
+      "title": "Claude Fable 5 and Mythos 5",
+      "kind": "model",
+      "weight": 3,
+      "summary": "A tier above Opus, released as one model under two sets of safeguards. Fable is for everyone, with cyber, biology and chemistry requests routed to Opus 4.8. Mythos has its cyber safeguards lifted and is limited to Project Glasswing partners.",
+      "source": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+      "model": {
+        "openWeights": false
+      }
+    },
+    {
+      "id": "anthropic-fable5-export-controls",
+      "entity": "anthropic",
+      "date": "2026-06-12",
+      "title": "US export controls take Fable 5 offline",
+      "kind": "policy",
+      "weight": 3,
+      "summary": "Three days after launch, the US government applies export controls to Fable 5 and Mythos 5 after a report of a way around Fable's safeguards. Anthropic cannot verify nationality in real time, so it suspends both for everyone. Fable 5 returns on 1 July with a new safety classifier.",
+      "source": "https://www.anthropic.com/news/redeploying-fable-5"
+    },
+    {
+      "id": "anthropic-fable51",
+      "entity": "anthropic",
+      "date": "2026-09-01",
+      "title": "Claude Fable 5.1",
+      "kind": "model",
+      "weight": 2,
+      "summary": "Same list price as Fable 5, with about 25% lower costs on typical work and up to about 45% on agentic work. Cyber safeguards intervene about 60% less often in Claude Code. Fable can now find vulnerabilities, but exploit work still goes to Opus.",
+      "source": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "model": {
+        "openWeights": false
+      }
+    },
+    {
+      "id": "anthropic-opus55",
+      "entity": "anthropic",
+      "date": "2026-09-22",
+      "title": "Claude Opus 5.5",
+      "kind": "model",
+      "weight": 2,
+      "summary": "Performs at about Fable 5.1's level on most work and costs about 40% less to run than Opus 5. Ships with the same cyber and biology safeguards as Fable 5.1.",
+      "source": "https://www.anthropic.com/claude-opus-5-5",
+      "model": {
+        "openWeights": false
+      }
+    },
+    {
+      "id": "anthropic-sonnet55",
+      "entity": "anthropic",
+      "date": "2026-09-28",
+      "title": "Claude Sonnet 5.5",
+      "kind": "model",
+      "weight": 2,
+      "summary": "Same input and output price as Sonnet 5, and within two points of Opus 5.5 on Anthropic's professional-work benchmark (GDPval-AA). The first Sonnet to launch with cyber safeguards.",
+      "source": "https://www.anthropic.com/claude-sonnet-5-5",
+      "model": {
+        "openWeights": false
+      }
+    },
+    {
+      "id": "anthropic-haiku55",
+      "entity": "anthropic",
+      "date": "2026-10-07",
+      "title": "Claude Haiku 5.5",
+      "kind": "model",
+      "weight": 2,
+      "summary": "Costs about 75% less to run than Haiku 4.5 on average, and is the first Haiku with an adjustable effort setting. Aimed at high-volume work and at running as a subagent for Opus and Sonnet.",
+      "source": "https://www.anthropic.com/claude-haiku-5-5",
+      "model": {
+        "openWeights": false
+      }
+    },
+    {
       "id": "dm-founded",
       "entity": "google-deepmind",
       "date": "2010-09-23",
@@ -568,6 +669,19 @@
           "audio",
           "video"
         ],
+        "openWeights": false
+      }
+    },
+    {
+      "id": "dm-gemini4-argon",
+      "entity": "google-deepmind",
+      "date": "2026-09-30",
+      "title": "Gemini 4 Argon",
+      "kind": "model",
+      "weight": 3,
+      "summary": "Google's next generation, released first only to trusted cyber defenders, with paid API customers and AI Ultra subscribers next. Its output limit rises from 64K tokens to 1M.",
+      "source": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "model": {
         "openWeights": false
       }
     },
